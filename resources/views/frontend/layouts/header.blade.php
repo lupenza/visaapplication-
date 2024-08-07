@@ -28,8 +28,8 @@
                             </div>
                             <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-lg-flex">
                                 <ul class="navigation">
-                                    <li><a href='#'>Home</a></li>
-                                    <li class="active menu-item-has-children"><a href="#">About Us</a>
+                                    <li class="active"><a href='{{ route('home')}}'>Home</a></li>
+                                    <li class=" menu-item-has-children"><a href="#">About Us</a>
                                         <ul class="sub-menu">
                                             <li><a href='#'>Our Team</a></li>
                                         </ul>
@@ -43,6 +43,7 @@
                                     <li><a href='#'>Pricing</a></li>
                                     <li><a href='#'>FAQ</a></li>
                                     <li><a href='#'>Contact Us</a></li>
+                                    <li><a href='{{ route('login')}}'>Login</a></li>
                                 </ul>
                             </div>
                             <div class="tgmenu__action tgmenu__action-three d-none d-md-block">
