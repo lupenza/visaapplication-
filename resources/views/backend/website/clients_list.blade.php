@@ -6,12 +6,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Brands</h4>
+                <h4 class="mb-sm-0 font-size-18">Client</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">List</a></li>
-                        <li class="breadcrumb-item active">Brands List</li>
+                        <li class="breadcrumb-item active">Client List</li>
                     </ol>
                 </div>
 
@@ -24,10 +24,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body ">
-                    <h4 class="card-title text-center" >Brands</h4>
+                    <h4 class="card-title text-center" >Client</h4>
                     <div style="display: flex; flex-direction: row; justify-content:flex-end; padding: 5px 0px 5px 0px">
-                        <a href="{{ route('brand.create')}}">
-                        <button class="btn btn-primary btn-sm waves-effect waves-light"> <span class="fa fa-plus font-size-15"></span> Add Brand</button>
+                        <a href="{{ route('client.create')}}">
+                        <button class="btn btn-primary btn-sm waves-effect waves-light"> <span class="fa fa-plus font-size-15"></span> Add Client</button>
                         </a>
                     </div>
                     <div class="table-responsive">
@@ -43,7 +43,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach ($brands as $item)
+                                @foreach ($clients as $item)
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
                                         <td>{{ $item->created_at}} </td>

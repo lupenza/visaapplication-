@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Client;
 use App\Models\Continent;
+use App\Models\Country;
 use App\Models\Faq;
 use App\Models\Service;
 use App\Models\Testmonial;
@@ -39,8 +41,13 @@ class ServiceController extends Controller
     }
 
     public function countriesList(){
-        $faqs =Faq::latest()->get();
-        return view('backend.website.countries_list',compact('faqs'));
+        $countries =Country::latest()->get();
+        return view('backend.website.countries_list',compact('countries'));
+    }
+
+    public function clientList(){
+        $clients =Client::latest()->get();
+        return view('backend.website.clients_list',compact('clients'));
     }
 
     public function testmonialCreate(){
@@ -58,6 +65,10 @@ class ServiceController extends Controller
 
     public function faqCreate(){
         return view('backend.website.faq_add');
+    }
+
+    public function clientCreate(){
+        return view('backend.website.client_add');
     }
 
     public function countrierCreate(){
@@ -173,5 +184,60 @@ class ServiceController extends Controller
             'success' =>true,
             'message' =>'Action Done Successfully'
         ],200);
+    }
+
+    public function countrierStore(Request $request){
+        $valid =$request->validate([
+            'name'           =>['required'],
+            'continent_id'   =>'required',
+            'country_attribute' =>'required',
+            'description'       =>'required',
+            'image'             =>'required',
+            'cover_image'       =>'required',
+        ]);
+        $slider =Country::create([
+            'name'          =>$valid['name'],
+            'continent_id'   =>$valid['continent_id'],
+            'description'   =>$valid['description'],
+            'uuid'          =>(string)Str::orderedUuid(),
+            'country_attribute' =>json_encode(implode(',',$valid['country_attribute'])),
+            'created_by'    =>Auth::user()->id,
+        ]);
+
+        if ($request->hasFile('image')) {
+            $slider->image =$this->importFile($request->file('image'),$slider->title.'_'.(string)Str::orderedUuid());
+            $slider->save();
+        }
+
+        if ($request->hasFile('cover_image')) {
+            $slider->cover_image =$this->importFile($request->file('cover_image'),$slider->title.'_'.(string)Str::orderedUuid());
+            $slider->save();
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200);
+    }
+
+    public function clientStore(Request $request){
+        $valid =$request->validate([
+            'icon'          =>['required'],
+            'name'          =>['required'],
+            'description'   =>'required',
+        ]);
+
+        $slider =Client::create([
+            'icon'          =>$valid['icon'],
+            'name'          =>$valid['name'],
+            'description'   =>$valid['description'],
+            'uuid'          =>(string)Str::orderedUuid(),
+            'created_by'    =>Auth::user()->id,
+        ]);
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200); 
     }
 }

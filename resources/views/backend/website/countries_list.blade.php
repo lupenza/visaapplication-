@@ -36,19 +36,21 @@
                             <tr>
                                 <th>#</th>
                                 <th>Created At</th>
-                                <th>Coun</th>
-                                <th>Caption</th>
+                                <th>Country</th>
+                                <th>Continent</th>
+                                <th>Country Attribute</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
-                            {{-- <tbody>
-                                @foreach ($services as $item)
+                            <tbody>
+                                @foreach ($countries as $item)
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
                                         <td>{{ $item->created_at}} </td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->caption }}</td>
+                                        <td>{{ $item->continent?->name }}</td>
+                                        <td>{!! $item->country_special !!}</td>
                                         <td>{!! $item->status_formatted !!}</td>
                                         <td>
                                             <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteProgram(id)" title="Delete"><i class="fa fa-trash"></i></button>
@@ -56,7 +58,7 @@
                                     </tr>
                                 @endforeach
                                
-                            </tbody> --}}
+                            </tbody>
                            
                         </table>
                     </div>

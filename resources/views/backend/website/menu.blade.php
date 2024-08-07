@@ -67,22 +67,6 @@
                             </a>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('brand.list')}}">
-                                <div class="menu-list">
-                                    <div class="icon-div">
-                                    <i class="fa fa-user"></i>
-                                    </div>
-                                    <div>
-                                        <h5>Brands/Clients</h5>
-                                        <p>Create /Edit / Activate /Deactivate Brands</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                       
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6">
                             <a href="{{ route('faq.list')}}">
                                 <div class="menu-list">
                                     <div class="icon-div">
@@ -95,20 +79,34 @@
                                 </div>
                             </a>
                         </div>
-                        {{-- <div class="col-md-6">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
                             <a href="{{ route('brand.list')}}">
                                 <div class="menu-list">
                                     <div class="icon-div">
                                     <i class="fa fa-user"></i>
                                     </div>
                                     <div>
-                                        <h5>Brands/Clients</h5>
+                                        <h5>Brands</h5>
                                         <p>Create /Edit / Activate /Deactivate Brands</p>
                                     </div>
                                 </div>
                             </a>
-                        </div> --}}
-                       
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ route('client.list')}}">
+                                <div class="menu-list">
+                                    <div class="icon-div">
+                                    <i class="fa fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Clients</h5>
+                                        <p>Create /Edit / Activate /Deactivate Clients</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
