@@ -54,7 +54,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <a href="{{ route('testmonial.list')}}">
+                            <a href="{{ route('countries.list')}}">
                                 <div class="menu-list">
                                     <div class="icon-div">
                                     <i class="fa fa-user"></i>
@@ -95,7 +95,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <a href="{{ route('brand.list')}}">
                                 <div class="menu-list">
                                     <div class="icon-div">
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> --}}
                        
                     </div>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Continent;
 use App\Models\Faq;
 use App\Models\Service;
 use App\Models\Testmonial;
@@ -37,6 +38,11 @@ class ServiceController extends Controller
         return view('backend.website.faq_list',compact('faqs'));
     }
 
+    public function countriesList(){
+        $faqs =Faq::latest()->get();
+        return view('backend.website.countries_list',compact('faqs'));
+    }
+
     public function testmonialCreate(){
        // $services =Service::latest()->get();
         return view('backend.website.testmonial_add');
@@ -52,6 +58,11 @@ class ServiceController extends Controller
 
     public function faqCreate(){
         return view('backend.website.faq_add');
+    }
+
+    public function countrierCreate(){
+        $continents =Continent::orderBy('name','ASC')->get();
+        return view('backend.website.country_add',compact('continents'));
     }
 
     public function serviceStore(Request $request){

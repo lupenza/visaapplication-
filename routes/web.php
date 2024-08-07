@@ -35,4 +35,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('faq/list',[ServiceController::class,'faqList'])->name('faq.list');
     Route::get('faq/create',[ServiceController::class,'faqCreate'])->name('faq.create');
     Route::post('faq/store',[ServiceController::class,'faqStore'])->name('faq.store');
+    Route::get('countries/list',[ServiceController::class,'countriesList'])->name('countries.list');
+    Route::get('countries/create',[ServiceController::class,'countrierCreate'])->name('country.create');
 });
