@@ -406,21 +406,24 @@
             </div>
             <div class="row gutter-24">
                 <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="services__item-five" style="text-align: left !important ; padding-top: 30px !important;">
-                        <div class="services__icon-five" style="margin-bottom: 20px !important" >
-                            <div>
-                                <img style="width: 50px; border-radius: 50%; height: 50px" src="{{ asset('assets/frontend/img/flag_t.png')}}" alt="">
+                    <a href="{{ route('countries')}}">
+                        <div class="services__item-five" style="text-align: left !important ; padding-top: 30px !important;">
+                            <div class="services__icon-five" style="margin-bottom: 20px !important" >
+                                <div>
+                                    <img style="width: 50px; border-radius: 50%; height: 50px" src="{{ asset('assets/frontend/img/flag_t.png')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="services__content-five" style="padding-top: 0px !important">
+                                <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
+                                <ul style="list-style-type: none; padding-left:0;">
+                                    <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                    <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                    <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="services__content-five" style="padding-top: 0px !important">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <ul style="list-style-type: none; padding-left:0;">
-                                <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                <li> <i class="fa fa-check service-icon"></i>list one</li>
-                            </ul>
-                        </div>
-                    </div>
+                    </a>
+                   
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="services__item-five" style="text-align: left !important ; padding-top: 30px !important;">

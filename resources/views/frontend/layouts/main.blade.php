@@ -11,16 +11,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
     <!-- CSS here -->
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/bootstrap.min.css'}}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/animate.min.css' }}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/magnific-popup.css' }}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/fontawesome-all.min.css' }}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/flaticon.css' }}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/odometer.css' }}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/swiper-bundle.css' }}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/aos.css' }}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/default.css' }}">
-    <link rel="stylesheet" href="{{ 'assets/frontend/css/main.css' }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/odometer.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/swiper-bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/main.css') }}">
 </head>
 <body>
     <!--Preloader-->
@@ -47,21 +47,21 @@
    @include('frontend.layouts.footer')
     <!-- footer-area-end -->
     <!-- JS here -->
-    <script src="{{ 'assets/frontend/js/vendor/jquery-3.6.0.min.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/bootstrap.bundle.min.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/jquery.magnific-popup.min.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/jquery.odometer.min.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/jquery.appear.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/gsap.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/ScrollTrigger.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/SplitText.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/gsap-animation.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/jquery.parallaxScroll.min.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/swiper-bundle.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/ajax-form.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/wow.min.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/aos.js'}} "></script>
-    <script src="{{ 'assets/frontend/js/main.js'}} "></script>
+    <script src="{{ asset('assets/frontend/js/vendor/jquery-3.6.0.min.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/jquery.magnific-popup.min.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/jquery.odometer.min.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/jquery.appear.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/gsap.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/ScrollTrigger.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/SplitText.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/gsap-animation.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/jquery.parallaxScroll.min.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/swiper-bundle.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/ajax-form.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/wow.min.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/aos.js')}} "></script>
+    <script src="{{ asset('assets/frontend/js/main.js')}} "></script>
     @stack('scripts')
 </body>
 </html>

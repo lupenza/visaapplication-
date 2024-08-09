@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('login',[HomeController::class,'loginForm'])->name('login');
 Route::post('authenticate/user',[LoginController::class,'login'])->name('authenticate.user');
+Route::get('countries/{id?}',[HomeController::class,'getCountries'])->name('countries');
+Route::get('country/detail/{id}',[HomeController::class,'countryDetails'])->name('get.country');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');

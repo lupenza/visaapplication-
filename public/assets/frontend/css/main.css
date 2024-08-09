@@ -4698,7 +4698,7 @@ textarea {
 .services__bg-six {
   background-size: cover;
   background-position: center;
-  padding: 120px 0;
+  padding: 0px 0;
 }
 @media (max-width: 767.98px) {
   .services__bg-six {
@@ -5339,7 +5339,7 @@ textarea {
   }
 }
 .services__details-area {
-  padding: 120px 0;
+  padding: 30px 0;
 }
 @media (max-width: 767.98px) {
   .services__details-area {
@@ -5490,7 +5490,7 @@ textarea {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
   -webkit-box-shadow: 0px 7px 15px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0px 7px 15px 0px rgba(0, 0, 0, 0.05);
@@ -5503,7 +5503,7 @@ textarea {
   -o-border-radius: 10px;
   -ms-border-radius: 10px;
   border-radius: 10px;
-  padding: 30px 30px;
+  padding: 20px 30px;
   margin-bottom: 30px;
 }
 @media (max-width: 1199.98px) {
