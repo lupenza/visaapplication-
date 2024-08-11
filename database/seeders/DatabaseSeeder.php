@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Database\Seeders\version1\ContinentTableSeeder;
+use Database\Seeders\version1\VisaTypeSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,7 +23,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            ContinentTableSeeder::class
+            ContinentTableSeeder::class,
+            VisaTypeSeeder::class
         ]);
     }
 }

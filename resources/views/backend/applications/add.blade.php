@@ -30,7 +30,7 @@
                         <!-- Seller Details -->
                         <h3>1. Basic Information</h3>
                         <section>
-                            <form>
+                            <form id="personal_info">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5>Personal Information</h5>
@@ -41,6 +41,7 @@
                                         <div class="mb-3">
                                             <label for="basicpill-firstname-input">  Maritial Status <span class="text-danger">*</span></label>
                                             <select name="maritial_status" class="form-control">
+                                                <option value="">please select</option>
                                                 <option value="1">Married</option>
                                                 <option value="2">Single</option>
                                                 <option value="3">Divorce</option>
@@ -62,7 +63,7 @@
                                     <div class="col-lg-12">
                                         <div class="mb-3">
                                             <label for="basicpill-firstname-input">Are you a permanent resident of a country/region other than your country/region of origin (nationality) ? <span class="text-danger">*</span></label>
-                                            <select name="maritial_status" class="form-control">
+                                            <select name="permanent_residence" class="form-control">
                                                 <option value="" >Please select</option>
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
@@ -258,7 +259,7 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="basicpill-phoneno-input">City</label>
-                                            <input type="number" name="payer_city" class="form-control">
+                                            <input type="text" name="payer_city" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -287,7 +288,7 @@
                                         <div class="mb-3">
                                             <label for="basicpill-phoneno-input">Would you like to add Insurance?</label>
                                             <select name="insurance" class="form-control">
-                                                <option value="" ></option>
+                                                <option value="" >please select</option>
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
@@ -295,35 +296,29 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Select Insurance?</label>
+                                            <label for="basicpill-phoneno-input">Select Insurance</label>
                                             <select name="insurance_name" class="form-control">
-                                                <option value="" ></option>
+                                                <option value="" >please select</option>
                                                 <option value="1">Insurance 1</option>
                                                 <option value="1">Insurance 2</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    {{-- <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="basicpill-address-input">Upload Passport</label>
-                                            <input type="file" name="image" class="form-control">
+                                            <input type="file" name="passport" class="form-control">
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <input type="checkbox">
-                                        <label for="">I accept Terms and condition</label>
-                                    </div>
-
-                                </div>
+                              
                             </form>
                         </section>
 
                         <!-- Company Document -->
                         <h3>2. Additional Information (1)</h3>
                         <section>
-                            <form>
+                            <form id="addition_info_one">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
@@ -339,7 +334,7 @@
                                         <div class="mb-3">
                                             <label for="basicpill-firstname-input">Have you ever been to the U.S.?</label>
                                             <select name="have_been_us" class="form-control">
-                                                <option value="" ></option>
+                                                <option value="" >please select</option>
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
@@ -363,7 +358,7 @@
                                             <label for="basicpill-firstname-input">Have you ever been refused a U.S. Visa ?</label>
                                             <select name="refused_us_visa" class="form-control">
                                                 <option value="" >please select</option>
-                                                <option value="1">Yes/option>
+                                                <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
                                         </div>
@@ -415,11 +410,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <h6>Familiy Information</h6>
-                                    </div>  
-                                </div> 
                                 <div class="row">
                                     <div class="col-md-12 wizard-header text-center">
                                         <h5>Familiy Information
@@ -479,7 +469,7 @@
                                         <div class="mb-3">
                                             <label for="basicpill-firstname-input">Is your Mother in U.S</label>
                                             <select name="is_mother_in_us" class="form-control">
-                                                <option value="" ></option>
+                                                <option value="" >please select</option>
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
@@ -554,7 +544,7 @@
                         <!-- Company Document -->
                         <h3>2. Additional Information (2)</h3>
                         <section>
-                            <form>
+                            <form id="addition_info_two">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <h6>Work/Education/Training Information</h6>
@@ -576,7 +566,7 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="basicpill-firstname-input">Employer’s Address</label>
-                                            <input type="date" name="employer_duties" class="form-control">
+                                            <input type="text" name="employer_duties" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -590,7 +580,7 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="basicpill-firstname-input">Monthly Salary (if employed)</label>
-                                            <input type="date" name="monthly_salary" class="form-control">
+                                            <input type="number" name="monthly_salary" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -643,7 +633,7 @@
                                     <div class="col-lg-6">
                                             <div class="mb-3">
                                                 <label for="basicpill-firstname-input">Do you belong to a clan /tribe ?</label>
-                                                <select name="arrival_city" class="form-control">
+                                                <select name="clan" class="form-control">
                                                     <option value="" >please select</option>
                                                     <option value="1">Yes</option>
                                                     <option value="0">No</option>
@@ -707,10 +697,23 @@
                                     </div>
 
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <input type="checkbox">
+                                        <label for="">I accept Terms and condition</label>
+                                    </div>
+
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12" id='reg_alert'>
+
+                                    </div>
+
+                                </div>
                             </form>
                         </section>
                         <!-- Confirm Details -->
-                        <h3>Confirm Detail</h3>
+                        {{-- <h3>Confirm Detail</h3>
                         <section>
                             <div class="row justify-content-center">
                                 <div class="col-lg-6">
@@ -725,7 +728,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> --}}
                     </div>
 
                 </div>
@@ -740,3 +743,73 @@
 </div> <!-- container-fluid -->
     
 @endsection
+@push('scripts')
+<script>
+    $(function () {
+    $("#basic-example").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slide",
+        stepsOrientation: "vertical",
+        onFinished: function () {
+            submitVerticalForm();
+        },
+    });
+});
+
+function submitVerticalForm() {
+    const personal_info = $('#personal_info').serialize();
+    const addition_info_one = $('#addition_info_one').serialize();
+    const addition_info_two = $('#addition_info_two').serialize();
+
+    const combinedFormData = personal_info + '&' + addition_info_one + '&' + addition_info_two;
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('usa.visa.store') }}",
+        data: combinedFormData,
+        // contentType: false,
+        // cache: false,
+        // processData : false,
+        success: function (response) {
+            console.log(response);
+            $('#reg_alert').html('<div class="alert alert-success">' + response.message + '</div>');
+            setTimeout(function () {
+                window.location = "{{ url('payment/profile/')}}" + response.personal_id;
+            }, 500);
+        },
+        error: function (response) {
+            console.log(response);
+            console.log(response.responseText);
+            // Display errors
+            if (response.responseJSON && response.responseJSON.errors) {
+                $('#reg_alert').html('');
+                $.each(response.responseJSON.errors, function (key, value) {
+                    $('#reg_alert').append('<div class="alert alert-danger">' + value + '</div>');
+                });
+            } else {
+                $('#reg_alert').html('<div class="alert alert-danger">An error occurred. Please try again.</div>');
+            }
+        },
+        beforeSend: function () {
+            $('#update_btn').html('<i class="fa fa-spinner fa-pulse fa-spin"></i> Loading...........');
+            $('#update_btn').attr('disabled', true);
+        },
+        complete: function () {
+            $('#update_btn').html('<i class="fa fa-edit"></i> Update');
+            $('#update_btn').attr('disabled', false);
+        }
+    });
+}
+
+    
+ </script>
+    
+    
+@endpush

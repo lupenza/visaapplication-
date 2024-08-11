@@ -43,5 +43,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('client/list',[ServiceController::class,'clientList'])->name('client.list');
     Route::get('client/create',[ServiceController::class,'clientCreate'])->name('client.create');
     Route::post('client/store',[ServiceController::class,'clientStore'])->name('client.store');
+
+    /** Visa Application */
+    Route::post('usa/visa/store',[ApplicationController::class,'usaVisaStore'])->name('usa.visa.store');
+    Route::get('payment/profile/{id?}',[ApplicationController::class,'paymentProfile'])->name('payment.profile');
     
 });

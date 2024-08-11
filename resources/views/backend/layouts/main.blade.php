@@ -285,7 +285,7 @@
         <script src="{{ asset('assets/backend/libs/jquery-steps/build/jquery.steps.min.js')}}"></script>
 
         <!-- form wizard init -->
-        <script src="{{ asset('assets/backend/js/pages/form-wizard.init.js')}}"></script>
+        {{-- <script src="{{ asset('assets/backend/js/pages/form-wizard.init.js')}}"></script> --}}
          {{-- <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
         <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
         <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
