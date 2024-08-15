@@ -13,14 +13,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('login',[HomeController::class,'loginForm'])->name('login');
+Route::get('sign/up',[HomeController::class,'signUpForm'])->name('sign.up');
 Route::post('authenticate/user',[LoginController::class,'login'])->name('authenticate.user');
+Route::post('register/user',[LoginController::class,'storeUser'])->name('register.user');
 Route::get('countries/{id?}',[HomeController::class,'getCountries'])->name('countries');
 Route::get('country/detail/{id}',[HomeController::class,'countryDetails'])->name('get.country');
+Route::get('visa/application',[HomeController::class,'visaApplication'])->name('apply.visa');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::get('applications',[ApplicationController::class,'index'])->name('application.list');
-    Route::get('application/create',[ApplicationController::class,'create'])->name('application.create');
+    Route::get('application/create/{id?}',[ApplicationController::class,'create'])->name('application.create');
     Route::get('logout',[LoginController::class,'logout'])->name('logout');
 
     /** website menu */
@@ -46,6 +49,7 @@ Route::group(['middleware'=>'auth'],function(){
 
     /** Visa Application */
     Route::post('usa/visa/store',[ApplicationController::class,'usaVisaStore'])->name('usa.visa.store');
+    Route::post('schengen/visa/store',[ApplicationController::class,'SchengenVisaStore'])->name('schengen.visa.store');
     Route::get('payment/profile/{id?}',[ApplicationController::class,'paymentProfile'])->name('payment.profile');
     
 });

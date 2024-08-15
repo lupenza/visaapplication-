@@ -4,49 +4,41 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class UsaPersonalInformation extends Model
+class SchengenPersonalInformation extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
-    public $table='usa_personal_informations';
+    public $table ='schengen_personal_informations';
 
-    protected $fillable=[
-        'maritial_status',
-        'passport_held',
-        'permanent_residence',
-        'home_country',
-        'home_city',
-        'home_street',
-        'primary_email',
-        'primary_phone_number',
-        'stolen_passport',
-        'purpose_of_trip',
-        'arrival_date',
-        'departure_date',
-        'arrival_city',
-        'street',
-        'postal_code',
-        'insurance',
-        'insurance_name',
-        'passport',
-        'other_people_travel',
-        'have_been_us',
-        'have_you_own_us_visa',
-        'refused_us_visa',
-        'clan',
-        'languages',
-        'visited_city',
-        'specialized_skill',
-        'social_contribution',
-        'served_military',
+    protected $fillable =[
         'applicant_id',
+        'maritial_status',
+        'gender',
+        'dob',
+        'place_of_birth',
+        'country_of_birth',
+        'current_nationality',
+        'nin',
+        'home_address',
+        'email',
+        'phone_number',
+        'other_residence',
+        'residence_number',
+        'residence_valid',
+        'purpose_of_journey',
+        'residence_valid',
+        'application_stage',
         'uuid',
-        'application_stage'
     ];
 
     public function applicant(){
         return $this->hasOne(User::class,'id','applicant_id');
+    }
+
+    public function additional_information(){
+        return $this->hasOne(SchengenAdditionalInformation::class,'schengen_personal_information_id','id');
     }
 
     public function getstageFormattedAttribute(){

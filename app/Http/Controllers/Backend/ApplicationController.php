@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SchengenFormRequest;
 use App\Http\Requests\UsaFormRequest;
+use App\Models\SchengenAdditionalInformation;
+use App\Models\SchengenPersonalInformation;
 use App\Models\UsaEducationInformation;
 use App\Models\UsaFamilyInformation;
 use App\Models\UsaHotelDetail;
@@ -19,11 +22,20 @@ class ApplicationController extends Controller
 {
     use FileImportTrait;
     public function index(){
-        return view('backend.applications.list');
+        $usa =UsaPersonalInformation::with('applicant')->get();
+        $schengen =SchengenPersonalInformation::with('applicant','additional_information')->get();
+        return view('backend.applications.list',compact('usa','schengen'));
     }
 
-    public function create(){
-        return view('backend.applications.add');
+    public function create($id = null){
+        if ($id == 1) {
+         return view('backend.applications.add');
+        }elseif ($id ==2 ) {
+        return view('backend.applications.schengen_add');
+        }
+        else{
+            return redirect()->back()->with('message', 'We are working on this type of visa');
+        }
     }
 
     public function paymentProfile($id){
@@ -145,6 +157,88 @@ class ApplicationController extends Controller
                     $personal->passport =$this->importFile($request->file('passport'),Auth::user()->name.'_'.$personal->uuid);
                     $personal->save();
                 }
+
+                return $personal->id;
+
+            });
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json([
+                'success' =>true,
+                'errors'  =>$th->getMessage()
+            ],500);
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully',
+            'personal_id' =>$id
+        ],200);
+    }
+
+    public function SchengenVisaStore(SchengenFormRequest $request){
+        $valid =$request->validated();
+
+        try {
+           $id= DB::transaction(function() use ($valid,$request){
+                $personal =SchengenPersonalInformation::create([
+                    'maritial_status'=>$valid['maritial_status'],
+                    'gender'=>$valid['gender'],
+                    'dob'=>$valid['dob'],
+                    'place_of_birth'=>$valid['place_of_birth'],
+                    'country_of_birth'=>$valid['country_of_birth'],
+                    'current_nationality'=>$valid['current_nationality'],
+                    'nin'=>$valid['nin'],
+                    'home_address'=>$valid['home_address'],
+                    'email'=>$valid['email'],
+                    'phone_number'=>$valid['phone_number'],
+                    'other_residence'=>$valid['other_residence'],
+                    'residence_number'=>$valid['residence_number'],
+                    'residence_valid'=>$valid['residence_valid'],
+                    'purpose_of_journey'=>$valid['purpose_of_journey'],
+                    'residence_valid'=>$valid['residence_valid'], 
+                    'applicant_id'      =>Auth::user()->id,
+                    'uuid'              =>(string)Str::orderedUuid(),
+                    'application_stage' =>0,
+                ]);
+
+                $information =SchengenAdditionalInformation::create([
+                    'travel_document'=>$valid['travel_document'],
+                    'no_of_travel_document'=>$valid['no_of_travel_document'],
+                    'date_issue'=>$valid['date_issue'],
+                    'validity'=>$valid['validity'],
+                    'issued_by'=>$valid['issued_by'],
+                    'current_occupation'=>$valid['current_occupation'],
+                    'employer_address'=>$valid['employer_address'],
+                    'member_state'=>$valid['member_state'],
+                    'member_state_entry'=>$valid['member_state_entry'],
+                    'entry_requested'=>$valid['entry_requested'],
+                    'duration'=>$valid['duration'],
+                    'visa_issue_before'=>$valid['visa_issue_before'],
+                    'date_from'=>$valid['date_from'],
+                    'date_to'=>$valid['date_to'],
+                    'fingerprint'=>$valid['fingerprint'],
+                    'collection_date'=>$valid['collection_date'],
+                    'permit_issuer'=>$valid['permit_issuer'],
+                    'valid_from'=>$valid['valid_from'],
+                    'valid_to'=>$valid['valid_to'],
+                    'arrival_date'=>$valid['arrival_date'],
+                    'departure_date'=>$valid['departure_date'],
+                    'inviting_person'=>$valid['inviting_person'],
+                    'inviting_person_address'=>$valid['inviting_person_address'],
+                    'inviting_company'=>$valid['inviting_company'],
+                    'inviting_company_address'=>$valid['inviting_company_address'],
+                    'company_personel'=>$valid['company_personel'],
+                    'cost_of_travel'=>$valid['cost_of_travel'],
+                    'family_surname'=>$valid['family_surname'],
+                    'family_firstname'=>$valid['family_firstname'],
+                    'family_dob'=>$valid['family_dob'],
+                    'family_nationality'=>$valid['family_nationality'],
+                    'family_nin'=>$valid['family_nin'],
+                    'family_relationship'=>$valid['family_relationship'],
+                    'uuid'              =>(string)Str::orderedUuid(),
+                    'schengen_personal_information_id' =>$personal->id
+                ]);
 
                 return $personal->id;
 

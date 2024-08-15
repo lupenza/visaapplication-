@@ -1,18 +1,18 @@
 @extends('frontend.layouts.main')
-
 @section('content')
+<!-- main-area -->
 <main class="fix">
-     <!-- breadcrumb-area -->
-     <section class="breadcrumb__area breadcrumb__bg mt-150" data-background="{{ asset('assets/frontend/img/bg/breadcrumb_bg.jpg')}}">
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb__area breadcrumb__bg mt-150" data-background="{{ asset('assets/frontend/img/bg/breadcrumb_bg.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="breadcrumb__content">
-                        <h2 class="title">Sign In</h2>
+                        <h2 class="title">Sign Up</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href='{{ route('home')}}'>Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Sign In</li>
+                                <li class="breadcrumb-item active" aria-current="page">Sign Up</li>
                             </ol>
                         </nav>
                     </div>
@@ -29,55 +29,58 @@
     </section>
     <!-- breadcrumb-area-end -->
     <!-- about-area -->
-    <section class="login__area-one">
+    <section class="register__area-one">
         <div class="container">
             <div class="text-center mb-55">
-                <h1 class="text-48-bold">Welcome sign in into your Account</h1>
+                <h1 class="text-48-bold">Create An Account</h1>
             </div>
             <div class="box-form-login">
+                <form action="" id="user_auth">
                 <div class="head-login">
-                    <h4>It is Our Great Pleasure to have you back</h4>
-                    {{-- <p>Sign in with your email and password</p> --}}
-                    <form action="" id="user_auth">
+                    <h3>Register</h3>
+                    <p>Create an account today and start using our platform</p>
+                    <div class="text-or"><span>or</span></div>
                     <div class="form-login">
                         <div class="form-group">
-                            <input type="text" name="username" class="form-control account" placeholder="Email Address" />
+                            <input type="text" name="first_name" class="form-control account" placeholder="First Name" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="last_name" class="form-control account" placeholder="Last Name" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="email" class="form-control email-address" placeholder="Email Address" />
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" class="form-control" placeholder="Password" />
                             <span class="view-password"></span>
                         </div>
+                        <div class="form-group">
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" />
+                            <span class="view-password"></span>
+                        </div>
                         <div class="box-forgot-pass">
                             <label>
-                                <input type="checkbox" class="cb-remember" value="1" /> Remember me
+                                <input name="agree" type="checkbox" class="cb-remember" value="1" /> <span>I have read and agree to the Terms & Conditions and the Privacy Policy of this website.</span>
                             </label>
-                            <a href='#'>Forgot Password ?</a>
                         </div>
                         <div class="form-group" id="user_auth_alert">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-login" type="submit" id="user_btn">SIgn In</button>
-                            {{-- <input type="submit" class="btn btn-login" value="Sign In" /> --}}
+                            {{-- <input type="submit" class="btn btn-login" value="Sign up now" /> --}}
+                            <button class="btn btn-login" type="submit" id="user_btn">SIgn Up Now</button>
+
                         </div>
-                        <p>Don’t have an account? <a class='link-bold' href='{{ route('sign.up')}}'>Sign up</a> now</p>
+                        <p>Already have an account? <a class='link-bold' href='{{ route('login')}}'>Sign In</a> now</p>
                     </div>
-                </form>
-                    <div class="text-or"><span>or</span></div>
-                    <div class="box-login-with">
-                        <div class="form-group">
-                            <a href="#" class="btn btn-login-social">
-                                <img src="{{ asset('assets/frontend/img/login/google.svg')}}" />
-                                Sign In With Google
-                            </a>
-                        </div>
-                    </div>
-                   
                 </div>
+            </form>
             </div>
         </div>
     </section>
     <!-- about-area-end -->
 </main>
+<!-- main-area-end -->
+    
 @endsection
 @push('scripts')
 <script type="text/javascript">
@@ -93,13 +96,13 @@
   
         $.ajax({
         type:'POST',
-        url:"{{ route('authenticate.user')}}",
+        url:"{{ route('register.user')}}",
         data:dataz,
         success:function(response){
             console.log(response);
             // $.notify(response.message, "success");
           setTimeout(function(){
-            window.location.href=response.url;
+            window.location.href="{{ route('dashboard')}}";
           },500);
          
         },
@@ -115,11 +118,11 @@
             }
         },
         beforeSend : function(){
-            $('#user_btn').html('<span class="fas fa-spinner fas-pulse fas-spin"></span> Authenticating ---');
+            $('#user_btn').html('<span class="fas fa-spinner fas-pulse fas-spin"></span> Loading ---');
             $('#user_btn').attr('disabled', true);
         },
        complete : function(){
-            $('#user_btn').html('<span class="fas fa-sign-in-alt"></span> Sign In');
+            $('#user_btn').html('<span class="fas fa-sign-in-alt"></span> Sign Up Now');
             $('#user_btn').attr('disabled', false);
         }
         });

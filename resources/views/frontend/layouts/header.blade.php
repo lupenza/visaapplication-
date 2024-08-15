@@ -70,7 +70,7 @@
                                             </svg>
                                         </a>
                                     </li> --}}
-                                    <li class="header-btn"><a class='btn' href='#'> Apply Visa <i class="flaticon-arrow-right"></i></a></li>
+                                    <li class="header-btn"><a class='btn' href='{{ route('apply.visa')}}'> Apply Visa <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li>
                                 </ul>
                             </div>
                             <div class="mobile-nav-toggler mobile-nav-toggler-two">

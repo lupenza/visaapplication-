@@ -24,44 +24,125 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body ">
-                    <h4 class="card-title text-center" >Application</h4>
+                    <h4 class="card-title text-center" >Applications</h4>
                     <div style="display: flex; flex-direction: row; justify-content:flex-end; padding: 5px 0px 5px 0px">
-                        <a href="{{ route('application.create')}}">
-                        <button class="btn btn-primary btn-sm waves-effect waves-light"> <span class="fa fa-plus font-size-15"></span> Add Application</button>
-                        </a>
+                        <div class="dropdown mt-4 mt-sm-0">
+                            <a href="#" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Visa Application <i class="mdi mdi-chevron-down"></i>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('application.create',1)}}">USA Visa</a>
+                                <a class="dropdown-item" href="{{ route('application.create',2)}}">Schengen Visa</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="table-responsive">
-                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Created At</th>
-                                <th>Category</th>
-                                <th>Name</th>
-                                <th>Caption</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            {{-- <tbody>
-                                @foreach ($programs as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration}}</td>
-                                        <td>{{ $item->created_at}} </td>
-                                        <td>{{ $item->category?->name }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->caption }}</td>
-                                        <td>{!! $item->status_formatted !!}</td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteProgram(id)" title="Delete"><i class="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                               
-                            </tbody> --}}
-                           
-                        </table>
-                    </div>
+                    {{-- <div class="card">
+                        <div class="card-body"> --}}
+                            <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#home1" role="tab">
+                                        <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                        <span class="d-none d-sm-block">USA Visa Aplications</span> 
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#profile1" role="tab">
+                                        <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                                        <span class="d-none d-sm-block">Schengen Visa Aplications</span> 
+                                    </a>
+                                </li>
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#messages1" role="tab">
+                                        <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                        <span class="d-none d-sm-block">Messages</span>   
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#settings1" role="tab">
+                                        <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                        <span class="d-none d-sm-block">Settings</span>    
+                                    </a>
+                                </li> --}}
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content p-3 text-muted">
+                                <div class="tab-pane active" id="home1" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Applied At</th>
+                                                <th>Name</th>
+                                                {{-- <th>Maritial Status</th> --}}
+                                                <th>Arrival Date</th>
+                                                <th>Departure Date</th>
+                                                <th>Stage</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($usa as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration}}</td>
+                                                        <td>{{ $item->created_at}} </td>
+                                                        <td>{{ $item->applicant?->name }}</td>
+                                                        <td>{{ $item->arrival_date }}</td>
+                                                        <td>{{ $item->departure_date }}</td>
+                                                        <td>{!! $item->stage_formatted !!}</td>
+                                                        <td>
+                                                            <button class="btn btn-primary btn-sm" ><i class="fa fa-user"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                               
+                                            </tbody>
+                                           
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="profile1" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table id="datatable1" class="table table-bordered dt-responsive  nowrap w-100">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Applied At</th>
+                                                <th>Name</th>
+                                                {{-- <th>Maritial Status</th> --}}
+                                                <th>Arrival Date</th>
+                                                <th>Departure Date</th>
+                                                <th>Stage</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($schengen as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration}}</td>
+                                                        <td>{{ $item->created_at}} </td>
+                                                        <td>{{ $item->applicant?->name }}</td>
+                                                        <td>{{ $item->additional_information?->arrival_date }}</td>
+                                                        <td>{{ $item->additional_information?->departure_date }}</td>
+                                                        <td>{!! $item->stage_formatted !!}</td>
+                                                        <td>
+                                                            <button class="btn btn-primary btn-sm" ><i class="fa fa-user"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                               
+                                            </tbody>
+                                           
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {{-- </div>
+                    </div> --}}
+                  
                    
 
                 </div>

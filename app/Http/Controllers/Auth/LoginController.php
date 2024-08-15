@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
+use Hash;
+use Illuminate\Support\Facades\Redirect;
+use Str;
 
 class LoginController extends Controller
 {
@@ -42,7 +45,7 @@ class LoginController extends Controller
                     ]);
                 }elseif($user->hasRole('Customer')){
                     $last_url =Session::get('last_url');
-                    $url =$last_url ?? URL::to('my-account');
+                    $url =$last_url ?? URL::to('dashboard');
                     Session::forget('last_url');
                     return response()->json([
                         'success' =>true,
@@ -86,5 +89,33 @@ class LoginController extends Controller
     {
         Auth::logout();
         return Redirect::route('home');
+    }
+
+    public function storeUser(Request $request){
+        $valid =$request->validate([
+            'first_name'  =>'required',
+            'last_name'   =>'required',
+            'email'      =>'required|unique:users,email',
+            'password'   =>['required','confirmed','string','min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
+            'agree'      =>'required',
+        ]);
+
+        $user =User::create([
+            'name'       =>$valid['first_name'].' '.$valid['last_name'],
+            'first_name' =>$valid['first_name'],
+            'last_name' =>$valid['last_name'],
+            'email'         =>$valid['email'],
+            'username'      =>$valid['email'],
+            'password'  =>Hash::make($valid['password']),
+            'uuid'      =>(string)Str::orderedUuid(),
+            'is_active' =>true,
+        ]);
+
+        $user->assignRole('Customer');
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'You have successfully registered'
+        ]);
     }
 }

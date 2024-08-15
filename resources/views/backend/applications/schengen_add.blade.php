@@ -50,268 +50,188 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-firstname-input">  Do you hold or have you held any other nationality ? <span class="text-danger">*</span></label>
-                                            <select name="passport_held" class="form-control">
+                                            <label for="basicpill-firstname-input">  Gender <span class="text-danger">*</span></label>
+                                            <select name="gender" class="form-control">
                                                 <option value="" >Please Select</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
+                                                <option value="1">Male</option>
+                                                <option value="2">Female</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Are you a permanent resident of a country/region other than your country/region of origin (nationality) ? <span class="text-danger">*</span></label>
-                                            <select name="permanent_residence" class="form-control">
-                                                <option value="" >Please select</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 wizard-header text-center">
-                                        <h5>Address and Contact Information</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Country/Region</label>
-                                            <select name="home_country" class="form-control">
-                                                <option value="" ></option>
-                                                <option value="1">Tanzania</option>
-                                                <option value="0">America</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">City</label>
-                                            <select name="home_city" class="form-control">
-                                                <option value="" ></option>
-                                                <option value="1">Dar es salaam</option>
-                                                <option value="0">America</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Street</label>
-                                            <input type="text" name="home_street" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-email-input">Email <sub>At this email you will receive visa</sub></label>
-                                            <input type="email" name="primary_email" class="form-control">
+                                            <label for="basicpill-firstname-input">Date of birth</label>
+                                            <input type="date" name="dob" class="form-control" >
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Primary Phone number</label>
-                                            <input type="number" name="primary_phone_number" class="form-control">
+                                            <label for="basicpill-firstname-input">Place of Birth</label>
+                                           <input type="text" name="place_of_birth" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 wizard-header text-center">
-                                        <h5>Passport/Travel Document Information</h5>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Country of birth</label>
+                                            <input type="text" name="country_of_birth" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Current Nationality <sub>By Birth or different</sub></label>
+                                           <input type="text" name="current_nationality" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Have you ever lost a passport or had one stolen ?</label>
-                                            <select name="stolen_passport" class="form-control">
+                                            <label for="basicpill-email-input">National Identity Number</label>
+                                            <input type="text" name="nin" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-phoneno-input">Type of Travel Document</label>
+                                            <select name="travel_document" class="form-control">
                                                 <option value="" >Please Select</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">no</option>
+                                                <option value="Oridinary Passport">Oridinary Passport</option>
+                                                <option value="Diplomatic Passport">Diplomatic Passport</option>
+                                                <option value="Service Passport">Service Passport</option>
+                                                <option value="Official Passport">Official Passport</option>
+                                                <option value="Special Passport">Special Passport</option>
+                                                <option value="Other Travel Document">Other Travel Document</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 wizard-header text-center">
-                                        <h5>Travel Information</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Purpose of the trip to US</label>
-                                            <select name="purpose_of_trip" class="form-control">
-                                                <option value="" ></option>
-                                                <option value="Business">Business</option>
-                                                <option value="Tourism">Tourism</option>
-                                                <option value="Family or Friend Visit">Family or Friend Visit</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p>Provide a complete itinerary for your travel to the U.S</p>
-                                    </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-email-input">Date of Arrival in U.S</label>
-                                            <input type="date" name="arrival_date" class="form-control">
+                                            <label for="basicpill-email-input">Number of travel document</label>
+                                            <input type="text" name="no_of_travel_document" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Date of Departure from U.S</label>
-                                            <input type="date" name="departure_date" class="form-control">
+                                            <label for="basicpill-email-input">Date of Issue</label>
+                                            <input type="date" name="date_issue" class="form-control">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Arrival City</label>
-                                            <select name="arrival_city" class="form-control">
-                                                <option value="" ></option>
-                                                <option value="1">Tanzania</option>
-                                                <option value="0">America</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p>Address where you will stay in the U.S</p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Street Address</label>
-                                            <input type="text" name="street" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">City, State, Postal/Zip Code</label>
-                                            <input type="text" name="postal_code" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 wizard-header text-center">
-                                        <h5>Person/Entity Paying for Your Trip: (Self/Sponsor)
-                                        </h5>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-email-input">Name</label>
-                                            <input type="text" name="payer_name" class="form-control">
+                                            <label for="basicpill-email-input">Valid Until</label>
+                                            <input type="date" name="validity" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Phone number</label>
-                                            <input type="number" name="payer_phone_number" class="form-control">
+                                            <label for="basicpill-email-input">Issued By</label>
+                                            <input type="text" name="issued_by" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-email-input">Home Address</label>
+                                            <input type="text" name="home_address" class="form-control">
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="basicpill-email-input">Email</label>
-                                            <input type="email" name="payer_email" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Relationship</label>
-                                           <input type="text" class="form-control" name="payer_relationship">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label for="">Is the address of the party paying for your trip the same as your Home or Mailing Address ?</label>
-                                        <select name="address_equality" class="form-control">
-                                            <option value="">please choose</option>
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 wizard-header text-center">
-                                        <h5> Payer's Address:
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-email-input">Street Address</label>
-                                            <input type="text" name="payer_street_address" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">City</label>
-                                            <input type="text" name="payer_city" class="form-control">
+                                            <input type="email" name="email" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-email-input">State/Province</label>
-                                            <input type="email" name="payer_state" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Postal Zone/ZIP Code</label>
-                                           <input type="text" class="form-control" name="payer_postal_code">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Country/Region</label>
-                                           <input type="text" class="form-control" name="payer_country">
+                                            <label for="basicpill-email-input">Phone Number</label>
+                                            <input type="number" name="phone_number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Would you like to add Insurance?</label>
-                                            <select name="insurance" class="form-control">
+                                            <label for="basicpill-firstname-input">Residence in a country other than the country of current nationality</label>
+                                            <select name="other_residence" class="form-control">
                                                 <option value="" >please select</option>
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
+                                            <label for="basicpill-email-input"> Residence permit or equivalent No</label>
+                                            <input type="text" name="residence_number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
+                                            <label for="basicpill-email-input"> Valid until</label>
+                                            <input type="date" name="residence_valid" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-phoneno-input">Select Insurance</label>
-                                            <select name="insurance_name" class="form-control">
-                                                <option value="" >please select</option>
-                                                <option value="1">Insurance 1</option>
-                                                <option value="1">Insurance 2</option>
+                                            <label for="basicpill-firstname-input">Current occupation</label>
+                                            <input type="text" name="current_occupation" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="basicpill-email-input">  Employer and employer's address and telephone number. For students, name and address of educational establishment.</label>
+                                            <textarea name="employer_address" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Main purpose(s) of the journey</label>
+                                            <select name="purpose_of_journey" class="form-control" id="">
+                                                <option value="">Please select</option>
+                                                <option value="Tourism">Tourism</option>
+                                                <option value="Business">Business</option>
+                                                <option value="Visiting family or friends">Visiting family or friends</option>
+                                                <option value="Cultural">Cultural</option>
+                                                <option value="Sports">Sports</option>
+                                                <option value="Official visit">Official visit</option>
+                                                <option value="Medical reasons">Medical reasons</option>
+                                                <option value="Study">Study</option>
+                                                <option value="Transit">Transit</option>
+                                                <option value="Airport transit ">Airport transit </option>
+                                                <option value="Other">Other</option>
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-address-input">Upload Passport</label>
-                                            <input type="file" name="passport" class="form-control">
-                                        </div>
-                                    </div> --}}
                                 </div>
-                              
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-email-input">Member State(s) of destination</label>
+                                            <input type="text" name="member_state" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-phoneno-input">Member State of first entry</label>
+                                            <input type="text" name="member_state_entry" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </section>
 
@@ -322,9 +242,52 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Are there other people traveling with you?</label>
-                                            <select name="other_people_travel" class="form-control">
+                                            <label for="basicpill-firstname-input">Number of entries requested ?</label>
+                                            <select name="entry_requested" class="form-control">
                                                 <option value="" >please select</option>
+                                                <option value="Single entry">Single entry</option>
+                                                <option value="Two entries">Two entries</option>
+                                                <option value="Multiple entries">Multiple entries</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Duration of the intended stay or transit Indicate number of days</label>
+                                            <input type="text" name="duration" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Schengen visas issued during the past three years?</label>
+                                            <select name="visa_issue_before" class="form-control">
+                                                <option value="" >please select</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Date(s) of validity from ?</label>
+                                           <input type="date" name="date_from" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Date(s) of validity To ?</label>
+                                           <input type="date" name="date_to" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Fingerprints collected previously for the purpose of applying for a Schengen visa ? </label>
+                                            <select name="fingerprint" class="form-control" >
+                                                <option value="">please select</option>
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
@@ -332,217 +295,155 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Have you ever been to the U.S.?</label>
-                                            <select name="have_been_us" class="form-control">
-                                                <option value="" >please select</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Have you ever been issued a U.S. visa ?</label>
-                                            <select name="have_you_own_us_visa" class="form-control">
-                                                <option value="" >please select</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Have you ever been refused a U.S. Visa ?</label>
-                                            <select name="refused_us_visa" class="form-control">
-                                                <option value="" >please select</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 wizard-header text-center">
-                                        <h5> U.S. Contact Information/Hotel (if available)
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Contact Person’s name in the U.S </label>
-                                           <input type="text" name="us_contact_person" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Address</label>
-                                            <input type="text" name="us_contact_address" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Organization name</label>
-                                            <input type="text" name="us_contact_organization" class="form-control">
+                                            <label for="basicpill-firstname-input">Collection Date</label>
+                                            <input type="date" name="collection_date" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Relationship</label>
-                                           <input type="text" name="us_contact_relationship" class="form-control">
+                                            <label for="basicpill-firstname-input"> Entry permit for the final country of destination,<sub>Issued By</sub></label>
+                                           <input type="text" name="permit_issuer" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Phone Number</label>
-                                            <input type="text" name="us_contact_phone" class="form-control">
+                                            <label for="basicpill-firstname-input">Valid from</label>
+                                            <input type="date" name="valid_from" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Email</label>
-                                            <input type="text" name="us_contact_email" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 wizard-header text-center">
-                                        <h5>Familiy Information
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Father's Surname</label>
-                                           <input type="text" name="father_surname" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Father's Given name</label>
-                                            <input type="text"  name="father_given_name" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Father's DOB</label>
-                                            <input type="date" name="father_dob" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Is your Father in U.S ?</label>
-                                            <select name="is_father_in_us" class="form-control">
-                                                <option value="" ></option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Mother's Surname</label>
-                                           <input type="text" name="mother_surname" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Mother's Given name</label>
-                                            <input type="text"  name="mother_name" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Mother's DOB</label>
-                                            <input type="date" name="mother_dob" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Is your Mother in U.S</label>
-                                            <select name="is_mother_in_us" class="form-control">
-                                                <option value="" >please select</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
-                                            </select>
+                                            <label for="basicpill-firstname-input">Valid To</label>
+                                            <input type="text" name="valid_to" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Intended date of arrival in the Schengen area </label>
+                                           <input type="date" name="arrival_date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input"> Intended date of departure from the Schengen area</label>
+                                            <input type="date"  name="departure_date" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input"> Surname and first name of the inviting person(s) in the Member State(s). If not applicable, name of hotel(s) or temporary
+                                                accommodation(s) in the Member State(s)</label>
+                                                <textarea name="inviting_person" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input"> Address and e-mail address of inviting person(s)/hotel(s)/temporary
+                                                accommodation(s)</label>
+                                                <textarea name="inviting_person_address" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input"> Name and address of inviting company/organisation </label>
+                                                <textarea name="inviting_company" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Telephone and telefax of company/organisation</label>
+                                                <textarea name="inviting_company_address" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input"> Surname, first name, address, telephone, telefax, and e-mail address of contact person in company/organisation</label>
+                                                <textarea name="company_personel" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
                                             <div class="mb-3">
-                                                <label for="basicpill-firstname-input">Do you have any immediate relative other than parent in U.S</label>
-                                                <select name="other_imemediate_relative_in_us" class="form-control">
-                                                    <option value="" ></option>
-                                                    <option value="1">Yes</option>
-                                                    <option value="0">No</option>
+                                                <label for="basicpill-firstname-input">Cost of travelling and living during the applicant's stay is covered</label>
+                                                <select name="cost_of_travel" class="form-control">
+                                                    <option value="" >please select</option>
+                                                    <option value="Cash">Cash</option>
+                                                    <option value="Traveller's cheques">Traveller's cheques</option>
+                                                    <option value="Credit card">Credit card</option>
+                                                    <option value="Pre-paid accommodation">Pre-paid accommodation</option>
+                                                    <option value="Pre-paid transport">Pre-paid transport</option>
+                                                    <option value="Accommodation provided">Accommodation provided</option>
+                                                    <option value="All expenses covered during the stay">All expenses covered during the stay</option>
+                                                    <option value="Pre-paid transport">Pre-paid transport</option>
                                                 </select>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <h6>Personal data of the family member who is an EU, EEA or CH citizen</h6>
+                                    </div>  
+                                </div> 
+                               
+                                <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Do you have any other relatives in the United States ?</label>
-                                            <select name="other_relative_in_us" class="form-control">
-                                                <option value="" ></option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
+                                            <label for="basicpill-firstname-input">Surname</label>
+                                           <input type="text" name="family_surname" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input"> First name(s)</label>
+                                           <input type="text" name="family_firstname" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input"> Date of birth </label>
+                                           <input type="date" name="family_dob" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input"> Nationality</label>
+                                           <input type="text" name="family_nationality" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Number of travel document or ID card</label>
+                                            <input type="text"  name="family_nin" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="basicpill-firstname-input">Family relationship with an EU, EEA or CH citizen</label>
+                                            <select name="family_relationship" class="form-control">
+                                                <option value="">please select</option>
+                                                <option value="spouse">spouse</option>
+                                                <option value="child">child</option>
+                                                <option value="grandchild">grandchild</option>
+                                                <option value="dependent ascendant">dependent ascendant</option>
                                             </select>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Spouse Name</label>
-                                           <input type="text" name="spouse_name" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Spouse DOB</label>
-                                            <input type="date" name="spouse_dob" name="street" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Spouse Nationality</label>
-                                            <input type="text" name="spouse_nationality" name="street" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Spouse City Of Birth</label>
-                                           <input type="text" name="spouse_city" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Spouse Country Of Birth</label>
-                                            <input type="text"  name="spouse_origin" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Spouse Address</label>
-                                            <input type="text" name="spouse_address" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </section>
                         <!-- Company Document -->
-                        <h3>2. Additional Information (2)</h3>
+                        {{-- <h3>2. Additional Information (2)</h3>
                         <section>
                             <form id="addition_info_two">
                                 <div class="row">
@@ -711,7 +612,7 @@
 
                                 </div>
                             </form>
-                        </section>
+                        </section> --}}
                         <!-- Confirm Details -->
                         {{-- <h3>Confirm Detail</h3>
                         <section>
@@ -760,9 +661,9 @@
 function submitVerticalForm() {
     const personal_info = $('#personal_info').serialize();
     const addition_info_one = $('#addition_info_one').serialize();
-    const addition_info_two = $('#addition_info_two').serialize();
+    //const addition_info_two = $('#addition_info_two').serialize();
 
-    const combinedFormData = personal_info + '&' + addition_info_one + '&' + addition_info_two;
+    const combinedFormData = personal_info + '&' + addition_info_one;
 
     $.ajaxSetup({
         headers: {
@@ -772,7 +673,7 @@ function submitVerticalForm() {
 
     $.ajax({
         type: 'POST',
-        url: "{{ route('usa.visa.store') }}",
+        url: "{{ route('schengen.visa.store') }}",
         data: combinedFormData,
         // contentType: false,
         // cache: false,
