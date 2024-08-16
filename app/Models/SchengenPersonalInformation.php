@@ -41,7 +41,7 @@ class SchengenPersonalInformation extends Model
         return $this->hasOne(SchengenAdditionalInformation::class,'schengen_personal_information_id','id');
     }
 
-    public function getstageFormattedAttribute(){
+    public function getStageFormattedAttribute(){
         switch ($this->application_stage) {
             case 1:
                 $stage ="<span class='badge badge-pill badge-soft-warning font-size-11'>OnProgress</span>";

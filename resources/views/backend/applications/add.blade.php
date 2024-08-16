@@ -781,7 +781,7 @@ function submitVerticalForm() {
             console.log(response);
             $('#reg_alert').html('<div class="alert alert-success">' + response.message + '</div>');
             setTimeout(function () {
-                window.location = "{{ url('payment/profile')}}"+ "/" + response.personal_id;
+                window.location = "{{ url('payment/profile')}}"+ "/" + response.personal_id + "/" + 1;
             }, 500);
         },
         error: function (response) {

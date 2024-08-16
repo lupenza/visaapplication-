@@ -316,7 +316,7 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="basicpill-firstname-input">Valid To</label>
-                                            <input type="text" name="valid_to" class="form-control">
+                                            <input type="date" name="valid_to" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -439,6 +439,12 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12" id='reg_alert'>
+
+                                    </div>
+
                                 </div>
                             </form>
                         </section>
@@ -682,7 +688,7 @@ function submitVerticalForm() {
             console.log(response);
             $('#reg_alert').html('<div class="alert alert-success">' + response.message + '</div>');
             setTimeout(function () {
-                window.location = "{{ url('payment/profile')}}"+ "/" + response.personal_id;
+                window.location = "{{ url('payment/profile')}}"+ "/" + response.personal_id + "/" + 2;
             }, 500);
         },
         error: function (response) {

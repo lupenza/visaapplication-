@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\ApplicationController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,11 @@ Route::group(['middleware'=>'auth'],function(){
     /** Visa Application */
     Route::post('usa/visa/store',[ApplicationController::class,'usaVisaStore'])->name('usa.visa.store');
     Route::post('schengen/visa/store',[ApplicationController::class,'SchengenVisaStore'])->name('schengen.visa.store');
-    Route::get('payment/profile/{id?}',[ApplicationController::class,'paymentProfile'])->name('payment.profile');
+    Route::get('payment/profile/{id?}/{type?}',[ApplicationController::class,'paymentProfile'])->name('payment.profile');
+    Route::get('process/payment/{personal_id?}/{type?}',[ApplicationController::class,'processPayment'])->name('process.payment');
+
+    /**user management */
+    Route::get('users/list',[UserController::class,'index'])->name('users.index');
+    Route::post('users/store',[UserController::class,'store'])->name('user.store');
     
 });

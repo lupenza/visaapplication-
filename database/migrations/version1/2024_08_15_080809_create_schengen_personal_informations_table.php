@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('other_residence')->nullable();
             $table->string('residence_number')->nullable();
             $table->date('residence_valid')->nullable();
-            $table->date('purpose_of_journey')->nullable();
+            $table->string('purpose_of_journey')->nullable();
             $table->integer('application_stage')->comment("0=> pending , 1 => OnProgress , 2 => Accepted , 3 => Rejected")->default(0);
             $table->uuid();
             $table->timestamps();

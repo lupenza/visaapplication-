@@ -50,4 +50,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getStatusFormattedAttribute(){
+
+        if ($this->is_active) {
+            return "<span class='badge badge-pill badge-soft-success font-size-11'>Active</span>";
+        } else {
+            return "<span class='badge badge-pill badge-soft-danger font-size-11'>InActive</span>";
+        }
+        
+    }
+
 }

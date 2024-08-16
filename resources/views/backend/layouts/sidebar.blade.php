@@ -18,8 +18,14 @@
         <li class="menu-title" key="t-apps">Website</li>
         <li>
             <a href="{{ route('website.menu')}}" class="waves-effect">
-                <i class="bx bx-purchase-tag-alt"></i>
+                <i class="bx bx-globe"></i>
                 <span key="t-chat">Website Manage</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('users.index')}}" class="waves-effect">
+                <i class="bx bx-user"></i>
+                <span key="t-chat">System User</span>
             </a>
         </li>
     </ul>

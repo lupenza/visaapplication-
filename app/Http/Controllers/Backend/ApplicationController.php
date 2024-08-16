@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SchengenFormRequest;
 use App\Http\Requests\UsaFormRequest;
+use App\Models\PaymentLog;
 use App\Models\SchengenAdditionalInformation;
 use App\Models\SchengenPersonalInformation;
 use App\Models\UsaEducationInformation;
@@ -13,6 +14,7 @@ use App\Models\UsaHotelDetail;
 use App\Models\UsaPersonalInformation;
 use App\Models\UsaTripPayer;
 use App\Traits\FileImportTrait;
+use App\Traits\PaymentTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +22,7 @@ use Str;
 
 class ApplicationController extends Controller
 {
-    use FileImportTrait;
+    use FileImportTrait,PaymentTrait;
     public function index(){
         $usa =UsaPersonalInformation::with('applicant')->get();
         $schengen =SchengenPersonalInformation::with('applicant','additional_information')->get();
@@ -38,8 +40,27 @@ class ApplicationController extends Controller
         }
     }
 
-    public function paymentProfile($id){
-        return $id;
+    public function paymentProfile($id,$type){
+            $data =[];
+            $data['personal_id'] =$id;
+            $data['type']        =$type;
+        if ($type == 1) {
+            $usa =UsaPersonalInformation::with('applicant')->where('id',$id)->first();
+            $data['name'] =$usa->applicant?->name;
+            $data['visa_type'] ="American Visa";
+            $data['arrival_date'] =$usa->arrival_date;
+            $data['departure_date'] =$usa->departure_date;
+            $data['amount'] ='150,000';
+        } else {
+            $schengen =SchengenPersonalInformation::with('applicant','additional_information')->first();
+
+            $data['name'] =$schengen->applicant?->name;
+            $data['visa_type'] ="Schengen Visa";
+            $data['arrival_date'] =$schengen->additional_information?->arrival_date;
+            $data['departure_date'] =$schengen->additional_information?->departure_date;
+            $data['amount'] ='200,000'; 
+        }
+        return view('backend.applications.payment_summary',compact('data'));
     }
 
     public function usaVisaStore(UsaFormRequest $request){
@@ -256,6 +277,35 @@ class ApplicationController extends Controller
             'message' =>'Action Done Successfully',
             'personal_id' =>$id
         ],200);
+    }
+
+    public function processPayment(Request $request){
+        $id =$request->personal_id;
+        $type =$request->type;
+        $data =[];
+        $data['id'] =$id;
+        $data['type']        =$type;
+        if ($type == 1) {
+            $personal =UsaPersonalInformation::with('applicant')->where('id',$id)->first();
+            $data['amount'] ='150000';
+        } else {
+            $personal =SchengenPersonalInformation::with('applicant','additional_information')->first();
+            $data['amount'] ='200000'; 
+        }  
+
+        $payment_log =PaymentLog::create([
+            'amount' =>$data['amount'],
+            'external_id' =>(string)Str::orderedUuid(),
+            'vendor_id' =>(string)Str::orderedUuid(),
+            'uuid' =>(string)Str::orderedUuid(),
+            'personal_id' =>$data['id'],
+            'applicant' =>$personal->applicant_id,
+            'visa_type' =>$data['type'],
+        ]);
+       // $payment_log =PaymentLog::first();
+        $url = $this->checkOutPayment($payment_log);
+        // return $url;
+        return redirect()->away($url);
     }
 
     

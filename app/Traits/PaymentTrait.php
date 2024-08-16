@@ -24,6 +24,7 @@ trait PaymentTrait
     }
 
     public function checkOutPayment($payment_log){
+        //return env('CLIENT_SECRETE');
         $response =Http::post(
             env('BASE_URL').'/'.'v1/Partner/PostCheckout',[
                 'appName'      =>env('AZAMAPPNAME'),
@@ -33,21 +34,22 @@ trait PaymentTrait
                 'cart' => [
                     'items' => [
                         [
-                            'name' => 'Training Program',
+                            'name' => 'Visa Application Fee',
                         ],
                     ],
                 ],
                 'currency'     =>'TZS',
                 'externalId'   =>$payment_log->external_id,
                 'vendorId'     =>$payment_log->vendor_id,
-                'vendorName'     =>'Lalisha Fitness Corner',
+                'vendorName'     =>'Visa Assistance System',
                 'language'     =>'EN',
-                'redirectFailURL'    =>'lalisha.eldizerfinance.co.tz/api/v1/Checkout/Callback',
-                'redirectSuccessURL' =>'lalisha.eldizerfinance.co.tz/api/v1/Checkout/Callback',
-                'requestOrigin'      =>'lalisha.eldizerfinance.co.tz/api/v1/Checkout/Callback',
+                'redirectFailURL'    =>'visa.eldizerfinance.co.tz/api/v1/Checkout/Callback',
+                'redirectSuccessURL' =>'visa.eldizerfinance.co.tz/api/v1/Checkout/Callback',
+                'requestOrigin'      =>'visa.eldizerfinance.co.tz/api/v1/Checkout/Callback',
                 'redirectSuccessURL'
             ]
         );
+        return $response;
 
         $payment_log->status =2;
         $payment_log->save();
