@@ -55,6 +55,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('process/payment/{personal_id?}/{type?}',[ApplicationController::class,'processPayment'])->name('process.payment');
     Route::get('visa/profile/{personal_id?}/{type?}',[ApplicationController::class,'visaProfile'])->name('visa.profile');
     Route::post('visa/allocation',[ApplicationController::class,'visaAllocation'])->name('allocate.application');
+    Route::post('track/store',[ApplicationController::class,'trackStore'])->name('track.store');
 
     /**user management */
     Route::get('users/list',[UserController::class,'index'])->name('users.index');

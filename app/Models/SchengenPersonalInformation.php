@@ -81,4 +81,12 @@ class SchengenPersonalInformation extends Model
     public function task_tracks(){
         return $this->hasMany(TaskTrack::class,'resource_id','id')->where('resource_type',2);
     }
+
+    public function active_track(){
+        return $this->hasOne(TaskTrack::class,'resource_id','id')->where('resource_type',2)->where('status',0);
+    }
+
+    public function allocated_user(){
+        return $this->hasOne(User::class,'id','allocated');
+    }
 }

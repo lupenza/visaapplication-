@@ -8,6 +8,7 @@ use App\Http\Requests\UsaFormRequest;
 use App\Models\PaymentLog;
 use App\Models\SchengenAdditionalInformation;
 use App\Models\SchengenPersonalInformation;
+use App\Models\TaskTrack;
 use App\Models\UsaEducationInformation;
 use App\Models\UsaFamilyInformation;
 use App\Models\UsaHotelDetail;
@@ -28,7 +29,7 @@ class ApplicationController extends Controller
     use FileImportTrait,PaymentTrait,TaskTrackTrait;
     public function index(){
         $usa =UsaPersonalInformation::with('applicant')->get();
-        $schengen =SchengenPersonalInformation::with('applicant','additional_information')->get();
+        $schengen =SchengenPersonalInformation::with('applicant','additional_information','allocated_user')->get();
         $users =User::get();
         return view('backend.applications.list',compact('usa','schengen','users'));
     }
@@ -50,7 +51,7 @@ class ApplicationController extends Controller
         if ($type == 1) {
             $profile =UsaPersonalInformation::with('applicant')->where('id',$id)->first();
         } else {
-            $profile =SchengenPersonalInformation::with('applicant','additional_information','task_tracks')->first();
+            $profile =SchengenPersonalInformation::with('applicant','additional_information','task_tracks','active_track')->first();
         }  
         // return $profile->task_tracks;
         return view('backend.applications.schengen_profile',compact('profile'));
@@ -349,11 +350,13 @@ class ApplicationController extends Controller
                                 if ($personal) {
                                     $personal->allocated =$user_id;
                                     $personal->assignor  =Auth::user()->id;
+                                    $personal->application_stage =1;
                                     $personal->save();
         
                                     // create track 
                                     $inputs['resource_id'] =$personal->id;
                                     $inputs['status'] =1;
+                                    $inputs['action'] ="Forward";
                                     $inputs['user_id'] =Auth::user()->id;
                                     $this->createTrack($inputs);
         
@@ -362,6 +365,7 @@ class ApplicationController extends Controller
                                     $inputs['status'] =0;
                                     $inputs['user_id'] =$user_id;
                                     $inputs['comment'] =null;
+                                    $inputs['action']  ="Pending";
                                     $this->createTrack($inputs);
         
                                 }
@@ -388,6 +392,62 @@ class ApplicationController extends Controller
             ],200);
 
            
+    }
+
+    public function trackStore(Request $request){
+        $valid =$request->validate([
+            'comment'  =>'required',
+            'action'   =>'required',
+            'track_id'  =>'required',
+        ]);
+
+        $action =$valid['action'];
+        
+
+        if ($action == "Forward" || $action == 'Reverse') {
+             // create track 
+             // first update track
+             $track =TaskTrack::find($valid['track_id']);
+             $track->comment =$valid['comment'];
+             $track->forward_date =Carbon::now();
+             $track->status       =1;
+             $track->action       =$valid['action'];
+             $track->save();
+
+             // create track
+             $inputs =[
+                'action'        =>"Pending",
+                'resource_type' =>$track->resource_type,
+                'status' =>0,
+                'comment' =>null,
+                'received_date' =>Carbon::now(),
+                'resource_id'   =>$track->resource_id,
+                'user_id'       =>$action == "Forward" ? $this->resourceData($track)->assignor : $this->resourceData($track)->allocated,
+            ];
+
+             $this->createTrack($inputs); 
+        } else {
+            // approve
+            $track =TaskTrack::find($valid['track_id']);
+            $track->comment     =$valid['comment'];
+            $track->forward_date =Carbon::now();
+            $track->status       =1;
+            $track->action       =$valid['action'];
+            $track->save();
+
+            // Update 
+
+            $data =$this->resourceData($track);
+            $data->application_stage =2;
+            $data->save();
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully',
+        ],200);
+        
+
     }
 
     

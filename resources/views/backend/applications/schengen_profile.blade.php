@@ -6,7 +6,7 @@
     }
     .mainTaskContainer{
         border-left: 3px solid #20BFE9 !important;
-        border-bottom: 1px solid black;
+        border-bottom: 0.5px solid black;
         margin-bottom: 15px
     }
     .taskContainer{
@@ -272,7 +272,7 @@
                                                   <h5>Status</h5>
                                                 </div>
                                                 <div>
-                                                    <p>{{ $track->status }}</p>
+                                                    <p>{{ $track->status == 1 ? "Attended" : "Not Attended" }}</p>
                                                 </div>
                                             </div>
                                             <div class='taskContainer'>
@@ -280,7 +280,7 @@
                                                   <h5>Action</h5>
                                                 </div>
                                                 <div>
-                                                    <p>Forward</p>
+                                                    <p>{{ $track->action}}</p>
                                                 </div>
                                             </div>
                                             <div class='taskContainer2'>
@@ -299,6 +299,9 @@
                                         @empty
                                             
                                         @endforelse
+                                        @if ($profile->active_track)
+                                        @include('backend.applications.track_add',['track_id'=>$profile->active_track->id])
+                                        @endif
                                        
                                     </div>
                                 </div>
@@ -317,43 +320,51 @@
 @endsection
 @push('scripts')
 <script>
-     function deleteProgram(id){
-        Swal.fire({
-            title: "Delete Program?",
-            text: "Are you Sure You want to delete this !",
-            icon: "warning",
-            showCancelButton: !0,
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel!",
-            confirmButtonClass: "btn btn-success mt-2",
-            cancelButtonClass: "btn btn-danger ms-2 mt-2",
-            buttonsStyling: !1,
-        }).then(function (t) {
-            if (t.value) {
-                var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
-                $.ajax({
-                        url: "{{ url('program.destroy')}}", 
-                        method: "POST",
-                        data: {uuid:id,'_token':csrf_tokken,action:'approve'},
-                        success: function(response)
-                    { 
-                    // console.log(response); 
-                        // $.notify(response.message, "success");
-                        Swal.fire({ title: "Deleted!", text: response.message, icon: "success" })
-                        setTimeout(function(){
-                            location.reload();
-                        },500);
-                        },
-                        error: function(response){
-                        Swal.fire({ title: "Deleted!", text: response.responseJson.errors, icon: "warning" })
+     $(document).ready(function(){
+      $('#registration_form').on('submit',function(e){ 
+          e.preventDefault();
 
-                         console.log(response.responseText);
-                         //   $.notify(response.responseJson.errors,'error');  
-                        }
-                    });
-            }
-        });
-  }
+      $.ajaxSetup({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+          });
+      $.ajax({
+      type:'POST',
+      url:"{{ route('track.store')}}",
+      data : new FormData(this),
+      contentType: false,
+      cache: false,
+      processData : false,
+      success:function(response){
+        console.log(response);
+        $('#alert').html('<div class="alert alert-success">'+response.message+'</div>');
+        setTimeout(function(){
+         location.reload();
+      },500);
+      },
+      error:function(response){
+          console.log(response.responseText);
+          if (jQuery.type(response.responseJSON.errors) == "object") {
+            $('#alert').html('');
+          $.each(response.responseJSON.errors,function(key,value){
+              $('#alert').append('<div class="alert alert-danger">'+value+'</div>');
+          });
+          } else {
+             $('#alert').html('<div class="alert alert-danger">'+response.responseJSON.errors+'</div>');
+          }
+      },
+      beforeSend : function(){
+                   $('#reg_btn').html('<i class="fa fa-spinner fa-pulse fa-spin"></i> loading..........');
+                   $('#reg_btn').attr('disabled', true);
+              },
+              complete : function(){
+                $('#reg_btn').html('<i class="fa fa-save"></i> Submit');
+                $('#reg_btn').attr('disabled', false);
+              }
+      });
+  });
+  });
 </script>
     
 @endpush

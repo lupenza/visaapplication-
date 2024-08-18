@@ -118,6 +118,7 @@
                                                 <th>Arrival Date</th>
                                                 <th>Departure Date</th>
                                                 <th>Stage</th>
+                                                <th>Allocated To</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -131,6 +132,7 @@
                                                         <td>{{ $item->additional_information?->arrival_date }}</td>
                                                         <td>{{ $item->additional_information?->departure_date }}</td>
                                                         <td>{!! $item->stage_formatted !!}</td>
+                                                        <td>{{ $item->allocated_user?->name }}</td>
                                                         <td>
                                                             <a href="{{ route('visa.profile',['personal_id'=>$item->id,'visa_type'=>2])}}">
                                                                 <button class="btn btn-primary btn-sm" ><i class="fa fa-user"></i></button>
