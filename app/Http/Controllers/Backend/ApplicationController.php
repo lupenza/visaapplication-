@@ -13,8 +13,11 @@ use App\Models\UsaFamilyInformation;
 use App\Models\UsaHotelDetail;
 use App\Models\UsaPersonalInformation;
 use App\Models\UsaTripPayer;
+use App\Models\User;
 use App\Traits\FileImportTrait;
 use App\Traits\PaymentTrait;
+use App\Traits\TaskTrackTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,11 +25,12 @@ use Str;
 
 class ApplicationController extends Controller
 {
-    use FileImportTrait,PaymentTrait;
+    use FileImportTrait,PaymentTrait,TaskTrackTrait;
     public function index(){
         $usa =UsaPersonalInformation::with('applicant')->get();
         $schengen =SchengenPersonalInformation::with('applicant','additional_information')->get();
-        return view('backend.applications.list',compact('usa','schengen'));
+        $users =User::get();
+        return view('backend.applications.list',compact('usa','schengen','users'));
     }
 
     public function create($id = null){
@@ -38,6 +42,18 @@ class ApplicationController extends Controller
         else{
             return redirect()->back()->with('message', 'We are working on this type of visa');
         }
+    }
+
+    public function visaProfile(Request $request){
+        $id =$request->personal_id;
+        $type =$request->type;
+        if ($type == 1) {
+            $profile =UsaPersonalInformation::with('applicant')->where('id',$id)->first();
+        } else {
+            $profile =SchengenPersonalInformation::with('applicant','additional_information','task_tracks')->first();
+        }  
+        // return $profile->task_tracks;
+        return view('backend.applications.schengen_profile',compact('profile'));
     }
 
     public function paymentProfile($id,$type){
@@ -306,6 +322,72 @@ class ApplicationController extends Controller
         $url = $this->checkOutPayment($payment_log);
         // return $url;
         return redirect()->away($url);
+    }
+
+    public function visaAllocation(Request $request){
+           
+            try {
+                DB::transaction(function() use ($request){
+                    $applications =$request->application;
+                    $user_id      =$request->user_id;
+                    $comment      =$request->comment;
+                    $visa_type    =$request->visa_type;
+
+                    foreach ($applications as $key ) {
+                        $inputs =[
+                            'resource_type' =>$visa_type,
+                            'status' =>1,
+                            'comment' =>$comment,
+                            'received_date' =>Carbon::now(),
+                        ];
+                        switch ($visa_type ) {
+                            case 1:
+                                # code...
+                                break;
+                            case 2:
+                                $personal =SchengenPersonalInformation::find($key);
+                                if ($personal) {
+                                    $personal->allocated =$user_id;
+                                    $personal->assignor  =Auth::user()->id;
+                                    $personal->save();
+        
+                                    // create track 
+                                    $inputs['resource_id'] =$personal->id;
+                                    $inputs['status'] =1;
+                                    $inputs['user_id'] =Auth::user()->id;
+                                    $this->createTrack($inputs);
+        
+                                    // second track for data entry
+                                    $inputs['resource_id'] =$personal->id;
+                                    $inputs['status'] =0;
+                                    $inputs['user_id'] =$user_id;
+                                    $inputs['comment'] =null;
+                                    $this->createTrack($inputs);
+        
+                                }
+                                break;
+                            
+                            default:
+                                # code...
+                                break;
+                        }
+                    }
+
+
+                });
+            } catch (\Throwable $th) {
+                return response()->json([
+                    'success' =>true,
+                    'errors'  =>$th->getMessage()
+                ],500);
+            }
+
+            return response()->json([
+                'success' =>true,
+                'message' =>'Action Done Successfully',
+            ],200);
+
+           
     }
 
     

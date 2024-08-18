@@ -69,6 +69,7 @@
                             <!-- Tab panes -->
                             <div class="tab-content p-3 text-muted">
                                 <div class="tab-pane active" id="home1" role="tabpanel">
+                                    {{-- @include('backend.applications.assign_application',['visa_type' =>1]) --}}
                                     <div class="table-responsive">
                                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             <thead>
@@ -104,10 +105,12 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile1" role="tabpanel">
+                                    @include('backend.applications.assign_application',['visa_type' =>2])
                                     <div class="table-responsive">
                                         <table id="datatable1" class="table table-bordered dt-responsive  nowrap w-100">
                                             <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>#</th>
                                                 <th>Applied At</th>
                                                 <th>Name</th>
@@ -121,6 +124,7 @@
                                             <tbody>
                                                 @foreach ($schengen as $item)
                                                     <tr>
+                                                        <td id="{{ $item->id }}"><input type="checkbox" class="select-item checkbox" name="select-item" value="{{ $item->id }}" /></td>
                                                         <td>{{ $loop->iteration}}</td>
                                                         <td>{{ $item->created_at}} </td>
                                                         <td>{{ $item->applicant?->name }}</td>
@@ -128,7 +132,9 @@
                                                         <td>{{ $item->additional_information?->departure_date }}</td>
                                                         <td>{!! $item->stage_formatted !!}</td>
                                                         <td>
-                                                            <button class="btn btn-primary btn-sm" ><i class="fa fa-user"></i></button>
+                                                            <a href="{{ route('visa.profile',['personal_id'=>$item->id,'visa_type'=>2])}}">
+                                                                <button class="btn btn-primary btn-sm" ><i class="fa fa-user"></i></button>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -153,43 +159,58 @@
 @endsection
 @push('scripts')
 <script>
-     function deleteProgram(id){
-        Swal.fire({
-            title: "Delete Program?",
-            text: "Are you Sure You want to delete this !",
-            icon: "warning",
-            showCancelButton: !0,
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel!",
-            confirmButtonClass: "btn btn-success mt-2",
-            cancelButtonClass: "btn btn-danger ms-2 mt-2",
-            buttonsStyling: !1,
-        }).then(function (t) {
-            if (t.value) {
-                var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
-                $.ajax({
-                        url: "{{ url('program.destroy')}}", 
-                        method: "POST",
-                        data: {uuid:id,'_token':csrf_tokken,action:'approve'},
-                        success: function(response)
-                    { 
-                    // console.log(response); 
-                        // $.notify(response.message, "success");
-                        Swal.fire({ title: "Deleted!", text: response.message, icon: "success" })
-                        setTimeout(function(){
-                            location.reload();
-                        },500);
-                        },
-                        error: function(response){
-                        Swal.fire({ title: "Deleted!", text: response.responseJson.errors, icon: "warning" })
+    $(document).ready(function(){
+      $('#allocate-form').on('submit',function(e){
+          e.preventDefault();
+          var user_id   =$('#user_id').val();
+          var comment   =$('#comment').val();
+          var visa_type =$('#visa_type').val();
 
-                         console.log(response.responseText);
-                         //   $.notify(response.responseJson.errors,'error');  
-                        }
-                    });
-            }
-        });
-  }
+          var checkboxValues = [];
+          $('input.select-item:checked').map(function() {
+              checkboxValues.push($(this).val());
+          });
+
+          $.ajaxSetup({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+          });
+      $.ajax({
+      type:'POST',
+      url:"{{ route('allocate.application')}}",
+      data:{application:checkboxValues,user_id:user_id,comment:comment,visa_type:visa_type},
+      success:function(response){
+        console.log(response);
+       // return;
+        $('#allocate_alert').html('<div class="alert alert-success">'+response.message+'</div>');
+        setTimeout(function(){
+         location.reload();
+      },500);
+      },
+      error:function(response){
+          console.log(response.responseText);
+          if (jQuery.type(response.responseJSON.errors) == "object") {
+            $('#allocate_alert').html('');
+          $.each(response.responseJSON.errors,function(key,value){
+              $('#allocate_alert').append('<div class="alert alert-danger">'+value+'</div>');
+          });
+          } else {
+             $('#allocate_alert').html('<div class="alert alert-danger">'+response.responseJSON.errors+'</div>');
+          }
+      },
+      beforeSend : function(){
+                   $('#allocate-btn').html('<i class="fa fa-spinner fa-pulse fa-spin"></i> loading ---');
+                   $('#allocate-btn').attr('disabled', true);
+              },
+              complete : function(){
+                $('#allocate-btn').html('<i class="fa fa-plus"></i> Assign');
+                $('#allocate-btn').attr('disabled', false);
+              }
+      });
+  });
+  });
 </script>
+
     
 @endpush

@@ -49,7 +49,9 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>
-                                            Role
+                                            @foreach ($item->roles as $role)
+                                            {{ $role->name.' ,' }}
+                                             @endforeach
                                         </td>
                                         <td>{!! $item->status_formatted !!}</td>
                                         <td>
