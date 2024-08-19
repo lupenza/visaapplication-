@@ -482,58 +482,147 @@
     </section>
     <!-- choose-area -->
     <!-- consulting-area -->
-    <section class="consulting-area mb-70" >
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="consulting-inner-wrap shine-animate-item">
-                        <div class="consulting-content">
-                            <div class="content-left">
-                                <h2 class="title">40+</h2>
-                                <span>Consulting <br> farm</span>
+    <div class="row banner-container text-center">
+        <div>
+            <h4>VAAS</h4>
+            <p>"Reliable and Affordable Visa <br>Application Assistance Services"</p>
+        </div>
+    </div>
+    <section>
+        <div class="container mt-5">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12">
+                    <div class="about__content-three">
+                       
+                        <div class="process-container">
+                            <div class="left-process-container">
+                                <div class="sub-process-container">
+                                    <div class="process-icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="process-text-container">
+                                        <p>01</p>
+                                        <h6>Consultation</h6>
+                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                    </div>
+                                </div>
+                                <div class="sub-process-container">
+                                    <div class="process-icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="process-text-container">
+                                        <p>01</p>
+                                        <h6>Consultation</h6>
+                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="content-right">
-                                <h2 class="title">Trusted , Happy & Satisfied Businesses</h2>
-                                <p>When you work with HR Solutions, you get the best. We provide adaptable solutions that allow you to be a part of the entire process</p>
+                            <div>
+                               <div>
+                                <div class="section-title mb-25 tg-heading-subheading animation-style3 text-center">
+                                    <span class="sub-title">Process Overview</span>
+                                    <h2 class="title tg-element-title">Where VAAS Helps Reach <br> Dream Destination</h2>
+                                </div>
+                               </div>
+                               <div class="right-process-container">
+                                <div class="sub-process-container">
+                                    <div class="process-icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="process-text-container">
+                                        <p>01</p>
+                                        <h6>Consultation</h6>
+                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                    </div>
+                                </div>
+                                <div class="sub-process-container">
+                                    <div class="process-icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="process-text-container">
+                                        <p>01</p>
+                                        <h6>Consultation</h6>
+                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                    </div>
+                                </div>
+                                <div class="sub-process-container">
+                                    <div class="process-icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="process-text-container">
+                                        <p>01</p>
+                                        <h6>Consultation</h6>
+                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                    </div>
+                                </div>
+                               </div>
+                                
                             </div>
+
                         </div>
-                        <div class="consulting-img shine-animate">
-                            <img src="{{ asset('assets/frontend/img/images/consulting_img.jpg')}}" alt="">
-                        </div>
-                        <div class="consulting-shape">
-                            <img src="{{ asset('assets/frontend/img/images/consulting_shape.png')}}" alt="">
+                        <div class="about__shape-wrap-three">
+                            <img src="{{ asset('assets/frontend/img/images/h3_about_shape01.png')}}" alt="" class="rotateme">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="consulting-area">
-        <div class="container">
+   <div class="row" style="margin-top: -200px; position:relative; ">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 exp-main-container">
             <div class="row">
-                <div class="col-12">
-                    <div class="consulting-inner-wrap shine-animate-item">
-                        <div class="consulting-content">
-                            <div class="content-left">
-                                <h2 class="title">40+</h2>
-                                <span>Consulting <br> farm</span>
+                <div class="col-md-6">
+                    <h6>Success Story</h6>
+                    <p class="lead-text">Experiencing <br> Traditions and <br> Customs</p>
+                    <p class="lead-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore aliquam nemo</p>
+                </div>
+                <div class="col-md-6 exp-container">
+                    <div class="top-exp-container">
+                        <div class="exp-sub-container">
+                            <div class="icon">
+                                <i class="fa fa-user icon-style"></i>
                             </div>
-                            <div class="content-right">
-                                <h2 class="title">Trusted , Happy & Satisfied Businesses</h2>
-                                <p>When you work with HR Solutions, you get the best. We provide adaptable solutions that allow you to be a part of the entire process</p>
+                            <div class="exp-text-container">
+                                <h6>1000 +</h6>
+                                <p>Visa Processed</p>
                             </div>
                         </div>
-                        <div class="consulting-img shine-animate">
-                            <img src="{{ asset('assets/frontend/img/images/consulting_img.jpg')}}" alt="">
+                        <div class="exp-sub-container right">
+                            <div class="icon">
+                                <i class="fa fa-user icon-style"></i>
+                            </div>
+                            <div class="exp-text-container">
+                                <h6>1000 +</h6>
+                                <p>Visa Processed</p>
+                            </div>
                         </div>
-                        <div class="consulting-shape">
-                            <img src="{{ asset('assets/frontend/img/images/consulting_shape.png')}}" alt="">
+                    </div>
+                    <div class="down-exp-container">
+                        <div class="exp-sub-container">
+                            <div class="icon">
+                                <i class="fa fa-user icon-style"></i>
+                            </div>
+                            <div class="exp-text-container">
+                                <h6>1000 +</h6>
+                                <p>Visa Processed</p>
+                            </div>
+                        </div>
+                        <div class="exp-sub-container">
+                            <div class="icon">
+                                <i class="fa fa-user icon-style"></i>
+                            </div>
+                            <div class="exp-text-container">
+                                <h6>1000 +</h6>
+                                <p>Visa Processed</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="col-md-2"></div>
+   </div>
     <!-- consulting-area-end -->
     <section class="choose__area-three">
         <div class="container">
