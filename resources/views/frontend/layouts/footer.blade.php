@@ -1,4 +1,4 @@
-<footer>
+<footer class="custom-footer" style="background-image: linear-gradient(to right, rgba(32, 191, 234, .7), rgba(32, 191, 234, .7)),url('{{ asset("assets/frontend/img/continent.jpg")}}')">
     <div class="footer__area-three">
         <div class="footer__top-three">
             <div class="container">
@@ -40,7 +40,7 @@
                                             <i class="flaticon-envelope"></i>
                                         </div>
                                         <div class="content">
-                                            <a href="mailto:info@apexa.com">info@apexa.com</a>
+                                            <a href="mailto:info@apexa.com">info@vas.com</a>
                                         </div>
                                     </li>
                                     <li>
@@ -48,7 +48,7 @@
                                             <i class="flaticon-pin"></i>
                                         </div>
                                         <div class="content">
-                                            <p>Sydney Harbour Bridge Circular City of Sydney, Australia.</p>
+                                            <p>Dar Free Market</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -72,7 +72,7 @@
                     <div class="col-lg-5 col-md-8">
                         <div class="footer-widget">
                             <div class="footer__newsletter-three">
-                                <h2 class="title">Never Miss out on a Moment <br> Apexa us</h2>
+                                <h2 class="title">Never Miss out on a Moment</h2>
                                 <form action="#">
                                     <input type="email" placeholder="e-mail Type . . .">
                                     <button class="btn" type="submit">Subscribe</button>
@@ -93,7 +93,9 @@
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="footer-widget">
                             <h4 class="fw-title">Reach Us</h4>
-                            
+                            <div>
+                                <img src="{{ asset('assets/frontend/img/play.png')}}" alt="">
+                            </div>
                         </div>
                     </div>
                     

@@ -623,6 +623,81 @@
         </div>
         <div class="col-md-2"></div>
    </div>
+   <div class="row" style="margin-top: 60px">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 ">
+        <div class="row">
+            <div class="col-md-6 message-container">
+                <form action="">
+                    <div class="form-group row mt-5">
+                        <div class="col-md-6">
+                            <label for="">Your Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Your Phone</label>
+                            <input type="number" name="phone" class="form-control" placeholder="Your Phone">
+                        </div>
+                    </div>
+                    <div class="form-group row mt-3">
+                        <div class="col-md-12">
+                            <label for="">Your Address</label>
+                            <input type="text" name="address" class="form-control" placeholder="You Address">
+
+                        </div>
+                    </div>
+                    <div class="form-group row mt-3">
+                        <div class="col-md-12">
+                            <label for="">Message</label>
+                            <textarea name="message" class="form-control" placeholder="Write Message ...... "></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-3 mb-5">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-primary btn-sm w-100"> Send Message </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 contact-container">
+                <h6>Message Us</h6>
+                <h5>Get Your <br>Visa Now</h5>
+                <p class="text1">Join Over 1000 satified travelers <br>Who Trust us with their travel needs</p>
+                <div>
+                    <div class="contact-sub-container">
+                        <div>
+                            <i class="fa fa-phone icon"></i>
+                        </div>
+                        <div>
+                            <p class="lead-title">Requesting A Call</p>
+                            <p class="sub-lead-title">0755 555 029 or Whatsapp 0755 555 000</p>
+                        </div>
+                    </div>
+                    <div class="contact-sub-container mt-3">
+                        <div>
+                            <i class="fa fa-clock icon"></i>
+                        </div>
+                        <div>
+                            <p class="lead-title">Open Hours</p>
+                            <p class="sub-lead-title">9 am - 8 pm </p>
+                        </div>
+                    </div>
+                    <div class="contact-sub-container mt-3">
+                        <div>
+                            <i class="fa fa-map-pin icon"></i>
+                        </div>
+                        <div>
+                            <p class="lead-title">Location</p>
+                            <p class="sub-lead-title">Dar Free Market</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+   </div>
     <!-- consulting-area-end -->
     <section class="choose__area-three">
         <div class="container">
