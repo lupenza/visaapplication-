@@ -113,7 +113,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="copyright-text">
-                            <p>Copyright © <a href='index.html'>Apexa</a> | All Right Reserved</p>
+                            <p>Copyright © <a href='index.html'>VAAS</a> | All Right Reserved</p>
                         </div>
                     </div>
                 </div>
