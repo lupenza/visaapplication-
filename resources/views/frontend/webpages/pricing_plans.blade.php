@@ -46,27 +46,41 @@
                     <span class="pricing__tab-btn annual_tab_title">Yearly</span>
                 </div> --}}
                 <div class="row justify-content-center">
+                    @forelse ($pricings as $pricing)
                     <div class="col-lg-4 col-md-6 col-sm-8 text-center">
                         <div class="pricing__box">
                             <div class="pricing__head">
-                                <h5 class="title">Basic Plan</h5>
+                                <h5 class="title">{{ $pricing->title}}</h5>
                             </div>
                             <div class="pricing__price">
-                                <h2 class="price monthly_price">$15.00 <span>/ Month</span></h2>
+                                <h2 class="price monthly_price">{!! $pricing->type !!}</h2>
                             </div>
                             <div class="pricing__list">
                                 <ul class="list-wrap">
+                                    @foreach ($pricing->price_offer as $offer)
                                     <li>
                                         <i class="fa fa-check"></i>
-                                        5000 User Activities
-                                    </li>
+                                        {{ $offer }}
+                                    </li>  
+                                    @endforeach
                                 </ul>
                             </div>
+                            @if ($pricing->title == "Negotiable")
                             <div class="pricing__btn">
-                                <a href="javascript:void(0)" class="btn">Get this plan Now</a>
-                            </div>
+                                <a href="javascript:void(0)" class="btn">Contact Us</a>
+                            </div>    
+                            @else
+                            <div class="pricing__btn">
+                                <a href="javascript:void(0)" class="btn">Buy Plan</a>
+                            </div> 
+                            @endif
+                           
                         </div>
-                    </div>
+                    </div> 
+                    @empty
+                        
+                    @endforelse
+                    
                     {{-- <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="pricing__box">
                             <div class="pricing__head">

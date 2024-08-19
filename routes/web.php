@@ -21,6 +21,8 @@ Route::get('countries/{id?}',[HomeController::class,'getCountries'])->name('coun
 Route::get('country/detail/{id}',[HomeController::class,'countryDetails'])->name('get.country');
 Route::get('visa/application',[HomeController::class,'visaApplication'])->name('apply.visa');
 Route::get('all/pricing/plans',[HomeController::class,'pricingPlan'])->name('all.payment.plans');
+Route::get('success/stories',[HomeController::class,'testimonials'])->name('testimonials');
+Route::get('list/of/faq',[HomeController::class,'faq'])->name('faq');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');

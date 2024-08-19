@@ -21,5 +21,9 @@ class PricingPlan extends Model
         }
         
     }
+
+    public function getPriceOfferAttribute(){
+        return explode(",",$this->offer);
+    }
     
 }

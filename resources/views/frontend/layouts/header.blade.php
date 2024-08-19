@@ -41,7 +41,7 @@
                                     </li>
                                     {{-- <li><a href='#'>Apply Visa</a></li> --}}
                                     <li><a href='{{ route('all.payment.plans')}}'>Pricing</a></li>
-                                    <li><a href='#'>FAQ</a></li>
+                                    <li><a href='{{ route('faq')}}'>FAQ</a></li>
                                     <li><a href='#'>Contact Us</a></li>
                                     <li><a href='{{ route('login')}}'>Login</a></li>
                                 </ul>

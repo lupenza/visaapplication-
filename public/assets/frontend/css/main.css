@@ -8287,7 +8287,8 @@ textarea {
   color: var(--tg-border-5);
 }
 .pricing__price .price span {
-  color: var(--tg-border-5);
+  /* color: var(--tg-border-5); */
+  color: #20BFEA;
   text-transform: lowercase;
   font-weight: 400;
   font-size: 18px;
@@ -14950,6 +14951,67 @@ blockquote p {
   /* padding: 20px; Add some padding for content */
   /* color: #fff; Ensure text is readable if needed */
   /* background-color: red; */
+}
+.testimonial-container{
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E9E9F0;
+  background: var(--tg-color-white-default);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
+  /* padding: 60px 30px 45px; */
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  padding: 30px 5px 30px 20px;
+  margin: 10px
+}
+.test-icon{
+  color: #20BFEA;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.testimonial-container .text{
+  font-size: 25px;
+  font-weight: 300;
+  color: #828282;
+}
+.testmonial-bottom-container{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.testmonial-bottom-container .icon{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: #20BFEA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.testmonial-bottom-container .icon span{
+  color: #fff;
+  font-size: 25px;
+  font-weight: 900;
+}
+.text-container-test h6{
+  margin: 0px;
+  font-size: 15px;
+}
+.text-container-test p{
+  margin: 0px;
+  font-size: 12px;
+  color: #20BFEA;
 }
 /* .exp-sub-container .right{
   margin-left: -20px;

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Continent;
 use App\Models\Country;
+use App\Models\Faq;
 use App\Models\PricingPlan;
+use App\Models\Testmonial;
 use App\Models\User;
 use App\Models\VisaType;
 use Illuminate\Http\Request;
@@ -48,5 +50,16 @@ class HomeController extends Controller
         $pricings =PricingPlan::get();
         return view('frontend.webpages.pricing_plans',compact('pricings'));
 
+    }
+
+    public function testimonials(){
+        $testimonials =Testmonial::latest()->get();
+        return view('frontend.webpages.testimonials',compact('testimonials'));
+ 
+    }
+
+    public function faq(){
+        $faqs =Faq::latest()->get();
+        return view('frontend.webpages.faqs',compact('faqs')); 
     }
 }
