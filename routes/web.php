@@ -20,6 +20,7 @@ Route::post('register/user',[LoginController::class,'storeUser'])->name('registe
 Route::get('countries/{id?}',[HomeController::class,'getCountries'])->name('countries');
 Route::get('country/detail/{id}',[HomeController::class,'countryDetails'])->name('get.country');
 Route::get('visa/application',[HomeController::class,'visaApplication'])->name('apply.visa');
+Route::get('all/pricing/plans',[HomeController::class,'pricingPlan'])->name('all.payment.plans');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
@@ -47,6 +48,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('client/list',[ServiceController::class,'clientList'])->name('client.list');
     Route::get('client/create',[ServiceController::class,'clientCreate'])->name('client.create');
     Route::post('client/store',[ServiceController::class,'clientStore'])->name('client.store');
+    Route::get('pricing/list',[ServiceController::class,'pricingList'])->name('pricing.list');
+    Route::post('pricing/store',[ServiceController::class,'pricingStore'])->name('plan.store');
 
     /** Visa Application */
     Route::post('usa/visa/store',[ApplicationController::class,'usaVisaStore'])->name('usa.visa.store');

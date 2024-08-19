@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Faq;
+use App\Models\PricingPlan;
 use App\Models\Service;
 use App\Models\Testmonial;
 use App\Traits\FileImportTrait;
@@ -48,6 +49,11 @@ class ServiceController extends Controller
     public function clientList(){
         $clients =Client::latest()->get();
         return view('backend.website.clients_list',compact('clients'));
+    }
+
+    public function pricingList(){
+        $pricings =PricingPlan::get();
+        return view('backend.website.pricing_list',compact('pricings'));
     }
 
     public function testmonialCreate(){
@@ -231,6 +237,27 @@ class ServiceController extends Controller
             'icon'          =>$valid['icon'],
             'name'          =>$valid['name'],
             'description'   =>$valid['description'],
+            'uuid'          =>(string)Str::orderedUuid(),
+            'created_by'    =>Auth::user()->id,
+        ]);
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200); 
+    }
+
+    public function pricingStore(Request $request){
+        $valid =$request->validate([
+            'title'          =>['required'],
+            'offer'          =>['required'],
+            'type'   =>'required',
+        ]);
+
+        $slider =PricingPlan::create([
+            'title'          =>$valid['title'],
+            'offer'          =>$valid['offer'],
+            'type'           =>$valid['type'],
             'uuid'          =>(string)Str::orderedUuid(),
             'created_by'    =>Auth::user()->id,
         ]);

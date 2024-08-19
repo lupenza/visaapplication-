@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Continent;
 use App\Models\Country;
+use App\Models\PricingPlan;
 use App\Models\User;
 use App\Models\VisaType;
 use Illuminate\Http\Request;
@@ -41,5 +42,11 @@ class HomeController extends Controller
     public function visaApplication(){
         $visa_types =VisaType::get();
         return view('frontend.webpages.visa_application',compact('visa_types'));
+    }
+
+    public function pricingPlan(){
+        $pricings =PricingPlan::get();
+        return view('frontend.webpages.pricing_plans',compact('pricings'));
+
     }
 }
