@@ -15037,6 +15037,31 @@ blockquote p {
   font-size: 12px;
   color: #20BFEA;
 }
+.our-service-container{
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  gap: 10px;
+  background-color: red;
+}
+/* .image-container{
+  border-radius: 10px;
+} */
+.image-container img{
+  height: 10px;
+  width: 100px;
+  padding-right: 100px;
+}
+
+.image-service{
+  height: 10px;
+  width: 100px;
+  padding-right: 100px;
+}
+
+.service-text-container{
+  padding-left: 20px;
+}
 /* .exp-sub-container .right{
   margin-left: -20px;
 } */

@@ -303,6 +303,24 @@
                 <h2 class="title tg-element-title">Our Additional Service</h2>
             </div>
             <div class="row">
+                <div class="col-md-4 our-service-container">
+                    <div class="image-container">
+                        <img class="image-service" src="{{ asset('assets/frontend/img/images/h4_about_img01.jpg')}}" alt="">
+                    </div>
+                    <div class="service-text-container">
+                        <h6>Consultation on Documentation</h6>
+                        <p>There are Many variaty of passages of engineer</p>
+                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+            {{-- <div class="row">
                 <div class="col-lg-6">
                     <div class="card-team-area-six">
                         <div class="card-image">
@@ -383,7 +401,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="text-center">
                 <a class='btn' data-aos-delay='600' data-aos='fade-up' href='contact.html'>Contact Us</a>
             </div>
