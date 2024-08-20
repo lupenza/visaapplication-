@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="banner__content-two">
-                        <h2 class="title" data-aos="fade-up" data-aos-delay="100">Dynamic solutions that <span>power high</span> growth startups</h2>
-                        <p data-aos="fade-up" data-aos-delay="300">Apexa helps you to convert your data into a strategic asset and get business insights Apexa helps you to convert.</p>
-                        <a class='btn border-btn' data-aos-delay='600' data-aos='fade-up' href='contact.html'>Get Started</a>
+                        <h2 class="title" data-aos="fade-up" data-aos-delay="100">VISA APPLICATION  <span>ASSISTANCE</span> SERVICE</h2>
+                        <p data-aos="fade-up" data-aos-delay="300">Apply Visa with confidence with ease</p>
+                        <a class='btn border-btn' data-aos-delay='600' data-aos='fade-up' href='/visa/application'>Apply now</a>
                     </div>
                 </div>
             </div>
@@ -17,11 +17,11 @@
         <div class="banner-social banner-social-two">
             <h5 class="title">Follow us</h5>
             <ul class="list-wrap">
-                <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="fab fa-pinterest-p"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                <li><a href=""><i class="fab fa-pinterest-p"></i></a></li>
+                <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
         </div>
         <div class="banner__shape-two">
@@ -36,7 +36,7 @@
                 <div class="col-lg-7">
                     <div class="section-title text-center mb-50">
                         <span class="sub-title">WHAT WE OFFER</span>
-                        <h2 class="title">We Do World Class Work For You</h2>
+                        <h2 class="title">We Vaas do for you</h2>
                     </div>
                 </div>
             </div>
@@ -47,8 +47,8 @@
                             <i class="fa fa-globe text-white new_icon_style"></i>
                         </div>
                         <div class="services__content-five">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <p style="text-align: left">Beauis utter enim amet lacus ornare ullamcorper Praesent neque purus rhoncus.</p>
+                            <h2 class="title"><a href=''>Visa Application Assistance & consultancy</a></h2>
+                            <p style="text-align: left">Expert guidance through every step of the Visa application process.</p>
                             {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
                         </div>
                     </div>
@@ -59,8 +59,8 @@
                             <i class="fa fa-globe text-white new_icon_style"></i>
                         </div>
                         <div class="services__content-five">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <p style="text-align: left">Beauis utter enim amet lacus ornare ullamcorper Praesent neque purus rhoncus.</p>
+                            <h2 class="title"><a href=''>Application Booking Assistance</a></h2>
+                            <p style="text-align: left">Secure your Embassy Appointment date with ease</p>
                             {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
                         </div>
                     </div>
@@ -71,8 +71,8 @@
                             <i class="fa fa-globe text-white new_icon_style"></i>
                         </div>
                         <div class="services__content-five">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <p style="text-align: left">Beauis utter enim amet lacus ornare ullamcorper Praesent neque purus rhoncus.</p>
+                            <h2 class="title"><a href=''>Travel Insurance</a></h2>
+                            <p style="text-align: left">Comprehesive travel insurance plans for a worry-free journey</p>
                             {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
                         </div>
                     </div>
@@ -83,8 +83,8 @@
                             <i class="fa fa-globe text-white new_icon_style"></i>
                         </div>
                         <div class="services__content-five">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <p style="text-align: left">Beauis utter enim amet lacus ornare ullamcorper Praesent neque purus rhoncus.</p>
+                            <h2 class="title"><a href=''>Hotel & Flight booking</a></h2>
+                            <p style="text-align: left">Book your hotel and flight with us</p>
                             {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
                         </div>
                     </div>
@@ -302,6 +302,24 @@
                 <span class="sub-title text-capitalize">Explore More</span>
                 <h2 class="title tg-element-title">Our Additional Service</h2>
             </div>
+            {{-- <div class="row">
+                <div class="col-md-4 our-service-container">
+                    <div class="image-container">
+                        <img src="{{ asset('assets/frontend/img/images/h4_about_img01.jpg')}}" alt="">
+                    </div>
+                    <div class="serive-text-container">
+                        <h6>Consultation on Documentation</h6>
+                        <p>There are Many variaty of passages of engineer</p>
+                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div> --}}
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card-team-area-six">
