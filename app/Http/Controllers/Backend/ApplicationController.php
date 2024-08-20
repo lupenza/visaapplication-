@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SchengenFormRequest;
 use App\Http\Requests\UsaFormRequest;
 use App\Models\PaymentLog;
+use App\Models\Question;
+use App\Models\QuestionAnswer;
 use App\Models\SchengenAdditionalInformation;
 use App\Models\SchengenPersonalInformation;
 use App\Models\TaskTrack;
@@ -15,6 +17,8 @@ use App\Models\UsaHotelDetail;
 use App\Models\UsaPersonalInformation;
 use App\Models\UsaTripPayer;
 use App\Models\User;
+use App\Models\VisaApplication;
+use App\Models\VisaType;
 use App\Traits\FileImportTrait;
 use App\Traits\PaymentTrait;
 use App\Traits\TaskTrackTrait;
@@ -27,6 +31,12 @@ use Str;
 class ApplicationController extends Controller
 {
     use FileImportTrait,PaymentTrait,TaskTrackTrait;
+
+    public function visaApplication(){
+        $visa_types =VisaType::get();
+       return view('backend.applications.visa_application',compact('visa_types'));
+    }
+
     public function index(){
         $usa =UsaPersonalInformation::with('applicant')->get();
         $schengen =SchengenPersonalInformation::with('applicant','additional_information','allocated_user')->get();
@@ -34,15 +44,9 @@ class ApplicationController extends Controller
         return view('backend.applications.list',compact('usa','schengen','users'));
     }
 
-    public function create($id = null){
-        if ($id == 1) {
-         return view('backend.applications.add');
-        }elseif ($id ==2 ) {
-        return view('backend.applications.schengen_add');
-        }
-        else{
-            return redirect()->back()->with('message', 'We are working on this type of visa');
-        }
+    public function create($visa_id){
+        $questions =Question::where('visa_type_id',$visa_id)->get();
+        return view('backend.applications.add',compact('questions','visa_id'));
     }
 
     public function visaProfile(Request $request){
@@ -448,6 +452,45 @@ class ApplicationController extends Controller
         ],200);
         
 
+    }
+
+    public function visaStore(Request $request){
+        // dd($request->all());
+        try {
+            DB::transaction(function() use ($request){
+                  // inser visa application
+
+                  $application =VisaApplication::create([
+                    'applicant_id' =>Auth::user()->id,
+                    'visa_type_id' =>$request['visa_type_id'],
+                    'uuid' =>(string)Str::orderedUuid(),
+                   ]);
+                $data = request()->all();
+
+                foreach ($data as $key => $value) {
+                    // answers
+                    if (is_numeric($key)) {
+                        $application =QuestionAnswer::create([
+                            'question_id' =>$key,
+                            'answer'      =>$value,
+                            'visa_application_id' =>$application->id,
+                            'uuid' =>(string)Str::orderedUuid(),
+                        ]);
+                    }
+                }
+
+            });
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' =>true,
+                'errors'  =>$th->getMessage()
+            ],500);
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully',
+        ],200);
     }
 
     

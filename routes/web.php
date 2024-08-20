@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\ApplicationController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\VisaManagementController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -65,5 +66,14 @@ Route::group(['middleware'=>'auth'],function(){
     /**user management */
     Route::get('users/list',[UserController::class,'index'])->name('users.index');
     Route::post('users/store',[UserController::class,'store'])->name('user.store');
+
+    /** Visa Management */
+    Route::get('visa/types',[VisaManagementController::class,'index'])->name('visa.types');  
+    Route::post('visa/type/store',[VisaManagementController::class,'visaStore'])->name('visa.type.store');  
+    Route::get('question/list/{id}',[VisaManagementController::class,'questionList'])->name('question.index');  
+    Route::get('question/create',[VisaManagementController::class,'questionCreate'])->name('questions.create');  
+    Route::post('question/store',[VisaManagementController::class,'questionStore'])->name('question.store');
     
+    Route::get('all/visa/application',[ApplicationController::class,'visaApplication'])->name('application.list.index');
+    Route::post('visa/store',[ApplicationController::class,'visaStore'])->name('visa.store');
 });

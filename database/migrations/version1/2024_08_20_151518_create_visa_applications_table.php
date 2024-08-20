@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('visa_types', function (Blueprint $table) {
+        Schema::create('visa_applications', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->string('price');
-            $table->boolean('status')->default(true);
-            $table->softDeletes();
+            $table->integer('applicant_id');
+            $table->integer('visa_type_id');
+            $table->integer('application_stage')->comment("0=> pending , 1 => OnProgress , 2 => Accepted , 3 => Rejected")->default(0);
+            $table->uuid();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('visa_types');
+        Schema::dropIfExists('visa_applications');
     }
 };

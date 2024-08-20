@@ -15,6 +15,12 @@
                 <span key="t-chat">Application</span>
             </a>
         </li>
+        <li>
+            <a href="{{ route('application.list.index')}}" class="waves-effect">
+                <i class="bx bx-purchase-tag-alt"></i>
+                <span key="t-chat">New Applications</span>
+            </a>
+        </li>
         <li class="menu-title" key="t-apps">Website</li>
         <li>
             <a href="{{ route('website.menu')}}" class="waves-effect">
@@ -28,5 +34,13 @@
                 <span key="t-chat">System User</span>
             </a>
         </li>
+        <li class="menu-title" key="t-apps">Visa Management</li>
+        <li>
+            <a href="{{ route('visa.types')}}" class="waves-effect">
+                <i class="bx bx-user"></i>
+                <span key="t-chat">Visa Types</span>
+            </a>
+        </li>
+       
     </ul>
 </div>
