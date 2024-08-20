@@ -13557,8 +13557,10 @@ blockquote p {
 }
 
 .accordion-button.collapsed {
-  border-bottom: 1px solid var(--tg-border-1);
-  background-color: var(--tg-theme-primary);
+  /* border-bottom: 1px solid var(--tg-border-1); */
+  color: #20BFEA;
+  border: 2px solid #E9E9F0;
+  /* background-color: var(--tg-theme-primary); */
 }
 
 .accordion-button:focus {
@@ -13575,13 +13577,35 @@ blockquote p {
   padding-right: 32px;
   margin-bottom: 0px;
   padding-bottom: 25px;
-  color: var(--tg-color-white-default);
+  /* color: var(--tg-color-white-default); */
+  background-color: #fff;
+  border: 2px solid #E9E9F0;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: var(--tg-theme-primary);
-  color: var(--tg-color-white-default);
-  box-shadow: none;
+  /* background-color: var(--tg-theme-primary); */
+  color: #20BFEA;
+  /* box-shadow: none; */
+
+
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  border: 2px solid #E9E9F0;
+  background: var(--tg-color-white-default);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
+  /* padding: 60px 30px 45px; */
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
 }
 
 .accordion {
@@ -13603,7 +13627,7 @@ blockquote p {
   background-image: url(../img/home6/plus.svg);
   transform: rotate(0deg);
   background-position: center;
-  background-color: var(--tg-theme-primary);
+  background-color: #20BFEA;
   border-radius: 4px;
   width: 24px;
   height: 24px;
@@ -13616,7 +13640,7 @@ blockquote p {
 
 .accordion-button:not(.collapsed)::after {
   background-image: url(../img/home6/plus.svg);
-  background-color: var(--tg-theme-primary);
+  background-color: #20BFEA;
 }
 
 .box-faq-right {

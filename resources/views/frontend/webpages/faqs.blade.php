@@ -8,11 +8,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="breadcrumb__content">
-                        <h2 class="title">faq</h2>
+                        <h2 class="title">FAQ</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href='{{ route('home')}}'>Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">faq</li>
+                                <li class="breadcrumb-item active" aria-current="page">FAQ</li>
                             </ol>
                         </nav>
                     </div>
@@ -34,7 +34,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-12">
                     <div class="section-title text-center mb-30">
-                        <h2 class="title">Frequently asked questionsu</h2>
+                        <h2 class="title">Frequently asked questions</h2>
                     </div>
                 </div>
             </div>
