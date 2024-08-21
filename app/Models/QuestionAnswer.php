@@ -12,4 +12,8 @@ class QuestionAnswer extends Model
 
     protected $fillable =['question_id','answer','visa_application_id','uuid'];
 
+    public function question(){
+        return $this->hasOne(Question::class,'id','question_id');
+    }
+
 }

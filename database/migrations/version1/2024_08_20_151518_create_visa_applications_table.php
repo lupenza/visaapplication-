@@ -10,12 +10,16 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
+
     {
         Schema::create('visa_applications', function (Blueprint $table) {
             $table->id();
             $table->integer('applicant_id');
             $table->integer('visa_type_id');
             $table->integer('application_stage')->comment("0=> pending , 1 => OnProgress , 2 => Accepted , 3 => Rejected")->default(0);
+            $table->integer('allocated')->nullable();
+            $table->integer('assignor')->nullable();
+            $table->date('assign_date')->nullable();
             $table->uuid();
             $table->timestamps();
             $table->softDeletes();

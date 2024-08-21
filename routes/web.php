@@ -27,7 +27,6 @@ Route::get('list/of/faq',[HomeController::class,'faq'])->name('faq');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
-    Route::get('applications',[ApplicationController::class,'index'])->name('application.list');
     Route::get('application/create/{id?}',[ApplicationController::class,'create'])->name('application.create');
     Route::get('logout',[LoginController::class,'logout'])->name('logout');
 
@@ -55,11 +54,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('pricing/store',[ServiceController::class,'pricingStore'])->name('plan.store');
 
     /** Visa Application */
-    Route::post('usa/visa/store',[ApplicationController::class,'usaVisaStore'])->name('usa.visa.store');
-    Route::post('schengen/visa/store',[ApplicationController::class,'SchengenVisaStore'])->name('schengen.visa.store');
     Route::get('payment/profile/{id?}/{type?}',[ApplicationController::class,'paymentProfile'])->name('payment.profile');
     Route::get('process/payment/{personal_id?}/{type?}',[ApplicationController::class,'processPayment'])->name('process.payment');
-    Route::get('visa/profile/{personal_id?}/{type?}',[ApplicationController::class,'visaProfile'])->name('visa.profile');
+    Route::get('visa/profile/{uuid}',[ApplicationController::class,'visaProfile'])->name('visa.profile');
     Route::post('visa/allocation',[ApplicationController::class,'visaAllocation'])->name('allocate.application');
     Route::post('track/store',[ApplicationController::class,'trackStore'])->name('track.store');
 

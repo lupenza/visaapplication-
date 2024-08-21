@@ -10,15 +10,9 @@
         </li>
         <li class="menu-title" key="t-apps">Customer</li>
         <li>
-            <a href="{{ route('application.list')}}" class="waves-effect">
-                <i class="bx bx-purchase-tag-alt"></i>
-                <span key="t-chat">Application</span>
-            </a>
-        </li>
-        <li>
             <a href="{{ route('application.list.index')}}" class="waves-effect">
                 <i class="bx bx-purchase-tag-alt"></i>
-                <span key="t-chat">New Applications</span>
+                <span key="t-chat">Applications</span>
             </a>
         </li>
         <li class="menu-title" key="t-apps">Website</li>

@@ -171,7 +171,7 @@ function submitVerticalForm() {
             console.log(response);
             $('#reg_alert').html('<div class="alert alert-success">' + response.message + '</div>');
             setTimeout(function () {
-                window.location.reload()
+                window.location.href ="{{ route('application.list.index')}}"
             }, 500);
         },
         error: function (response) {
