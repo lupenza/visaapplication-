@@ -322,8 +322,7 @@
             </div> --}}
             <div class="row">
                 <div class="col-md-4 our-service-container">
-                    <div class="image-container">
-                        <img class="image-service" src="{{ asset('assets/frontend/img/images/h4_about_img01.jpg')}}" alt="">
+                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
                     </div>
                     <div class="service-text-container">
                         <h6>Consultation on Documentation</h6>
@@ -331,97 +330,54 @@
                         <a href="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4">
-
+                <div class="col-md-4 our-service-container">
+                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
+                    </div>
+                    <div class="service-text-container">
+                        <h6>Consultation on Documentation</h6>
+                        <p>There are Many variaty of passages of engineer</p>
+                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-4">
-
+                <div class="col-md-4 our-service-container">
+                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
+                    </div>
+                    <div class="service-text-container">
+                        <h6>Consultation on Documentation</h6>
+                        <p>There are Many variaty of passages of engineer</p>
+                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 our-service-container">
+                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
+                    </div>
+                    <div class="service-text-container">
+                        <h6>Consultation on Documentation</h6>
+                        <p>There are Many variaty of passages of engineer</p>
+                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 our-service-container">
+                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
+                    </div>
+                    <div class="service-text-container">
+                        <h6>Consultation on Documentation</h6>
+                        <p>There are Many variaty of passages of engineer</p>
+                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 our-service-container">
+                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
+                    </div>
+                    <div class="service-text-container">
+                        <h6>Consultation on Documentation</h6>
+                        <p>There are Many variaty of passages of engineer</p>
+                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            {{-- <div class="row">
-                <div class="col-lg-6">
-                    <div class="card-team-area-six">
-                        <div class="card-image">
-                            <img src="{{ asset('assets/frontend/img/home6/team.png')}}" />
-                            <a href="#" class="btn-share"><img src="{{ asset('assets/frontend/img/home6/share.svg')}}" /></a>
-                        </div>
-                        <div class="card-info">
-                            <div class="card-title">
-                                <a href='team-details.html'>Ralph Edwards</a>
-                               
-                            </div>
-                            <div class="card-desc">
-                                Lorem ipsum dolor sit amet, adipiscing elit. Duis consectetur auctor elit vehicula onec conse tetur risus dignissim justo faubus pretium.
-                            </div>
-                            <div class="card-link">
-                                <a href="#">Contact Me</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card-team-area-six">
-                        <div class="card-image">
-                            <img src="{{ asset('assets/frontend/img/home6/team2.png')}}" />
-                            <a href="#" class="btn-share"><img src="{{ asset('assets/frontend/img/home6/share.svg')}}" /></a>
-                        </div>
-                        <div class="card-info">
-                            <div class="card-title">
-                                <a href='team-details.html'>Ralph Edwards</a>
-                               
-                            </div>
-                            <div class="card-desc">
-                                Lorem ipsum dolor sit amet, adipiscing elit. Duis consectetur auctor elit vehicula onec conse tetur risus dignissim justo faubus pretium.
-                            </div>
-                            <div class="card-link">
-                                <a href="#">Contact Me</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card-team-area-six">
-                        <div class="card-image">
-                            <img src="{{ asset('assets/frontend/img/home6/team2.png')}}" />
-                            <a href="#" class="btn-share"><img src="{{ asset('assets/frontend/img/home6/share.svg')}}" /></a>
-                        </div>
-                        <div class="card-info">
-                            <div class="card-title">
-                                <a href='team-details.html'>Ralph Edwards</a>
-                               
-                            </div>
-                            <div class="card-desc">
-                                Lorem ipsum dolor sit amet, adipiscing elit. Duis consectetur auctor elit vehicula onec conse tetur risus dignissim justo faubus pretium.
-                            </div>
-                            <div class="card-link">
-                                <a href="#">Contact Me</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card-team-area-six">
-                        <div class="card-image">
-                            <img src="{{ asset('assets/frontend/img/home6/team2.png')}}" />
-                            <a href="#" class="btn-share"><img src="{{ asset('assets/frontend/img/home6/share.svg')}}" /></a>
-                        </div>
-                        <div class="card-info">
-                            <div class="card-title">
-                                <a href='team-details.html'>Ralph Edwards</a>
-                               
-                            </div>
-                            <div class="card-desc">
-                                Lorem ipsum dolor sit amet, adipiscing elit. Duis consectetur auctor elit vehicula onec conse tetur risus dignissim justo faubus pretium.
-                            </div>
-                            <div class="card-link">
-                                <a href="#">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-            <div class="text-center">
-                <a class='btn' data-aos-delay='600' data-aos='fade-up' href='contact.html'>Contact Us</a>
+            <div class="text-center mt-4">
+                <a class='btn' data-aos-delay='600' data-aos='fade-up' href='#'>Learn More</a>
             </div>
         </div>
     </section>
