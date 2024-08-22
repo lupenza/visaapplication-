@@ -321,63 +321,20 @@
                 </div>
             </div> --}}
             <div class="row">
+                @foreach ($services as $service)
                 <div class="col-md-4 our-service-container">
-                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
+                    <div class="image-container" style="background-image: url('{{ asset("storage/website"."/".$service->image)}}')">
                     </div>
                     <div class="service-text-container">
-                        <h6>Consultation on Documentation</h6>
-                        <p>There are Many variaty of passages of engineer</p>
+                        <h6>{{ $service->name}}</h6>
+                        <p>{{ $service->caption }}</p>
                         <a href="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
-                </div>
-                <div class="col-md-4 our-service-container">
-                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
-                    </div>
-                    <div class="service-text-container">
-                        <h6>Consultation on Documentation</h6>
-                        <p>There are Many variaty of passages of engineer</p>
-                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 our-service-container">
-                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
-                    </div>
-                    <div class="service-text-container">
-                        <h6>Consultation on Documentation</h6>
-                        <p>There are Many variaty of passages of engineer</p>
-                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 our-service-container">
-                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
-                    </div>
-                    <div class="service-text-container">
-                        <h6>Consultation on Documentation</h6>
-                        <p>There are Many variaty of passages of engineer</p>
-                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 our-service-container">
-                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
-                    </div>
-                    <div class="service-text-container">
-                        <h6>Consultation on Documentation</h6>
-                        <p>There are Many variaty of passages of engineer</p>
-                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 our-service-container">
-                    <div class="image-container" style="background-image: url('{{ asset("assets/frontend/img/images/h4_about_img01.jpg")}}')">
-                    </div>
-                    <div class="service-text-container">
-                        <h6>Consultation on Documentation</h6>
-                        <p>There are Many variaty of passages of engineer</p>
-                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                </div>   
+                @endforeach
             </div>
             <div class="text-center mt-4">
-                <a class='btn' data-aos-delay='600' data-aos='fade-up' href='#'>Learn More</a>
+                <a class='btn' data-aos-delay='600' data-aos='fade-up' href='{{ route('additional.service')}}'>View More</a>
             </div>
         </div>
     </section>
@@ -387,37 +344,56 @@
                 <div class="col-lg-6">
                     <div class="section-title mb-50">
                         <span class="sub-title">Top Countries</span>
-                        <h2 class="title" style="font-size: 30px !important">Lorem ipsum dolor, sit amet consectetur adipisicing elit. </h2>
+                        <h2 class="title" style="font-size: 30px !important">List Of Countries That We Can Assist You.</h2>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div style="text-align: right">
-                        <a class='btn' data-aos-delay='600' data-aos='fade-up' href='#'>View More</a>
+                        <a class='btn' data-aos-delay='600' data-aos='fade-up' href='{{ route('countries')}}'>View More</a>
                     </div>
                 </div>
             </div>
             <div class="row gutter-24">
+                @foreach ($countries as $country)
                 <div class="col-xl-3 col-lg-4 col-md-6">
-                    <a href="{{ route('countries')}}">
+                    <a href="{{ route('get.country',$country->uuid)}}">
                         <div class="services__item-five" style="text-align: left !important ; padding-top: 30px !important;">
                             <div class="services__icon-five" style="margin-bottom: 20px !important" >
                                 <div>
-                                    <img style="width: 50px; border-radius: 50%; height: 50px" src="{{ asset('assets/frontend/img/flag_t.png')}}" alt="">
+                                    <img style="width: 50px; border-radius: 50%; height: 50px" src="{{ asset('storage/website'.'/'.$country->image)}}" alt="">
                                 </div>
                             </div>
                             <div class="services__content-five" style="padding-top: 0px !important">
-                                <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
+                                <h2 class="title"><a href='{{ route('get.country',$country->uuid)}}'>{{ $country->name }}</a></h2>
                                 <ul style="list-style-type: none; padding-left:0;">
-                                    <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                    <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                    <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                    @foreach ($country->country_special as $item)
+                                    <li> <i class="fa fa-check service-icon"></i>{{ $item}}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                     </a>
-                   
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
+                </div>  
+                @endforeach
+               
+                {{-- <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="services__item-five" style="text-align: left !important ; padding-top: 30px !important;">
+                        <div class="services__icon-five" style="margin-bottom: 20px !important" >
+                            <div>
+                                <img style="width: 50px; border-radius: 50%; height: 50px" src="{{ asset('assets/frontend/img/flag_t.png')}}" alt="">
+                            </div>
+                        </div>
+                        <div class="services__content-five" style="padding-top: 0px !important">
+                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
+                            <ul style="list-style-type: none; padding-left:0;">
+                                <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                <li> <i class="fa fa-check service-icon"></i>list one</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> --}}
+                {{-- <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="services__item-five" style="text-align: left !important ; padding-top: 30px !important;">
                         <div class="services__icon-five" style="margin-bottom: 20px !important" >
                             <div>
@@ -450,24 +426,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="services__item-five" style="text-align: left !important ; padding-top: 30px !important;">
-                        <div class="services__icon-five" style="margin-bottom: 20px !important" >
-                            <div>
-                                <img style="width: 50px; border-radius: 50%; height: 50px" src="{{ asset('assets/frontend/img/flag_t.png')}}" alt="">
-                            </div>
-                        </div>
-                        <div class="services__content-five" style="padding-top: 0px !important">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <ul style="list-style-type: none; padding-left:0;">
-                                <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                <li> <i class="fa fa-check service-icon"></i>list one</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                </div> --}}
                
             </div>
         </div>

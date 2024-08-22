@@ -27,7 +27,7 @@ class Country extends Model
     }
 
     public function getCountrySpecialAttribute(){
-        $data =json_decode($this->country_attribute,true);
+        $data =explode(',',$this->country_attribute);
         return $data;
     }
 }

@@ -50,10 +50,13 @@
                                         <td>{{ $item->created_at}} </td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->continent?->name }}</td>
-                                        <td>{!! $item->country_special !!}</td>
+                                        <td>{!! $item->country_attribute !!}</td>
                                         <td>{!! $item->status_formatted !!}</td>
                                         <td>
-                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteProgram(id)" title="Delete"><i class="fa fa-trash"></i></button>
+                                            <a href="{{ route('edit.country',$item->uuid)}}">
+                                             <button class="btn btn-primary btn-sm"  title="Edit"><i class="fa fa-edit"></i></button>
+                                            </a>
+                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteCountry(id)" title="Delete"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -71,10 +74,10 @@
 </div> <!-- container-fluid -->
 @endsection
 @push('scripts')
-{{-- <script>
-     function deleteProgram(id){
+<script>
+     function deleteCountry(id){
         Swal.fire({
-            title: "Delete Program?",
+            title: "Delete Country?",
             text: "Are you Sure You want to delete this !",
             icon: "warning",
             showCancelButton: !0,
@@ -87,9 +90,9 @@
             if (t.value) {
                 var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                        url: "{{ route('program.destroy')}}", 
+                        url: "{{ route('country.destroy')}}", 
                         method: "POST",
-                        data: {uuid:id,'_token':csrf_tokken,action:'approve'},
+                        data: {uuid:id,'_token':csrf_tokken},
                         success: function(response)
                     { 
                     // console.log(response); 
@@ -109,6 +112,6 @@
             }
         });
   }
-</script> --}}
+</script>
     
 @endpush

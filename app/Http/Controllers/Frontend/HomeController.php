@@ -7,6 +7,7 @@ use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Faq;
 use App\Models\PricingPlan;
+use App\Models\Service;
 use App\Models\Testmonial;
 use App\Models\User;
 use App\Models\VisaType;
@@ -17,7 +18,9 @@ use Spatie\Permission\Models\Role;
 class HomeController extends Controller
 {
     public function index(){
-        return view('frontend.webpages.home');
+        $data['countries'] =Country::take(4)->get();
+        $data['services'] =Service::take(8)->get();
+        return view('frontend.webpages.home',$data);
     }
 
     public function loginForm(){
@@ -35,8 +38,8 @@ class HomeController extends Controller
         return view('frontend.webpages.countries',compact('continents','countries'));
     }
 
-    public function countryDetails($country_id){
-        $country =Country::find($country_id);
+    public function countryDetails($country_uuid){
+        $country    =Country::where('uuid',$country_uuid)->first();
         $continents =Continent::orderBy('name','ASC')->get();
         return view('frontend.webpages.country_detail',compact('country','continents'));
     }
@@ -61,5 +64,10 @@ class HomeController extends Controller
     public function faq(){
         $faqs =Faq::latest()->get();
         return view('frontend.webpages.faqs',compact('faqs')); 
+    }
+
+    public function additionalServices(){
+        $services =Service::get();
+        return view('frontend.webpages.additional_services',compact('services')); 
     }
 }
