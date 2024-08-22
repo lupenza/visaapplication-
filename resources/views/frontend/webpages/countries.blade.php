@@ -40,7 +40,7 @@
                                 <div class="row">
                                     @forelse ($countries as $country)
                                     <div class="col-md-6">
-                                        <a href="{{ route('get.country',$country->id)}}">
+                                        <a href="{{ route('get.country',$country->uuid)}}">
                                             <div class="services__details-list-box">
                                                 <div>
                                                     <img style="width: 50px; border-radius: 50%; height: 50px" src="{{ asset('storage/website'.'/'.$country->image)}}" alt="">

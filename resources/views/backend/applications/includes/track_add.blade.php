@@ -5,9 +5,12 @@
             <label for="">Action</label>
             <select name="action" class="form-control" required>
                 <option value="" >please select action</option>
-                <option value="Forward">Forward</option>
+                @if (Auth::user()->hasRole('Admin') || Auth::user()->hasRole('Super Admin') )
                 <option value="Reverse">Reverse</option>
-                <option value="Approve">Approve</option>
+                <option value="Approve">Approve</option>   
+                @else
+                <option value="Forward">Forward</option>
+                @endif
             </select>
         </div>
         <div class="col-md-12 mt-2">

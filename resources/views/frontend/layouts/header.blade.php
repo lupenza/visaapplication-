@@ -24,7 +24,7 @@
                     <div class="tgmenu__wrap">
                         <nav class="tgmenu__nav">
                             <div class="logo">
-                                <a href='index.html'><img src="{{ asset('assets/frontend/img/logo/logo.png')}}" alt="Logo"></a>
+                                <a href='{{ route('home')}}'><img src="{{ asset('assets/frontend/img/logo/logo.png')}}" alt="Logo"></a>
                             </div>
                             <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-lg-flex">
                                 <ul class="navigation">
@@ -93,7 +93,7 @@
                         <nav class="tgmobile__menu-box">
                             <div class="close-btn"><i class="fas fa-times"></i></div>
                             <div class="nav-logo">
-                                <a href='index.html'><img src="assets/img/logo/logo.html" alt="Logo"></a>
+                                <a href='{{ route('home')}}'><img src="assets/img/logo/logo.html" alt="Logo"></a>
                             </div>
                             <div class="tgmobile__search">
                                 <form action="#">
@@ -170,7 +170,7 @@
             <button><i class="far fa-window-close"></i></button>
         </div>
         <div class="offCanvas__logo mb-30">
-            <a href='index.html'><img src="assets/img/logo/logo.html" alt="Logo"></a>
+            <a href='{{ route('home')}}'><img src="assets/img/logo/logo.html" alt="Logo"></a>
         </div>
         <div class="offCanvas__side-info mb-30">
             <div class="contact-list mb-30">

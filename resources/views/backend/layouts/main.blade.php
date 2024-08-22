@@ -62,6 +62,13 @@
             <div class="main-content">
 
                 <div class="page-content">
+                    <div class="row">
+                        @if(session('message'))
+                        <div class="col-md-12 alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif 
+                    </div>
                     @yield('content')
                     <!-- container-fluid -->
                 </div>

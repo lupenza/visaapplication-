@@ -82,6 +82,17 @@ class ServiceController extends Controller
         return view('backend.website.country_add',compact('continents'));
     }
 
+    public function editCountry($uuid){
+        $country =Country::where('uuid',$uuid)->first();
+        $continents =Continent::orderBy('name','ASC')->get();
+        return view('backend.website.edit_country',compact('country','continents'));
+    }
+
+    public function editService($uuid){
+        $service  =Service::where('uuid',$uuid)->first();
+        return view('backend.website.edit_service',compact('service'));
+    }
+
     public function serviceStore(Request $request){
 
         $valid =$request->validate([
@@ -206,7 +217,7 @@ class ServiceController extends Controller
             'continent_id'   =>$valid['continent_id'],
             'description'   =>$valid['description'],
             'uuid'          =>(string)Str::orderedUuid(),
-            'country_attribute' =>json_encode(implode(',',$valid['country_attribute'])),
+            'country_attribute' =>$valid['country_attribute'],
             'created_by'    =>Auth::user()->id,
         ]);
 
@@ -266,5 +277,108 @@ class ServiceController extends Controller
             'success' =>true,
             'message' =>'Action Done Successfully'
         ],200); 
+    }
+
+    public function updateCountry(Request $request){
+        $valid =$request->validate([
+            'name'           =>['required'],
+            'continent_id'   =>'required',
+            'country_attribute' =>'required',
+            'description'       =>'required',
+            'uuid'              =>'required',
+            'change_image'             =>'required',
+            'change_cover_image'       =>'required',
+        ]);
+        $slider =Country::where('uuid',$valid['uuid'])->update([
+            'name'          =>$valid['name'],
+            'continent_id'   =>$valid['continent_id'],
+            'description'   =>$valid['description'],
+            'country_attribute' =>$valid['country_attribute'],
+        ]);
+
+        if ($valid['change_image'] == "yes") {
+            if ($request->hasFile('image')) {
+                $slider->image =$this->importFile($request->file('image'),$slider->title.'_'.(string)Str::orderedUuid());
+                $slider->save();
+            }
+        }
+
+        if ($valid['change_cover_image'] == "yes") {
+            if ($request->hasFile('cover_image')) {
+                $slider->cover_image =$this->importFile($request->file('cover_image'),$slider->title.'_'.(string)Str::orderedUuid());
+                $slider->save();
+            }
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200);
+    }
+
+    public function countryDestroy(Request $request){
+        $uuid =$request->uuid;
+
+        Country::where('uuid',$uuid)->delete();
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200);
+
+    }
+
+  
+
+    public function updateService(Request $request){
+        $valid =$request->validate([
+            'uuid'        =>'required',
+            'name'        =>'required',
+            'caption'     =>'required',
+            'description' =>'required',
+            'change_image'       =>'required',
+        ]);
+
+        try {
+            DB::transaction(function() use ($valid,$request){
+                $service =Service::where('uuid',$valid['uuid'])->update([
+                    'name'        =>$valid['name'],
+                    'caption'     =>$valid['caption'],
+                    'description' =>$valid['description'],
+                ]);
+
+                if ($valid['change_image'] == "yes") {
+                    if ($request->hasFile('image')) {
+                        $service->image =$this->importFile($request->file('image'),$service->name.'_'.$service->uuid);
+                        $service->save();
+                    }
+                }
+                
+
+            });
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json([
+                'success' =>true,
+                'errors'  =>$th->getMessage()
+            ],500);
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200); 
+    }
+
+    public function serviceDestroy(Request $request){
+        $uuid =$request->uuid;
+
+        Service::where('uuid',$uuid)->delete();
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200);
+
     }
 }
