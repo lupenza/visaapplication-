@@ -298,24 +298,6 @@
                 <span class="sub-title text-capitalize">Explore More</span>
                 <h2 class="title tg-element-title">Our Additional Service</h2>
             </div>
-            {{-- <div class="row">
-                <div class="col-md-4 our-service-container">
-                    <div class="image-container">
-                        <img src="{{ asset('assets/frontend/img/images/h4_about_img01.jpg')}}" alt="">
-                    </div>
-                    <div class="serive-text-container">
-                        <h6>Consultation on Documentation</h6>
-                        <p>There are Many variaty of passages of engineer</p>
-                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-
-                </div>
-                <div class="col-md-4">
-
-                </div>
-            </div> --}}
             <div class="row">
                 @foreach ($services as $service)
                 <div class="col-md-4 our-service-container">
@@ -324,7 +306,7 @@
                     <div class="service-text-container">
                         <h6>{{ $service->name}}</h6>
                         <p>{{ $service->caption }}</p>
-                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <a href="{{ route('service.detail',$service->uuid)}}">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>   
                 @endforeach

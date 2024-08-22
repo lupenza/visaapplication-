@@ -70,4 +70,10 @@ class HomeController extends Controller
         $services =Service::get();
         return view('frontend.webpages.additional_services',compact('services')); 
     }
+
+    public function getService($uuid){
+        $service =Service::where('uuid',$uuid)->first();
+        $services =Service::get();
+        return view('frontend.webpages.service_detail',compact('service','services'));
+    }
 }

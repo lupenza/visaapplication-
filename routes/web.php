@@ -25,6 +25,7 @@ Route::get('all/pricing/plans',[HomeController::class,'pricingPlan'])->name('all
 Route::get('success/stories',[HomeController::class,'testimonials'])->name('testimonials');
 Route::get('list/of/faq',[HomeController::class,'faq'])->name('faq');
 Route::get('additional/services',[HomeController::class,'additionalServices'])->name('additional.service');
+Route::get('get/service/{uuid}',[HomeController::class,'getService'])->name('service.detail');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
