@@ -8,7 +8,7 @@
                 <div class="col-lg-6">
                     <div class="banner__content-two">
                         <h2 class="title" data-aos="fade-up" data-aos-delay="100">VISA APPLICATION  <span>ASSISTANCE</span> SERVICE</h2>
-                        <p data-aos="fade-up" data-aos-delay="300">Apply Visa with confidence with ease</p>
+                        <p data-aos="fade-up" data-aos-delay="300">Apply visa with maximum confidence</p>
                         <a class='btn border-btn' data-aos-delay='600' data-aos='fade-up' href='/visa/application'>Apply now</a>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                             <i class="fa fa-globe text-white new_icon_style"></i>
                         </div>
                         <div class="services__content-five">
-                            <h2 class="title"><a href=''>Visa Application Assistance & consultancy</a></h2>
-                            <p style="text-align: left">Expert guidance through every step of the Visa application process.</p>
+                            <h2 class="title"><a href=''>Visa Application Assistance & Consultation</a></h2>
+                            <p style="text-align: left">Expert guidance through every step of the visa application process.</p>
                             {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
                         </div>
                     </div>
@@ -56,10 +56,10 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="services__item-five">
                         <div class="new_icon_div">
-                            <i class="fa fa-globe text-white new_icon_style"></i>
+                            <i class="fa fa-address-card text-white new_icon_style"></i>
                         </div>
                         <div class="services__content-five">
-                            <h2 class="title"><a href=''>Application Booking Assistance</a></h2>
+                            <h2 class="title"><a href=''>Appointment Booking Assistance </a></h2>
                             <p style="text-align: left">Secure your Embassy Appointment date with ease</p>
                             {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
                         </div>
@@ -68,11 +68,11 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="services__item-five">
                         <div class="new_icon_div">
-                            <i class="fa fa-globe text-white new_icon_style"></i>
+                            <i class="fa fa-plane text-white new_icon_style"></i>
                         </div>
                         <div class="services__content-five">
                             <h2 class="title"><a href=''>Travel Insurance</a></h2>
-                            <p style="text-align: left">Comprehesive travel insurance plans for a worry-free journey</p>
+                            <p style="text-align: left">Comprehensive travel insurance plans for a worry-free journey</p>
                             {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
                         </div>
                     </div>
@@ -80,11 +80,11 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="services__item-five">
                         <div class="new_icon_div">
-                            <i class="fa fa-globe text-white new_icon_style"></i>
+                            <i class="fa fa-hotel text-white new_icon_style"></i>
                         </div>
                         <div class="services__content-five">
                             <h2 class="title"><a href=''>Hotel & Flight booking</a></h2>
-                            <p style="text-align: left">Book your hotel and flight with us</p>
+                            <p style="text-align: left">Book your hotel and flights with us</p>
                             {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                             <span class="sub-title">Why Choose Us</span>
                             <h2 class="title tg-element-title">VAAS is your Best Travel Companion</h2>
                         </div>
-                        <p>Mauris ut enim sit amet lacus ornare ullamcorper. Praesent plaacerat neque eu purus rhoncus, vel tincidunt odio ultrices. Seed theya are feugiat elis Curabitur posuere tristique.</p>
+                        <p>At VAAS, we are committed to making your travel planning as seamless and stress-free as possible. Our dedication to excellence and customer satisfaction sets us apart.</p>
                         <div class="row justify-content-center gutter-24">
                             <div class="col-lg-6 col-md-12">
                                 <div class="services__item-three new_service_item">
@@ -121,14 +121,13 @@
                                             <i class="flaticon-profit"></i>
                                         </div>
                                         <div class="services__item-top-title">
-                                            <h2 class="title"><a href='services-details.html'>Modern Strategic Business</a></h2>
+                                            <h2 class="title"><a href='services-details.html'>Expert <br> Knowledge</a></h2>
                                         </div>
                                     </div>
                                     <div class="services__content-three">
                                         <ul style="list-style-type: none; padding-left:0;">
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                            <li> <i class="fa fa-check service-icon"></i>Over 10 years of experience in the travel and visa industry</li>
+                                            <li> <i class="fa fa-check service-icon"></i>Professionals who stay updated with the latest regulations</li> 
                                         </ul>
                                     </div>
                                 </div>
@@ -140,14 +139,13 @@
                                             <i class="flaticon-target"></i>
                                         </div>
                                         <div class="services__top-title">
-                                            <h2 class="title"><a href='services-details.html'>Target<br> Marketing</a></h2>
+                                            <h2 class="title"><a href='services-details.html'>Customer <br> Support</a></h2>
                                         </div>
                                     </div>
                                     <div class="services__content-three">
                                         <ul style="list-style-type: none; padding-left:0;">
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                            <li> <i class="fa fa-check service-icon"></i>24/7 customer support to answer all your queries</li>
+                                            <li> <i class="fa fa-check service-icon"></i>Friendly and knowledgeable staff ready to assist you</li> 
                                         </ul>
                                         {{-- <p>Mauris utenim sitamet lacus ornar eary ullamcperson Praesent plaacera treat neque eu purus rhoncu</p> --}}
                                     </div>
@@ -160,14 +158,13 @@
                                             <i class="flaticon-financial-profit"></i>
                                         </div>
                                         <div class="services__top-title">
-                                            <h2 class="title"><a href='services-details.html'>Finance <br>Investment</a></h2>
+                                            <h2 class="title"><a href='services-details.html'>High <br>Success Rate </a></h2>
                                         </div>
                                     </div>
                                     <div class="services__content-three">
                                         <ul style="list-style-type: none; padding-left:0;">
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                            <li> <i class="fa fa-check service-icon"></i>High success rate in visa approvals.</li>
+                                            <li> <i class="fa fa-check service-icon"></i>Proven track record with thousands of satisfied customers</li> 
                                         </ul>
                                     </div>
                                 </div>
@@ -179,14 +176,13 @@
                                             <i class="flaticon-piggy-bank"></i>
                                         </div>
                                         <div class="services__top-title">
-                                            <h2 class="title"><a href='services-details.html'>Tax <br> Advisory</a></h2>
+                                            <h2 class="title"><a href='services-details.html'>Affordable  <br> Pricess</a></h2>
                                         </div>
                                     </div>
                                     <div class="services__content-three">
                                         <ul style="list-style-type: none; padding-left:0;">
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
-                                            <li> <i class="fa fa-check service-icon"></i>list one</li>
+                                            <li> <i class="fa fa-check service-icon"></i>Competitive pricing without compromising on quality</li>
+                                            <li> <i class="fa fa-check service-icon"></i>Transparent fee structure with no hidden charges</li> 
                                         </ul>
                                     </div>
                                 </div>

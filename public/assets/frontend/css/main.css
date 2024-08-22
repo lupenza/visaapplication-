@@ -5537,12 +5537,18 @@ textarea {
     border-radius: 15px;
     padding: 60px 30px 45px;
     text-align: center;
-    margin-bottom: 30px;
+    height: 300px;
+    /* margin-bottom: 30px; */
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
     -ms-transition: all 0.3s ease-out 0s;
     -o-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s;
+}
+
+services__item-five h2 p {
+    text-align: center;
+    align-items: center;
 }
 
 .services__item-five:hover {
@@ -5849,6 +5855,11 @@ textarea {
 
 .services__content-three p {
     margin-bottom: 25px;
+}
+
+.services__content-three li {
+    font-size: 10px;
+    margin-bottom: 8px;
 }
 
 .services__content-three .btn {
@@ -16725,7 +16736,7 @@ blockquote p {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .new_icon_style {
