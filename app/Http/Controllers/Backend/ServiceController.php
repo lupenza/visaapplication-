@@ -93,6 +93,11 @@ class ServiceController extends Controller
         return view('backend.website.edit_service',compact('service'));
     }
 
+    public function editTestmonial($uuid){
+        $testmonial =Testmonial::where('uuid',$uuid)->first();
+        return view('backend.website.edit_testmonial',compact('testmonial'));
+    }
+
     public function serviceStore(Request $request){
 
         $valid =$request->validate([
@@ -380,5 +385,55 @@ class ServiceController extends Controller
             'message' =>'Action Done Successfully'
         ],200);
 
+    }
+
+    public function updateTestmonial(Request $request){
+        $valid =$request->validate([
+            'uuid'        =>'required',
+            'name'        =>'required',
+            'designation'     =>'required',
+            'description'     =>'required',
+            'change_image'    =>'required',
+        ]);
+
+        try {
+            DB::transaction(function() use ($valid,$request){
+                $service =Testmonial::where('uuid',$valid['uuid'])->update([
+                    'name'        =>$valid['name'],
+                    'designation'     =>$valid['designation'],
+                    'description' =>$valid['description'],
+                ]);
+
+                if ($valid['change_image'] == "yes") {
+                    if ($request->hasFile('image')) {
+                        $service->image =$this->importFile($request->file('image'),$service->name.'_'.$service->uuid);
+                        $service->save();
+                    }
+                }
+
+            });
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json([
+                'success' =>true,
+                'errors'  =>$th->getMessage()
+            ],500);
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200);  
+    }
+
+    public function testmonialDestroy(Request $request){
+        $uuid =$request->uuid;
+
+        Testmonial::where('uuid',$uuid)->delete();
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200); 
     }
 }

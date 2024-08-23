@@ -38,7 +38,7 @@
                                 <th>Created At</th>
                                 <th>Name</th>
                                 <th>Designation</th>
-                                <th>Description</th>
+                                {{-- <th>Description</th> --}}
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -50,9 +50,12 @@
                                         <td>{{ $item->created_at}} </td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->designation }}</td>
-                                        <td>{{ $item->description }}</td>
+                                        {{-- <td>{{ $item->description }}</td> --}}
                                         <td>{!! $item->status_formatted !!}</td>
                                         <td>
+                                            <a href="{{ route('edit.testmonial',$item->uuid)}}">
+                                                <button class="btn btn-primary btn-sm"  title="Edit"><i class="fa fa-edit"></i></button>
+                                               </a>
                                             <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteTestmonial(id)" title="Delete"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -87,7 +90,7 @@
             if (t.value) {
                 var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                        url: "{{ url('testmonial.destroy')}}", 
+                        url: "{{ route('testmonial.destroy')}}", 
                         method: "POST",
                         data: {uuid:id,'_token':csrf_tokken,action:'approve'},
                         success: function(response)
@@ -100,6 +103,7 @@
                         },500);
                         },
                         error: function(response){
+                            console.log(response.responseText);
                         Swal.fire({ title: "Deleted!", text: response.responseJson.errors, icon: "warning" })
 
                          console.log(response.responseText);

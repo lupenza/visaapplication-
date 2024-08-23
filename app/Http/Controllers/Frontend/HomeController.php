@@ -76,4 +76,8 @@ class HomeController extends Controller
         $services =Service::get();
         return view('frontend.webpages.service_detail',compact('service','services'));
     }
+
+    public function aboutUs(){
+        return view('frontend.webpages.about_us');
+    }
 }

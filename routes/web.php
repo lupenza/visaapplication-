@@ -26,6 +26,7 @@ Route::get('success/stories',[HomeController::class,'testimonials'])->name('test
 Route::get('list/of/faq',[HomeController::class,'faq'])->name('faq');
 Route::get('additional/services',[HomeController::class,'additionalServices'])->name('additional.service');
 Route::get('get/service/{uuid}',[HomeController::class,'getService'])->name('service.detail');
+Route::get('about/us',[HomeController::class,'aboutUs'])->name('about.us');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
@@ -60,6 +61,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('service/destroy',[ServiceController::class,'serviceDestroy'])->name('service.destroy');
     Route::get('edit/service/{uuid}',[ServiceController::class,'editService'])->name('edit.service');
     Route::post('update/service',[ServiceController::class,'updateService'])->name('service.update');
+    Route::post('testmonial/destroy',[ServiceController::class,'testmonialDestroy'])->name('testmonial.destroy');
+    Route::get('edit/testmonial/{uuid}',[ServiceController::class,'editTestmonial'])->name('edit.testmonial');
+    Route::post('update/testmonial',[ServiceController::class,'updateTestmonial'])->name('testmonial.update');
 
     /** Visa Application */
     Route::get('payment/profile/{id?}/{type?}',[ApplicationController::class,'paymentProfile'])->name('payment.profile');

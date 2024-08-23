@@ -1,3 +1,7 @@
+@php
+    $services =\App\Models\Service::get();
+@endphp
+
 <header class="tg-header__style-three transparent-header">
     <div class="tg-header__top">
         <div class="container custom-container">
@@ -29,14 +33,12 @@
                             <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-lg-flex">
                                 <ul class="navigation">
                                     <li class="active"><a href='{{ route('home')}}'>Home</a></li>
-                                    <li class=" menu-item-has-children"><a href="#">About Us</a>
-                                        <ul class="sub-menu">
-                                            <li><a href='#'>Our Team</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href='{{ route('about.us')}}'>About Us</a></li>
                                     <li class="menu-item-has-children"><a href="#">Our Service</a>
                                         <ul class="sub-menu">
-                                            <li><a href='#'>Service 1</a></li>
+                                            @foreach ($services as $service)
+                                            <li><a href="{{ route('service.detail',$service->uuid)}}">{{ $service->name }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     {{-- <li><a href='#'>Apply Visa</a></li> --}}
@@ -70,7 +72,7 @@
                                             </svg>
                                         </a>
                                     </li> --}}
-                                    <li class="header-btn"><a class='btn' href='{{ route('apply.visa')}}'> Apply Visa <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li>
+                                    <li class="header-btn"><a class='btn' href='{{ route('apply.visa')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li>
                                 </ul>
                             </div>
                             <div class="mobile-nav-toggler mobile-nav-toggler-two">
