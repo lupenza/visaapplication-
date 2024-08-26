@@ -41,40 +41,44 @@
                         <h2 class="title tg-element-title">We Offer Business Insight World Class Consulting</h2>
                     </div>
                 </div> --}}
-                <div class="col-lg-6">
-                    <div class="visa_requirement">
-                        <h5>CHECK VISA REQUIREMENTAS</h5>
-                        <p>AND APPLY</p>
-                        <form action="">
-                            <div class="form-group text-center">
-                                <label for="">Applying Country</label><br>
-                                <select name="country_id" id="country_id" class="form-component">
-                                    <option value="">select a country</option>
-                                    @foreach ($visa_types as $item)
-                                    <option value="{{ $item->id}}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <h6 class="title tg-element-title">Visa Application Assistance System </h6>
-                    <p class="title_caption">You take care of your trip ,we take care of your visa</p>
-                    <h6 class="title tg-element-title">Apply for your visa in 3 easy steps </h6>
+                <div class="col-lg-6 text-center">
+                    @foreach ($services as $service)
+                        @if ($service->id == 1)
+                        <a href="{{ route('get.paid.service',$service->uuid)}}">
+                            <div class="visa_requirement">
+                                <h5>{{ $service->name }}</h5>
+                                <p>{{ $service->description}}</p>
+                                <button class="btn btn-primary text-center">Apply Now</button>
+                            </div> 
+                        </a>
+                       
+                        @endif
+                    @endforeach
+                    
+                    <h5 class="title tg-element-title mt-4 text-center">Other Services</h5>
                     <div class="choose__content-three">
                         <div class="choose__list">
                             <ul class="list-wrap">
-                                <li>
-                                    <div class="choose__list-box">
-                                        <div class="choose__list-icon">
-                                            <i class="flaticon-financial-profit"></i>
-                                        </div>
-                                        <div class="choose__list-content">
-                                            <h4 class="title">Fill the application form</h4>
-                                            <p>Apexa helps youcona doing <br> tempor incididunt.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
+                                @foreach ($services as $item)
+                                    @if ($item->id != 1)
+                                    <a href="{{ route('get.paid.service',$item->uuid)}}">
+                                        <li>
+                                            <div class="choose__list-box">
+                                                <div class="choose__list-icon">
+                                                    <i class="flaticon-financial-profit"></i>
+                                                </div>
+                                                <div class="choose__list-content">
+                                                    <h4 class="title">{{ $item->name }}</h4>
+                                                    <p>{{ $item->description }}</p>
+                                                </div>
+                                            </div>
+                                        </li> 
+                                    </a>
+                                   
+                                    @endif 
+                                @endforeach
+                               
+                                {{-- <li>
                                     <div class="choose__list-box">
                                         <div class="choose__list-icon">
                                             <i class="flaticon-report"></i>
@@ -95,7 +99,7 @@
                                             <p>Apexa helps youcona doing <br> tempor incididunt.</p>
                                         </div>
                                     </div>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>

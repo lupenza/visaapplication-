@@ -10,4 +10,8 @@ class PaidService extends Model
     use HasFactory;
 
     protected $fillable =['name','description','uuid','created_by'];
+
+    public function price_plans(){
+        return $this->hasMany(PaidServicePrice::class,'paid_service_id','id');
+    }
 }

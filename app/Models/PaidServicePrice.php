@@ -12,4 +12,8 @@ class PaidServicePrice extends Model
 
     protected $fillable =['name','offers','price','uuid','created_by','paid_service_id'];
 
+    public function getPriceOfferAttribute(){
+        return explode(",",$this->offers);
+    }
+
 }

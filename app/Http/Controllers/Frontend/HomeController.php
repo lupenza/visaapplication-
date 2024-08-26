@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Faq;
+use App\Models\PaidService;
+use App\Models\PaidServicePrice;
 use App\Models\PricingPlan;
 use App\Models\Question;
 use App\Models\Service;
@@ -47,8 +49,8 @@ class HomeController extends Controller
     }
 
     public function visaApplication(){
-        $visa_types =VisaType::get();
-        return view('frontend.webpages.visa_application',compact('visa_types'));
+        $services =PaidService::get();
+        return view('frontend.webpages.visa_application',compact('services'));
     }
 
     public function pricingPlan(){
@@ -89,5 +91,11 @@ class HomeController extends Controller
             return redirect()->back()->with('message', 'Question Not Uploaded Yet');
         }
         return view('frontend.webpages.visa_request',compact('questions','visa_id'));
+    }
+
+    public function serviceApplication($service_uuid){
+        $service =PaidService::with('price_plans')->where('uuid',$service_uuid)->first();
+        return view('frontend.webpages.paid_price_plans',compact('service'));
+
     }
 }
