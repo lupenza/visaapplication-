@@ -6,12 +6,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Question</h4>
+                <h4 class="mb-sm-0 font-size-18">Edit FAQ</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Add</a></li>
-                        <li class="breadcrumb-item active">Question List</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">List</a></li>
+                        <li class="breadcrumb-item active">Edit FAQ List</li>
                     </ol>
                 </div>
 
@@ -24,24 +24,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body ">
-                    <h4 class="card-title text-center" >Add Question</h4>
+                    <h4 class="card-title text-center" >Edit FAQ</h4>
                     <form action="" id="registration_form" >
+                        <input type="text" value="{{ $faq->uuid}}" name="uuid">
                         <div class="form-group row">
-                            <div class="col-md-6">
-                                <label for="">Visa Type</label>
-                                <input type="text" name="name" class="form-control" placeholder="Write name ...." required>
+                            <div class="col-md-12">
+                                <label for="">Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Write Service name ...." value="{{ $faq->name }}" required>
                             </div>
                         </div>
                         <div class="form-group row mt-2">
                             <div class="col-md-12">
                                 <label for="">Description</label>
-                                <textarea name="description" class="form-control" placeholder="Write Program Short Description...."></textarea>
-                            </div>
-                        </div>
-                        <div class="from-group row mt-2">
-                            <div class="col-md-12">
-                                <label for="">User Image</label>
-                                <input type="file" name="image"  id="image"  class="form-control" required/>
+                                <textarea name="description" id="editor">{{ $faq->description}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row mt-2">
@@ -80,7 +75,7 @@
           });
       $.ajax({
       type:'POST',
-      url:"{{ url('testmonials.store')}}",
+      url:"{{ route('faq.update')}}",
       data : new FormData(this),
       contentType: false,
       cache: false,
@@ -89,7 +84,7 @@
         console.log(response);
         $('#alert').html('<div class="alert alert-success">'+response.message+'</div>');
         setTimeout(function(){
-         window.location.href ="{{ url('testmonials.index')}}";
+         window.location.href ="{{ route('faq.list')}}";
       },500);
       },
       error:function(response){

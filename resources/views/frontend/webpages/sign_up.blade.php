@@ -102,7 +102,7 @@
             console.log(response);
             // $.notify(response.message, "success");
           setTimeout(function(){
-            window.location.href="{{ route('dashboard')}}";
+            window.location.href="{{ route('customer.dashboard')}}";
           },500);
          
         },

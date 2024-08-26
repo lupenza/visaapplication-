@@ -74,4 +74,81 @@ class VisaManagementController extends Controller
             'message' =>'Action Done Successfully'
         ]);  
     }
+
+    public function visaTypeUpdate(Request $request){
+        $valid =$request->validate([
+            'name'          =>'required',
+            'price'          =>'required',
+            'description'   =>'required',
+            'id'   =>'required',
+        ]);
+
+        VisaType::updateOrCreate(
+            [
+                'id' =>$valid['id']
+            ],[
+            'description' =>$valid['description'],
+            'name'        =>$valid['name'],
+            'price'       =>$valid['price'],
+            'status'      =>true,
+        ]);
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ]); 
+    }
+
+    public function visaTypeDestroy(Request $request){
+        $id =$request->id;
+        
+        VisaType::where('id',$id)->delete();
+
+        Question::where('visa_type_id',$id)->delete();
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ]); 
+    }
+
+    public function questionUpdate(Request $request){
+        $valid =$request->validate([
+            'name'           =>'required',
+            'rule'           =>'required',
+            'input'           =>'required',
+            'arrangement'     =>'required',
+            'section'     =>'required',
+            'uuid'       =>'required',
+        ]);
+
+        Question::updateOrCreate(
+            [
+                'uuid' =>$valid['uuid']
+            ],
+            [
+            'name'          =>$valid['name'],
+            'rule'          =>$valid['rule'],
+            'section'       =>$valid['section'],
+            'input_type'    =>$valid['input'],
+            'arrangement'   =>$valid['arrangement'],
+            'options'       =>$request['options'] ?? null,
+        ]);
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ]);   
+    }
+
+    public function questionDestroy(Request $request){
+        $uuid =$request->uuid;
+
+        Question::where('uuid',$uuid)->delete();
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200); 
+    }
 }

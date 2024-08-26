@@ -35,7 +35,9 @@ class ApplicationController extends Controller
     public function visaApplication(){
         $visa_types =VisaType::get();
         $applications =VisaApplication::with('applicant','visa_type','allocated_user')->get();
-        $users =User::get();
+        $users =User::whereHas('roles',function ($query){
+            $query->whereIn('name',['Data Entry']);
+        })->get();
        return view('backend.applications.visa_application',compact('visa_types','applications','users'));
     }
 
@@ -263,6 +265,8 @@ class ApplicationController extends Controller
             'message' =>'Action Done Successfully',
         ],200);
     }
+
+    
 
     
 }

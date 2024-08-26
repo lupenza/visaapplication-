@@ -7,6 +7,7 @@ use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Faq;
 use App\Models\PricingPlan;
+use App\Models\Question;
 use App\Models\Service;
 use App\Models\Testmonial;
 use App\Models\User;
@@ -20,6 +21,7 @@ class HomeController extends Controller
     public function index(){
         $data['countries'] =Country::take(4)->get();
         $data['services'] =Service::take(8)->get();
+        $data['testmonials'] =Testmonial::take(5)->get();
         return view('frontend.webpages.home',$data);
     }
 
@@ -79,5 +81,13 @@ class HomeController extends Controller
 
     public function aboutUs(){
         return view('frontend.webpages.about_us');
+    }
+
+    public function visaRequest($visa_id =1){
+        $questions =Question::where('visa_type_id',$visa_id)->get();
+        if (empty($questions->count())) {
+            return redirect()->back()->with('message', 'Question Not Uploaded Yet');
+        }
+        return view('frontend.webpages.visa_request',compact('questions','visa_id'));
     }
 }

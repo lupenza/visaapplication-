@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\VisaManagementController;
+use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,7 @@ Route::get('list/of/faq',[HomeController::class,'faq'])->name('faq');
 Route::get('additional/services',[HomeController::class,'additionalServices'])->name('additional.service');
 Route::get('get/service/{uuid}',[HomeController::class,'getService'])->name('service.detail');
 Route::get('about/us',[HomeController::class,'aboutUs'])->name('about.us');
-
+Route::get('visa/request',[HomeController::class,'visaRequest'])->name('visa.request');
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::get('application/create/{id?}',[ApplicationController::class,'create'])->name('application.create');
@@ -64,6 +65,10 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('testmonial/destroy',[ServiceController::class,'testmonialDestroy'])->name('testmonial.destroy');
     Route::get('edit/testmonial/{uuid}',[ServiceController::class,'editTestmonial'])->name('edit.testmonial');
     Route::post('update/testmonial',[ServiceController::class,'updateTestmonial'])->name('testmonial.update');
+    Route::get('edit/faq/{uuid}',[ServiceController::class,'editFaq'])->name('edit.faq');
+    Route::post('update/faq',[ServiceController::class,'updateFaq'])->name('faq.update');
+    Route::post('destroy/faq',[ServiceController::class,'destroyFaq'])->name('faq.destroy');
+    Route::post('destroy/brand',[ServiceController::class,'destroyBrand'])->name('brand.destroy');
 
     /** Visa Application */
     Route::get('payment/profile/{id?}/{type?}',[ApplicationController::class,'paymentProfile'])->name('payment.profile');
@@ -82,7 +87,16 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('question/list/{id}',[VisaManagementController::class,'questionList'])->name('question.index');  
     Route::get('question/create',[VisaManagementController::class,'questionCreate'])->name('questions.create');  
     Route::post('question/store',[VisaManagementController::class,'questionStore'])->name('question.store');
+    Route::post('visa/type/update',[VisaManagementController::class,'visaTypeUpdate'])->name('visa.type.update');
+    Route::post('visa/type/destroy',[VisaManagementController::class,'visaTypeDestroy'])->name('visa.type.destroy');
+    Route::post('question/update',[VisaManagementController::class,'questionUpdate'])->name('question.update');
+    Route::post('question/destroy',[VisaManagementController::class,'questionDestroy'])->name('question.destroy');
+
     
     Route::get('all/visa/application',[ApplicationController::class,'visaApplication'])->name('application.list.index');
     Route::post('visa/store',[ApplicationController::class,'visaStore'])->name('visa.store');
+
+
+    /** Customer */
+    Route::get('customer.dashboard',[CustomerController::class,'index'])->name('customer.dashboard');
 });
