@@ -91,7 +91,18 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('visa/type/destroy',[VisaManagementController::class,'visaTypeDestroy'])->name('visa.type.destroy');
     Route::post('question/update',[VisaManagementController::class,'questionUpdate'])->name('question.update');
     Route::post('question/destroy',[VisaManagementController::class,'questionDestroy'])->name('question.destroy');
-
+    Route::get('paid/services',[VisaManagementController::class,'paidService'])->name('paid.service');
+    Route::post('paid/service/stroe',[VisaManagementController::class,'paidServiceStore'])->name('paid.service.store');
+    Route::post('paid/service/update',[VisaManagementController::class,'paidServiceUpdate'])->name('paid.service.update');
+    Route::post('paid/service/destroy',[VisaManagementController::class,'paidServiceDestroy'])->name('paid.service.destroy');
+    Route::get('paid/service/plan/{id}',[VisaManagementController::class,'paidServicePlan'])->name('paid.service.plan.index');
+    Route::post('paid/service/plan/store',[VisaManagementController::class,'paidServicePlanStore'])->name('paid.service.plan.store');
+    Route::post('paid/service/plan/update',[VisaManagementController::class,'paidServicePlanUpdate'])->name('paid.service.plan.update');
+    Route::post('paid/service/plan/destroy',[VisaManagementController::class,'paidServicePlanDestroy'])->name('paid.service.plan.destroy');
+    Route::get('paid/service/question/{uuid}',[VisaManagementController::class,'paidServicePlanQuestions'])->name('paid.service.questions.index');
+    Route::post('service/question/store',[VisaManagementController::class,'serviceQuestionStore'])->name('service.question.store');
+    Route::post('service/question/update',[VisaManagementController::class,'serviceQuestionUpdate'])->name('service.question.update');
+    Route::post('service/question/destroy',[VisaManagementController::class,'serviceQuestionDestroy'])->name('service.question.destroy');
     
     Route::get('all/visa/application',[ApplicationController::class,'visaApplication'])->name('application.list.index');
     Route::post('visa/store',[ApplicationController::class,'visaStore'])->name('visa.store');

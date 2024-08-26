@@ -93,11 +93,19 @@
                                     <div class="table-responsive">
                                        <table class="table">
                                         <tbody>
-                                            @foreach ($profile->question_answers as $data)
+                                            {{-- @foreach ($profile->question_answers as $data)
                                                 <tr>
                                                     <th>{{ $data->question?->name}}</th>
                                                     <td>{{ $data->answer }}</td>
                                                 </tr>   
+                                            @endforeach --}}
+                                            @foreach ($profile->question_answers->chunk(2) as $dataChunk)
+                                            <tr>
+                                                @foreach ($dataChunk as $data)
+                                                    <th>{{ $data->question?->name }}</th>
+                                                    <td>{{ $data->answer }}</td>
+                                                @endforeach
+                                            </tr>   
                                             @endforeach
                                         </tbody>
                                        </table>

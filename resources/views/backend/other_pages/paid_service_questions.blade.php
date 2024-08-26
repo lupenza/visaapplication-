@@ -38,7 +38,6 @@
                                 <th>Input Type</th>
                                 <th>Arrangement</th>
                                 <th>Select Options</th>
-                                <th>Section</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
@@ -52,7 +51,6 @@
                                         <td>{{ $item->input_type }}</td>
                                         <td>{{ $item->arrangement }}</td> 
                                         <td>{{ $item->options }}</td>
-                                        <td>{{ $item->section }}</td>
                                         <td>{{ $item->created_at}} </td>
                                         <td>
                                             <button title="edit" class="btn btn-primary btn-sm waves-effect waves-light edit-btn" 
@@ -87,7 +85,7 @@
             </div>
             <div class="modal-body">
                <form id="registration_form">
-                <input type="hidden" name="visa_type_id" value="{{$visa_type_id}}">
+                <input type="hidden" name="paid_plan_uuid" value="{{$paid_plan_uuid}}">
                 <div class="form-group row">
                     <div class="col-md-12 mt-2">
                         <label for="Name">Name</label>
@@ -120,15 +118,6 @@
                     <div class="col-md-12 mt-2">
                         <label for="Name">Arrangement</label>
                         <input type="number" name="arrangement" class="form-control"  required />
-                    </div>
-                    <div class="col-md-12 mt-2">
-                        <label for="Name">Section</label>
-                        <select name="section" id="section" class="form-control" required>
-                            <option value="">Please Select</option>
-                            <option value="1">Section 1</option>
-                            <option value="2">Section 2</option>
-                            <option value="3">Section 3</option>
-                        </select>
                     </div>
                     <div class="col-md-12 mt-2" style="margin-top: 5px" id="alert">
                     </div>
@@ -187,7 +176,7 @@
                         <label for="Name">Arrangement</label>
                         <input type="text" name="arrangement" id="arrangement" class="form-control" required />
                     </div>
-                    <div class="col-md-12 mt-2">
+                    {{-- <div class="col-md-12 mt-2">
                         <label for="Name">Section</label>
                         <select name="section" id="section" class="form-control" required>
                             <option value="">Please Select</option>
@@ -195,7 +184,7 @@
                             <option value="2">Section 2</option>
                             <option value="3">Section 3</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="col-md-12 mt-2" style="margin-top: 5px" id="alert_2">
                     </div>
                     <div class="col-md-12 mt-2">
@@ -224,7 +213,7 @@
           });
       $.ajax({
       type:'POST',
-      url:"{{ route('question.store')}}",
+      url:"{{ route('service.question.store')}}",
       data : new FormData(this),
       contentType: false,
       cache: false,
@@ -274,7 +263,7 @@
             if (t.value) {
                 var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                        url: "{{ route('question.destroy')}}", 
+                        url: "{{ route('service.question.destroy')}}", 
                         method: "POST",
                         data: {uuid:id,'_token':csrf_tokken,action:'approve'},
                         success: function(response)
@@ -329,7 +318,7 @@
           });
       $.ajax({
       type:'POST',
-      url:"{{ route('question.update')}}",
+      url:"{{ route('service.question.update')}}",
       data : new FormData(this),
       contentType: false,
       cache: false,
