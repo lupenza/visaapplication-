@@ -33,6 +33,10 @@ Route::get('service/application/{uuid}',[HomeController::class,'serviceApplicati
 
 
 Route::group(['middleware'=>'auth'],function(){
+    Route::get('paid/service/form/{uuid}',[HomeController::class,'paidServiceForm'])->name('paid.service.form');
+    Route::post('paid/service/store',[HomeController::class,'paidServiceStore'])->name('additional.service.store');
+
+
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::get('application/create/{id?}',[ApplicationController::class,'create'])->name('application.create');
     Route::get('logout',[LoginController::class,'logout'])->name('logout');

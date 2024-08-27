@@ -10,7 +10,7 @@ class VisaApplication extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable =['applicant_id','visa_type_id','application_stage','uuid'];
+    protected $fillable =['applicant_id','visa_type_id','application_stage','uuid','paid_service_plan_id','application_type'];
 
     public function applicant(){
         return $this->hasOne(User::class,'id','applicant_id');

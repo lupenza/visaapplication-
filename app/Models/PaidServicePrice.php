@@ -16,4 +16,8 @@ class PaidServicePrice extends Model
         return explode(",",$this->offers);
     }
 
+    public function questions(){
+        return $this->hasMany(PaidServiceForm::class,'paid_service_price_id','id');
+    }
+
 }

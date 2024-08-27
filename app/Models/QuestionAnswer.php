@@ -10,7 +10,7 @@ class QuestionAnswer extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable =['question_id','answer','visa_application_id','uuid'];
+    protected $fillable =['question_id','answer','visa_application_id','uuid','application_type'];
 
     public function question(){
         return $this->hasOne(Question::class,'id','question_id');

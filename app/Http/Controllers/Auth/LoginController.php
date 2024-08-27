@@ -43,10 +43,12 @@ class LoginController extends Controller
                         'message' =>$user->name.' Welcome Again',
                         'url'     =>URL::to('dashboard')
                     ]);
-                }elseif($user->hasRole('Customer')){
-                    $last_url =Session::get('last_url');
+                }
+                elseif($user->hasRole('Customer')){
+                    $last_url =Session::get('url.intended');
                     $url =$last_url ?? URL::to('customer.dashboard');
-                    Session::forget('last_url');
+                   // Session::forget('last_url');
+                    Session::forget('url.intended');
                     return response()->json([
                         'success' =>true,
                         'message' =>$user->name.' Welcome Again',

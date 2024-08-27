@@ -10,13 +10,18 @@ use App\Models\PaidService;
 use App\Models\PaidServicePrice;
 use App\Models\PricingPlan;
 use App\Models\Question;
+use App\Models\QuestionAnswer;
 use App\Models\Service;
 use App\Models\Testmonial;
 use App\Models\User;
+use App\Models\VisaApplication;
 use App\Models\VisaType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
+use Str;
 
 class HomeController extends Controller
 {
@@ -97,5 +102,50 @@ class HomeController extends Controller
         $service =PaidService::with('price_plans')->where('uuid',$service_uuid)->first();
         return view('frontend.webpages.paid_price_plans',compact('service'));
 
+    }
+
+    public function paidServiceForm($plan_uuid){
+        $price_plan =PaidServicePrice::with('questions')->where('uuid',$plan_uuid)->first();
+        return view('frontend.webpages.paid_service_form',compact('price_plan'));
+    }
+
+    public function paidServiceStore(Request $request){
+        try {
+            DB::transaction(function() use ($request){
+                  // inser visa application
+
+                  $application =VisaApplication::create([
+                    'applicant_id'         =>Auth::user()->id,
+                    'paid_service_plan_id' =>$request['paid_service_plan_id'],
+                    'application_type'     =>2,
+                    'uuid'                 =>(string)Str::orderedUuid(),
+                   ]);
+                 $data = request()->all();
+
+                foreach ($data as $key => $value) {
+                    // answers
+                    if (is_numeric($key)) {
+                        QuestionAnswer::create([
+                            'question_id' =>$key,
+                            'answer'      =>$value,
+                            'visa_application_id' =>$application->id,
+                            'uuid' =>(string)Str::orderedUuid(),
+                            'application_type' =>2,
+                        ]);
+                    }
+                }
+
+            });
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' =>true,
+                'errors'  =>$th->getMessage()
+            ],500);
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully',
+        ],200);
     }
 }

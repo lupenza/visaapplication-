@@ -66,7 +66,7 @@
                                 </ul>
                             </div>
                             <div class="pricing__btn">
-                                <a href="javascript:void(0)" class="btn">Choose</a>
+                                <a href="{{ route('paid.service.form',$pricing->uuid)}}" class="btn">Choose</a>
                             </div> 
                         </div>
                     </div> 
