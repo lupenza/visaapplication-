@@ -165,7 +165,9 @@
                                             
                                         @endforelse
                                         @if ($profile->active_track)
+                                        @if ($profile->active_track->user_id == Auth::user()->id)
                                         @include('backend.applications.includes.track_add',['track_id'=>$profile->active_track->id])
+                                        @endif
                                         @endif
                                        
                                     </div>

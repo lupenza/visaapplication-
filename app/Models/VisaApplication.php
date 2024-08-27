@@ -10,7 +10,7 @@ class VisaApplication extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable =['applicant_id','visa_type_id','application_stage','uuid','paid_service_plan_id','application_type'];
+    protected $fillable =['applicant_id','visa_type_id','application_stage','uuid','paid_service_plan_id','application_type','country_id'];
 
     public function applicant(){
         return $this->hasOne(User::class,'id','applicant_id');
@@ -42,6 +42,24 @@ class VisaApplication extends Model
 
     }
 
+    public function getStageFormattedCustomerAttribute(){
+        switch ($this->application_stage) {
+            case 1:
+                return "OnProgress";
+                break;
+            case 2:
+                return "Accepted";
+                break;
+            case 3:
+                return "Rejected";
+                break;
+            default:
+                return "Pending";
+                break;
+        }
+
+    }
+
     public function question_answers(){
         return $this->hasMany(QuestionAnswer::class,'visa_application_id');
     }
@@ -65,5 +83,9 @@ class VisaApplication extends Model
         }else{
             return $this->service_plan?->service?->name;
         }
+    }
+
+    public function getAppliedServicePlanAttribute(){
+            return $this->service_plan?->name;
     }
 }

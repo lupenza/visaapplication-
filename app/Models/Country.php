@@ -10,7 +10,7 @@ class Country extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable =['name','continent_id','description','image','uuid','created_by','cover_image','country_attribute'];
+    protected $fillable =['name','continent_id','description','image','uuid','created_by','cover_image','country_attribute','visa_type_id'];
 
     public function getStatusFormattedAttribute(){
 

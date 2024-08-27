@@ -35,6 +35,7 @@ Route::get('service/application/{uuid}',[HomeController::class,'serviceApplicati
 Route::group(['middleware'=>'auth'],function(){
     Route::get('paid/service/form/{uuid}',[HomeController::class,'paidServiceForm'])->name('paid.service.form');
     Route::post('paid/service/store',[HomeController::class,'paidServiceStore'])->name('additional.service.store');
+    Route::get('get/visa/question/{country_uuid}/{plan_id}',[HomeController::class,'visaQuestions'])->name('get.visa.question');
 
 
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
@@ -116,5 +117,7 @@ Route::group(['middleware'=>'auth'],function(){
 
 
     /** Customer */
-    Route::get('customer.dashboard',[CustomerController::class,'index'])->name('customer.dashboard');
+    Route::get('customer/dashboard',[CustomerController::class,'index'])->name('customer.dashboard');
+    Route::get('customer/applications',[CustomerController::class,'customerApplication'])->name('customer.application');
+    Route::get('customer/profile',[CustomerController::class,'customerProfile'])->name('application.profile');
 });

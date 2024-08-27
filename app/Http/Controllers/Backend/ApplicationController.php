@@ -236,7 +236,10 @@ class ApplicationController extends Controller
                   $application =VisaApplication::create([
                     'applicant_id' =>Auth::user()->id,
                     'visa_type_id' =>$request['visa_type_id'],
-                    'uuid' =>(string)Str::orderedUuid(),
+                    'paid_service_plan_id' =>$request['plan_id'] ?? null,
+                    'country_id'           =>$request['country_id'] ?? null,
+                    'uuid'                 =>(string)Str::orderedUuid(),
+                    'application_type'     =>1
                    ]);
                  $data = request()->all();
 

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/swiper-bundle.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/default.css') }}">
+    <link href="https://cdn.datatables.net/v/dt/dt-2.1.4/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/main.css') }}">
 </head>
 <body>
@@ -61,6 +62,7 @@
     <script src="{{ asset('assets/frontend/js/ajax-form.js')}} "></script>
     <script src="{{ asset('assets/frontend/js/wow.min.js')}} "></script>
     <script src="{{ asset('assets/frontend/js/aos.js')}} "></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-2.1.4/datatables.min.js"></script>
     <script src="{{ asset('assets/frontend/js/main.js')}} "></script>
     @stack('scripts')
 </body>

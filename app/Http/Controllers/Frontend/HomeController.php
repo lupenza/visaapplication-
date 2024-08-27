@@ -105,20 +105,31 @@ class HomeController extends Controller
     }
 
     public function paidServiceForm($plan_uuid){
+        // return $plan_uuid;
         $price_plan =PaidServicePrice::with('questions')->where('uuid',$plan_uuid)->first();
-        return view('frontend.webpages.paid_service_form',compact('price_plan'));
+        if (in_array($price_plan->id,[1,2,3])) {
+            $countries =Country::get();
+            $continents =Continent::get();
+            $plan_id =$price_plan->id;
+            return view('frontend.webpages.country_selection',compact('plan_id','countries','continents'));
+        } else {
+            return view('frontend.webpages.paid_service_form',compact('price_plan'));
+
+        }
+        
     }
 
     public function paidServiceStore(Request $request){
         try {
             DB::transaction(function() use ($request){
                   // inser visa application
-
                   $application =VisaApplication::create([
                     'applicant_id'         =>Auth::user()->id,
                     'paid_service_plan_id' =>$request['paid_service_plan_id'],
                     'application_type'     =>2,
-                    'uuid'                 =>(string)Str::orderedUuid(),
+                    'uuid'                 =>(string)Str::orderedUuid(), 
+                    'visa_type_id'         =>$request['visa_type_id'] ?? null,
+                    'country_id'           =>$request['country_id'] ?? null,
                    ]);
                  $data = request()->all();
 
@@ -147,5 +158,28 @@ class HomeController extends Controller
             'success' =>true,
             'message' =>'Action Done Successfully',
         ],200);
+    }
+
+    public function visaQuestions(Request $request){
+        $country_uuid =$request->country_uuid;
+        $plan_id      =$request->plan_id;
+        $country =Country::where('uuid',$country_uuid)->first();
+        $country_id   =$country->id;
+        $visa_type_id =$country->visa_type_id;
+        // 1 means standard plan of visa application
+        if ($plan_id == 1) {
+           
+            $questions =Question::where('visa_type_id',$visa_type_id)->get();
+            if (empty($questions->count())) {
+                return redirect()->back()->with('message', 'Something went wrong , Cant reach our questionaires');
+            }
+            return view('frontend.webpages.visa_request',compact('questions','visa_type_id','country_id','plan_id'));
+        } else {
+            # vip and group
+            $price_plan =PaidServicePrice::with('questions')->where('id',$plan_id)->first();
+            return view('frontend.webpages.paid_service_form',compact('price_plan','country_id','visa_type_id'));
+
+        }
+        
     }
 }

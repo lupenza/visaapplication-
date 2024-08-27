@@ -17272,6 +17272,20 @@ blockquote p {
     font-size: 13px;
     color: #20BFEA;
 }
+.custom-btn{
+    background-color: #20BFEA;
+    border-radius: 5px;
+    border-color: #20BFEA;
+}
+.custom-btn i{
+    color: #fff
+}
+
+.custom-active{
+    background-color: #20BFEA;
+    color:#fff
+    /* color: var(--tg-color-white-default); */
+}
 
 
 /*# sourceMappingURL=main.css.map */

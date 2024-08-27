@@ -210,7 +210,7 @@
     </section>
     <!-- breadcrumb-area-end -->
 
-    <div class="row">
+    <div class="row pl-40 pr-40 mt-5 mb-5">
         <div class="col-md-12" id="reg_alert">
 
         </div>
@@ -219,7 +219,9 @@
                 <div class="card-body">
                     <h4 class="card-title mb-4">Visa Proces Information</h4>
                 <form id="form-registration">
-                    <input type="hidden" name="visa_type_id" value="{{$visa_id}}">
+                    <input type="hidden" name="visa_type_id" value="{{$visa_type_id}}">
+                    <input type="hidden" name="country_id" value="{{$country_id}}">
+                    <input type="hidden" name="plan_id" value="{{$plan_id}}">
                     <div id="basic-example">
                         <!-- Seller Details -->
                         @if ($questions->where('section',1)->count())
@@ -360,7 +362,7 @@ function submitVerticalForm() {
             console.log(response);
             $('#reg_alert').html('<div class="alert alert-success">' + response.message + '</div>');
             setTimeout(function () {
-                window.location.href ="{{ route('application.list.index')}}"
+                window.location.href ="{{ route('customer.application')}}"
             }, 500);
         },
         error: function (response) {

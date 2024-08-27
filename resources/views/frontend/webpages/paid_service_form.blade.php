@@ -39,6 +39,8 @@
                 <div class="head-login">
                     <div class="form-login">
                         <input type="hidden" name="paid_service_plan_id" value="{{ $price_plan->id }}">
+                        <input type="hidden" name="visa_type_id" value="{{ $visa_type_id ?? null }}">
+                        <input type="hidden" name="country_id"  value="{{ $country_id ?? null }}">
                         @foreach ($price_plan->questions as $question)
                         <div class="form-group">
                             <label for="">{{ $question->name }} <span class="text-danger">{{$question->rule == 1 ? "*":""}}</span> </label>
@@ -96,7 +98,7 @@
             console.log(response);
             $('#from_reg_alert').append('<div class="alert alert-success">'+response.message+'</div>');
           setTimeout(function(){
-            window.location.href="{{ route('customer.dashboard')}}";
+            window.location.href="{{ route('customer.application')}}";
           },500);
          
         },

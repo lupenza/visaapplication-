@@ -4,7 +4,7 @@
             <div class="sidebar__cat-list-two">
                 <ul class="list-wrap">
                     <li><a href=""> Dashboard<i class="flaticon-arrow-button"></i> </a></li>
-                    <li><a href="">Applications<i class="flaticon-arrow-button"></i> </a></li>
+                    <li class="{{ Route::is('customer.application') ? "custom-active": ""}}"><a href="{{ route('customer.application')}}">Applications<i class="flaticon-arrow-button"></i> </a></li>
                     <li><a href="">Payments<i class="flaticon-arrow-button"></i> </a></li>
                 </ul>
             </div>
