@@ -16,6 +16,10 @@ class VisaApplication extends Model
         return $this->hasOne(User::class,'id','applicant_id');
     }
 
+    public function service_plan(){
+        return $this->hasOne(PaidServicePrice::class,'id','paid_service_plan_id');
+    }
+
     public function visa_type(){
         return $this->hasOne(VisaType::class,'id','visa_type_id');
     }
@@ -52,5 +56,14 @@ class VisaApplication extends Model
 
     public function allocated_user(){
         return $this->hasOne(User::class,'id','allocated');
+    }
+
+    public function getAppliedServiceAttribute(){
+
+        if ($this->application_type == 1) {
+            return $this->visa_type?->name;
+        }else{
+            return $this->service_plan?->service?->name;
+        }
     }
 }

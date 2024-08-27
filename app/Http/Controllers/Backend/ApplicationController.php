@@ -34,7 +34,7 @@ class ApplicationController extends Controller
 
     public function visaApplication(){
         $visa_types =VisaType::get();
-        $applications =VisaApplication::with('applicant','visa_type','allocated_user')->get();
+        $applications =VisaApplication::with('applicant','visa_type','allocated_user','service_plan','service_plan.service')->get();
         $users =User::whereHas('roles',function ($query){
             $query->whereIn('name',['Data Entry']);
         })->get();

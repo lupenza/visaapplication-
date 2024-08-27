@@ -69,7 +69,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body ">
-                    <h4 class="card-title text-center" >Application Profile ({{ $profile->visa_type?->name }})</h4>
+                    <h4 class="card-title text-center" >Application Profile ({{ $profile->applied_service }})</h4>
                     {{-- <div class="card">
                         <div class="card-body"> --}}
                             <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">

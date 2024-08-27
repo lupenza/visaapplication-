@@ -52,7 +52,7 @@
                                 <th>#</th>
                                 <th>Created At</th>
                                 <th>Name</th>
-                                <th>Visa Type</th>
+                                <th>Service</th>
                                 <th>Stage</th>
                                 <th>Allocated To</th>
                                 <th>Action</th>
@@ -65,7 +65,7 @@
                                         <td>{{ $loop->iteration}}</td>
                                         <td>{{ $application->created_at}} </td>
                                         <td>{{ $application->applicant?->name }}</td>
-                                        <td>{{ $application->visa_type?->name }}</td>
+                                        <td>{{ $application->applied_service }}</td>
                                         <td>{!! $application->stage_formatted !!}</td>
                                         <td>{{ $application->allocated_user?->name }}</td>
                                         <td>

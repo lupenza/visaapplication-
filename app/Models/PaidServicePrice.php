@@ -20,4 +20,8 @@ class PaidServicePrice extends Model
         return $this->hasMany(PaidServiceForm::class,'paid_service_price_id','id');
     }
 
+    public function service(){
+        return $this->hasOne(PaidService::class,'id','paid_service_id');
+    }
+
 }
