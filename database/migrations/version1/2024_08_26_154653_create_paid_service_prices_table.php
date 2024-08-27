@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('paid_service_prices', function (Blueprint $table) {
             $table->id();
-            $table->text('name')->nullable();
-            $table->integer('visa_type_id');
-            $table->boolean('rule')->default(true);
-            $table->string('input_type');
-            $table->text('options')->nullable();
-            $table->integer('arrangement');
-            $table->integer('section');
+            $table->integer('paid_service_id');
+            $table->string('name');
+            $table->string('price')->nullable();
+            $table->text('offers')->nullable();
             $table->integer('created_by');
             $table->uuid();
-            $table->timestamps();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('paid_service_prices');
     }
 };

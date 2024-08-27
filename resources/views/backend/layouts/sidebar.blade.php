@@ -35,6 +35,12 @@
                 <span key="t-chat">Visa Types</span>
             </a>
         </li>
+        <li>
+            <a href="{{ route('paid.service')}}" class="waves-effect">
+                <i class="bx bx-user"></i>
+                <span key="t-chat">Paid Service</span>
+            </a>
+        </li>
        
     </ul>
 </div>

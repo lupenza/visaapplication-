@@ -98,6 +98,12 @@ class ServiceController extends Controller
         return view('backend.website.edit_testmonial',compact('testmonial'));
     }
 
+    public function editFaq($uuid){
+        $faq =Faq::where('uuid',$uuid)->first();
+        return view('backend.website.edit_faq',compact('faq'));
+        
+    }
+
     public function serviceStore(Request $request){
 
         $valid =$request->validate([
@@ -294,7 +300,11 @@ class ServiceController extends Controller
             'change_image'             =>'required',
             'change_cover_image'       =>'required',
         ]);
-        $slider =Country::where('uuid',$valid['uuid'])->update([
+        $slider =Country::updateOrCreate(
+            [
+                'uuid' =>$valid['uuid']
+            ],
+            [
             'name'          =>$valid['name'],
             'continent_id'   =>$valid['continent_id'],
             'description'   =>$valid['description'],
@@ -346,7 +356,11 @@ class ServiceController extends Controller
 
         try {
             DB::transaction(function() use ($valid,$request){
-                $service =Service::where('uuid',$valid['uuid'])->update([
+                $service =Service::updateOrCreate(
+                    [
+                        'uuid' =>$valid['uuid']
+                    ],
+                    [
                     'name'        =>$valid['name'],
                     'caption'     =>$valid['caption'],
                     'description' =>$valid['description'],
@@ -387,6 +401,18 @@ class ServiceController extends Controller
 
     }
 
+    public function destroyFaq(Request $request){
+        $uuid =$request->uuid;
+
+        Faq::where('uuid',$uuid)->delete();
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200);
+
+    }
+
     public function updateTestmonial(Request $request){
         $valid =$request->validate([
             'uuid'        =>'required',
@@ -398,7 +424,10 @@ class ServiceController extends Controller
 
         try {
             DB::transaction(function() use ($valid,$request){
-                $service =Testmonial::where('uuid',$valid['uuid'])->update([
+                $service =Testmonial::updateOrCreate(
+                    [
+                        'uuid' =>$valid['uuid']
+                    ],[
                     'name'        =>$valid['name'],
                     'designation'     =>$valid['designation'],
                     'description' =>$valid['description'],
@@ -435,5 +464,38 @@ class ServiceController extends Controller
             'success' =>true,
             'message' =>'Action Done Successfully'
         ],200); 
+    }
+
+    public function destroyBrand(Request $request){
+        $uuid =$request->uuid;
+
+        Brand::where('uuid',$uuid)->delete();
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200); 
+    }
+
+    public function updateFaq(Request $request){
+        $valid =$request->validate([
+            'name'          =>['required'],
+            'description'   =>'required',
+            'uuid'   =>'required',
+        ]);
+
+        $slider =Faq::updateOrCreate(
+            [
+                'uuid' =>$valid['uuid']
+            ],
+            [
+            'name'          =>$valid['name'],
+            'description'   =>$valid['description'],
+        ]);
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully'
+        ],200);
     }
 }

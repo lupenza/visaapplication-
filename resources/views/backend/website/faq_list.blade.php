@@ -37,7 +37,7 @@
                                 <th>#</th>
                                 <th>Created At</th>
                                 <th>Name</th>
-                                <th>Description</th>
+                                {{-- <th>Description</th> --}}
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -48,10 +48,13 @@
                                         <td>{{ $loop->iteration}}</td>
                                         <td>{{ $item->created_at}} </td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{!! $item->description !!}</td>
+                                        {{-- <td>{!! $item->description !!}</td> --}}
                                         <td>{!! $item->status_formatted !!}</td>
                                         <td>
-                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteTestmonial(id)" title="Delete"><i class="fa fa-trash"></i></button>
+                                            <a href="{{ route('edit.faq',$item->uuid)}}">
+                                                <button class="btn btn-primary btn-sm"  title="Edit"><i class="fa fa-edit"></i></button>
+                                               </a>
+                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteFaq(id)" title="Delete"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -70,9 +73,9 @@
 @endsection
 @push('scripts')
 <script>
-     function deleteTestmonial(id){
+     function deleteFaq(id){
         Swal.fire({
-            title: "Delete TestMonial ?",
+            title: "Delete FAQ ?",
             text: "Are you Sure You want to delete this !",
             icon: "warning",
             showCancelButton: !0,
@@ -85,7 +88,7 @@
             if (t.value) {
                 var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                        url: "{{ url('testmonial.destroy')}}", 
+                        url: "{{ route('faq.destroy')}}", 
                         method: "POST",
                         data: {uuid:id,'_token':csrf_tokken,action:'approve'},
                         success: function(response)
@@ -98,6 +101,7 @@
                         },500);
                         },
                         error: function(response){
+                            console.log(response.responseText);
                         Swal.fire({ title: "Deleted!", text: response.responseJson.errors, icon: "warning" })
 
                          console.log(response.responseText);

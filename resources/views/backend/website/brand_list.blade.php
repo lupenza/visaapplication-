@@ -37,7 +37,7 @@
                                 <th>#</th>
                                 <th>Created At</th>
                                 <th>Name</th>
-                                <th>Description</th>
+                                {{-- <th>Description</th> --}}
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -48,10 +48,10 @@
                                         <td>{{ $loop->iteration}}</td>
                                         <td>{{ $item->created_at}} </td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->description }}</td>
+                                        {{-- <td>{{ $item->description }}</td> --}}
                                         <td>{!! $item->status_formatted !!}</td>
                                         <td>
-                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteTestmonial(id)" title="Delete"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteBrand(id)" title="Delete"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -70,9 +70,9 @@
 @endsection
 @push('scripts')
 <script>
-     function deleteTestmonial(id){
+     function deleteBrand(id){
         Swal.fire({
-            title: "Delete TestMonial ?",
+            title: "Delete Brand ?",
             text: "Are you Sure You want to delete this !",
             icon: "warning",
             showCancelButton: !0,
@@ -85,7 +85,7 @@
             if (t.value) {
                 var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                        url: "{{ url('testmonial.destroy')}}", 
+                        url: "{{ route('brand.destroy')}}", 
                         method: "POST",
                         data: {uuid:id,'_token':csrf_tokken,action:'approve'},
                         success: function(response)

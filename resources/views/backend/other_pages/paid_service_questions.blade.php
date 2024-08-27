@@ -6,12 +6,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Visa Types</h4>
+                <h4 class="mb-sm-0 font-size-18">Questions</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">List</a></li>
-                        <li class="breadcrumb-item active">Visa Types List</li>
+                        <li class="breadcrumb-item active">Questions List</li>
                     </ol>
                 </div>
 
@@ -24,41 +24,41 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body ">
-                    <h4 class="card-title text-center" >Visa Types</h4>
+                    <h4 class="card-title text-center" >Questions</h4>
                     <div style="display: flex; flex-direction: row; justify-content:flex-end; padding: 5px 0px 5px 0px">
-                        <button class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal"> <span class="fa fa-plus font-size-15"></span> Add Visa</button>
+                        <button class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal"> <span class="fa fa-plus font-size-15"></span> Add Question</button>
                     </div>
                     <div class="table-responsive">
                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                             <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Created At</th>
+                                <th>#</th> 
                                 <th>Name</th>
-                                <th>Price</th>
-                                <th>Description</th>
-                                <th>Status</th>
-                                <th>Questions</th>
+                                <th>Rule</th>
+                                <th>Input Type</th>
+                                <th>Arrangement</th>
+                                <th>Select Options</th>
+                                <th>Created At</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach ($visa_types as $item)
+                                @foreach ($questions as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration}}</td>
-                                        <td>{{ $item->created_at}} </td>
+                                        <td>{{ $loop->iteration}}</td> 
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->price }}</td>
-                                        <td>{{ $item->description }}</td>
-                                        <td>{!! $item->status_formatted !!}</td>
+                                        <td>{{ $item->rule == 1 ? "Yes" :"No" }}</td>
+                                        <td>{{ $item->input_type }}</td>
+                                        <td>{{ $item->arrangement }}</td> 
+                                        <td>{{ $item->options }}</td>
+                                        <td>{{ $item->created_at}} </td>
                                         <td>
-                                            <a href="{{ route('question.index',$item->id)}}">
-                                                <button class="btn btn-primary btn"> <i class="fa fa-arrow-right"></i> Questions</button>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <button title="Edit" class="btn btn-primary btn-sm waves-effect waves-light edit-btn" data-bs-toggle="modal" data-bs-target="#editmyModal" data-name="{{ $item->name }}" data-price={{ $item->price}} data-description="{{ $item->description }}" data-visa_id="{{ $item->id}}"> <span class="fa fa-edit"></span></button>
-                                            <button class="btn btn-danger btn-sm" id="{{ $item->id }}" onclick="deleteCategory(id)" title="Delete"><i class="fa fa-trash"></i></button>
+                                            <button title="edit" class="btn btn-primary btn-sm waves-effect waves-light edit-btn" 
+                                            data-bs-toggle="modal" data-bs-target="#eidtmyModal"
+                                            data-uuid ="{{ $item->uuid}}" data-name="{{ $item->name}}" data-rule={{ $item->rule}}
+                                            data-arrangement ="{{$item->arrangement}}" data-options ="{{ $item->options}}" data-section="{{ $item->section}}" data-field_type={{ $item->input_type}}
+                                            > <span class="fa fa-edit"></span></button>
+                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteQuestion(id)" title="Delete"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -80,27 +80,48 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Register Visa</h5>
+                <h5 class="modal-title" id="myModalLabel">Register Question</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                <form id="registration_form">
+                <input type="hidden" name="paid_plan_uuid" value="{{$paid_plan_uuid}}">
                 <div class="form-group row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-2">
                         <label for="Name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Write Visa Name....." required>
+                        <input type="text" class="form-control" name="name" placeholder="Write Question Name....." required>
                     </div>
-                    <div class="col-md-12">
-                        <label for="Name">Price</label>
-                        <input type="text" class="form-control" name="price" placeholder="Price....." required>
+                    <div class="col-md-12 mt-2">
+                        <label for="Name">Rule (Is it Required ? )</label>
+                        <select name="rule" class="form-control" required>
+                            <option value="">Please Select</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
                     </div>
-                    <div class="col-md-12">
-                        <label for="Name">Description</label>
-                        <textarea name="description" class="form-control" required></textarea>
+                    <div class="col-md-12 mt-2">
+                        <label for="Name">Field Type</label>
+                        <select name="input" id="field_type" class="form-control" required>
+                            <option value="">Please Select</option>
+                            <option value="date">date</option>
+                            <option value="select">select</option>
+                            <option value="number">number</option>
+                            <option value="text">text</option>
+                            <option value="textarea">text Area</option>
+                            <option value="email">Email</option>
+                        </select>
                     </div>
-                    <div class="col-md-12" style="margin-top: 5px" id="alert">
+                    <div class="col-md-12 mt-2" style="display: none" id="option">
+                        <label for="Name">Options <sub>separate by coma (,)</sub></label>
+                        <textarea name="options" class="form-control"></textarea>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-2">
+                        <label for="Name">Arrangement</label>
+                        <input type="number" name="arrangement" class="form-control"  required />
+                    </div>
+                    <div class="col-md-12 mt-2" style="margin-top: 5px" id="alert">
+                    </div>
+                    <div class="col-md-12 mt-2">
                         <div class="mt-2 d-grid">
                             <button class="btn btn-primary waves-effect waves-light"  id="reg_btn" type="submit"> <span class="fas fa-save"></span> Register</button>
                         </div>
@@ -112,32 +133,61 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
  <!-- sample modal content -->
- <div id="editmyModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div id="eidtmyModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Edit Visa</h5>
+                <h5 class="modal-title" id="myModalLabel">Edit Question</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                <form id="registration_form_2">
-                <input type="hidden" name="id" id="uuid">
+                <input type="hidden" name="uuid" id="uuid" >
                 <div class="form-group row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-2">
                         <label for="Name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Write Visa Name....." required>
+                        <input type="text" id="name" class="form-control" name="name" placeholder="Write Question Name....." required>
                     </div>
-                    <div class="col-md-12">
-                        <label for="Name">Price</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="Price....." required>
+                    <div class="col-md-12 mt-2">
+                        <label for="Name">Rule (Is it Required ? )</label>
+                        <select name="rule" id="rule" class="form-control" required>
+                            <option value="">Please Select</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
                     </div>
-                    <div class="col-md-12">
-                        <label for="Name">Description</label>
-                        <textarea name="description" class="form-control" id="description" required></textarea>
+                    <div class="col-md-12 mt-2">
+                        <label for="Name">Field Type</label>
+                        <select name="input" id="field_type" class="form-control field_type" required>
+                            <option value="">Please Select</option>
+                            <option value="date">date</option>
+                            <option value="select">select</option>
+                            <option value="number">number</option>
+                            <option value="text">text</option>
+                            <option value="textarea">text Area</option>
+                            <option value="email">Email</option>
+                        </select>
                     </div>
-                    <div class="col-md-12" style="margin-top: 5px" id="alert_2">
+                    <div class="col-md-12 mt-2" id="option">
+                        <label for="Name">Options <sub>separate by coma (,)</sub></label>
+                        <textarea name="options" id="options_2" class="form-control"></textarea>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-2">
+                        <label for="Name">Arrangement</label>
+                        <input type="text" name="arrangement" id="arrangement" class="form-control" required />
+                    </div>
+                    {{-- <div class="col-md-12 mt-2">
+                        <label for="Name">Section</label>
+                        <select name="section" id="section" class="form-control" required>
+                            <option value="">Please Select</option>
+                            <option value="1">Section 1</option>
+                            <option value="2">Section 2</option>
+                            <option value="3">Section 3</option>
+                        </select>
+                    </div> --}}
+                    <div class="col-md-12 mt-2" style="margin-top: 5px" id="alert_2">
+                    </div>
+                    <div class="col-md-12 mt-2">
                         <div class="mt-2 d-grid">
                             <button class="btn btn-primary waves-effect waves-light"  id="reg_btn_2" type="submit"> <span class="fas fa-save"></span> Register</button>
                         </div>
@@ -163,7 +213,7 @@
           });
       $.ajax({
       type:'POST',
-      url:"{{ route('visa.type.store')}}",
+      url:"{{ route('service.question.store')}}",
       data : new FormData(this),
       contentType: false,
       cache: false,
@@ -198,10 +248,10 @@
   });
   });
 
-  function deleteCategory(id){
+  function deleteQuestion(id){
         Swal.fire({
-            title: "Delete Visa Type?",
-            text: "Are you Sure You want to delete this Visa Type !",
+            title: "Delete Question ?",
+            text: "Are you Sure You want to delete this Question !",
             icon: "warning",
             showCancelButton: !0,
             confirmButtonText: "Yes, delete!",
@@ -213,9 +263,9 @@
             if (t.value) {
                 var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                        url: "{{ route('visa.type.destroy')}}", 
+                        url: "{{ route('service.question.destroy')}}", 
                         method: "POST",
-                        data: {id:id,'_token':csrf_tokken,action:'approve'},
+                        data: {uuid:id,'_token':csrf_tokken,action:'approve'},
                         success: function(response)
                     { 
                     // console.log(response); 
@@ -226,6 +276,7 @@
                         },500);
                         },
                         error: function(response){
+                            console.log(response.responseText);
                         Swal.fire({ title: "Deleted!", text: response.responseJson.errors, icon: "warning" })
 
                          console.log(response.responseText);
@@ -236,22 +287,27 @@
         });
   }
 
-  
-</script>
-<script>
-    $('.edit-btn').on('click',function(){
-        var name =$(this).data('name');
-        var price =$(this).data('price');
-        var description =$(this).data('description');
-        var uuid =$(this).data('visa_id');
+  $('#field_type').on('change',function (){
+    var value =$(this).val();
 
-        $('#name').val(name);
-        $('#price').val(price);
-        $('#description').val(description);
-        $('#uuid').val(uuid);
-    })
+    if (value == 'select') {
+        $('#option').show(); 
+    } else {
+        $('#option').hide(); 
+    }
+  })
 
-    $(document).ready(function(){
+  $('.edit-btn').on('click',function(){
+   $('#uuid').val($(this).data('uuid'));
+   $('#name').val($(this).data('name'));
+   $('#rule').val($(this).data('rule'));
+   $('#arrangement').val($(this).data('arrangement'));
+   $('#options_2').val($(this).data('options'));
+   $('#section').val($(this).data('section'));
+   $('#field_type').val($(this).data('field_type'));
+  })
+
+  $(document).ready(function(){
       $('#registration_form_2').on('submit',function(e){ 
           e.preventDefault();
 
@@ -262,7 +318,7 @@
           });
       $.ajax({
       type:'POST',
-      url:"{{ route('visa.type.update')}}",
+      url:"{{ route('service.question.update')}}",
       data : new FormData(this),
       contentType: false,
       cache: false,
@@ -290,11 +346,13 @@
                    $('#reg_btn_2').attr('disabled', true);
               },
               complete : function(){
-                $('#reg_btn_2').html('<i class="fa fa-save"></i> Edit');
+                $('#reg_btn_2').html('<i class="fa fa-save"></i> Register');
                 $('#reg_btn_2').attr('disabled', false);
               }
       });
   });
   });
+
+  
 </script>
 @endpush

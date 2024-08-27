@@ -6,12 +6,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Visa Types</h4>
+                <h4 class="mb-sm-0 font-size-18">Paid Service Plans</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">List</a></li>
-                        <li class="breadcrumb-item active">Visa Types List</li>
+                        <li class="breadcrumb-item active">Paid Service Plans List</li>
                     </ol>
                 </div>
 
@@ -19,14 +19,13 @@
         </div>
     </div>
     <!-- end page title -->
-
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body ">
-                    <h4 class="card-title text-center" >Visa Types</h4>
+                    <h4 class="card-title text-center" >Paid Service Plans</h4>
                     <div style="display: flex; flex-direction: row; justify-content:flex-end; padding: 5px 0px 5px 0px">
-                        <button class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal"> <span class="fa fa-plus font-size-15"></span> Add Visa</button>
+                        <button class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal"> <span class="fa fa-plus font-size-15"></span> Add Plan</button>
                     </div>
                     <div class="table-responsive">
                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
@@ -37,28 +36,30 @@
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Description</th>
-                                <th>Status</th>
-                                <th>Questions</th>
+                                <th>Price Plan</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach ($visa_types as $item)
+                                @foreach ($services as $item)
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
                                         <td>{{ $item->created_at}} </td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->price }}</td>
-                                        <td>{{ $item->description }}</td>
-                                        <td>{!! $item->status_formatted !!}</td>
+                                        <td>{{ $item->offers }}</td>
                                         <td>
-                                            <a href="{{ route('question.index',$item->id)}}">
+                                            <a href="{{ route('paid.service.questions.index',$item->uuid)}}">
                                                 <button class="btn btn-primary btn"> <i class="fa fa-arrow-right"></i> Questions</button>
                                             </a>
                                         </td>
                                         <td>
-                                            <button title="Edit" class="btn btn-primary btn-sm waves-effect waves-light edit-btn" data-bs-toggle="modal" data-bs-target="#editmyModal" data-name="{{ $item->name }}" data-price={{ $item->price}} data-description="{{ $item->description }}" data-visa_id="{{ $item->id}}"> <span class="fa fa-edit"></span></button>
+                                            <button title="Edit" class="btn btn-primary btn-sm waves-effect waves-light edit-btn" data-bs-toggle="modal" data-bs-target="#editmyModal" data-name="{{ $item->name }}" data-price="{{ $item->price }}" data-description="{{ $item->offers }}" data-visa_id="{{ $item->uuid}}"> <span class="fa fa-edit"></span></button>
+                                            @if ($item->id == 1)
+                                            <button class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash"></i></button>
+                                            @else
                                             <button class="btn btn-danger btn-sm" id="{{ $item->id }}" onclick="deleteCategory(id)" title="Delete"><i class="fa fa-trash"></i></button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -80,23 +81,24 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Register Visa</h5>
+                <h5 class="modal-title" id="myModalLabel">Register Paid Service Plan</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                <form id="registration_form">
+                <input type="hidden" name="paid_service_uuid" value={{$paid_service_uuid}}>
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="Name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Write Visa Name....." required>
+                        <input type="text" class="form-control" name="name" placeholder="Write Name....." required>
                     </div>
                     <div class="col-md-12">
                         <label for="Name">Price</label>
-                        <input type="text" class="form-control" name="price" placeholder="Price....." required>
+                        <input type="text" class="form-control" name="price" placeholder="Write Price.....">
                     </div>
                     <div class="col-md-12">
-                        <label for="Name">Description</label>
-                        <textarea name="description" class="form-control" required></textarea>
+                        <label for="Name">Description (What we Offer) <sub> (separate by comma (,))</sub></label>
+                        <textarea name="offers" class="form-control" required></textarea>
                     </div>
                     <div class="col-md-12" style="margin-top: 5px" id="alert">
                     </div>
@@ -116,12 +118,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Edit Visa</h5>
+                <h5 class="modal-title" id="myModalLabel">Edit Paid Service</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                <form id="registration_form_2">
-                <input type="hidden" name="id" id="uuid">
+                <input type="hidden" name="uuid" id="uuid">
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="Name">Name</label>
@@ -129,11 +131,11 @@
                     </div>
                     <div class="col-md-12">
                         <label for="Name">Price</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="Price....." required>
+                        <input type="text" class="form-control" id="price" name="price">
                     </div>
                     <div class="col-md-12">
-                        <label for="Name">Description</label>
-                        <textarea name="description" class="form-control" id="description" required></textarea>
+                        <label for="Name">Description (What we Offer) <sub> (separate by comma (,))</sub></label>
+                        <textarea name="offers" class="form-control" id="description" required></textarea>
                     </div>
                     <div class="col-md-12" style="margin-top: 5px" id="alert_2">
                     </div>
@@ -163,7 +165,7 @@
           });
       $.ajax({
       type:'POST',
-      url:"{{ route('visa.type.store')}}",
+      url:"{{ route('paid.service.plan.store')}}",
       data : new FormData(this),
       contentType: false,
       cache: false,
@@ -200,8 +202,8 @@
 
   function deleteCategory(id){
         Swal.fire({
-            title: "Delete Visa Type?",
-            text: "Are you Sure You want to delete this Visa Type !",
+            title: "Delete Paid Service Plan ?",
+            text: "Are you Sure You want to delete this Paid Service Plan !",
             icon: "warning",
             showCancelButton: !0,
             confirmButtonText: "Yes, delete!",
@@ -213,7 +215,7 @@
             if (t.value) {
                 var csrf_tokken =$('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                        url: "{{ route('visa.type.destroy')}}", 
+                        url: "{{ route('paid.service.plan.destroy')}}", 
                         method: "POST",
                         data: {id:id,'_token':csrf_tokken,action:'approve'},
                         success: function(response)
@@ -241,13 +243,13 @@
 <script>
     $('.edit-btn').on('click',function(){
         var name =$(this).data('name');
-        var price =$(this).data('price');
         var description =$(this).data('description');
+        var price =$(this).data('price');
         var uuid =$(this).data('visa_id');
 
         $('#name').val(name);
-        $('#price').val(price);
         $('#description').val(description);
+        $('#price').val(price);
         $('#uuid').val(uuid);
     })
 
@@ -262,7 +264,7 @@
           });
       $.ajax({
       type:'POST',
-      url:"{{ route('visa.type.update')}}",
+      url:"{{ route('paid.service.plan.update')}}",
       data : new FormData(this),
       contentType: false,
       cache: false,

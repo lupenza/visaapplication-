@@ -727,6 +727,7 @@
                     <div class="testimonial__item-wrap">
                         <div class="swiper-container testimonial-active-two">
                             <div class="swiper-wrapper">
+                                @forelse ($testmonials as $testmonial)
                                 <div class="swiper-slide">
                                     <div class="testimonial__item-three">
                                         <div class="testimonial__rating testimonial__rating-two">
@@ -736,39 +737,20 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                         </div>
-                                        <p>“ Morem ipsum dolor sit amet, consectetur adipiscing elita florai sum dolor sit amet, consecteture.Borem ipsum dolor sit amet, consectetur adipiscing elita Moremsit amet.</p>
+                                        <p>“{{ $testmonial->description }}</p>
                                         <div class="testimonial__bottom">
                                             <div class="testimonial__info-three">
-                                                <h4 class="title">Mr.Robey Alexa</h4>
-                                                <span>CEO, Moie Agency</span>
+                                                <h4 class="title">{{ $testmonial->name }}</h4>
+                                                <span>{{ $testmonial->designation}}</span>
                                             </div>
                                             <div class="testimonial__icon">
-                                                <img src="assets/frontend/img/icon/quote02.svg" alt="">
+                                                <img src="{{ asset('assets/frontend/img/icon/quote02.svg')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="testimonial__item-three">
-                                        <div class="testimonial__rating testimonial__rating-two">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <p>“ Morem ipsum dolor sit amet, consectetur adipiscing elita florai sum dolor sit amet, consecteture.Borem ipsum dolor sit amet, consectetur adipiscing elita Moremsit amet.</p>
-                                        <div class="testimonial__bottom">
-                                            <div class="testimonial__info-three">
-                                                <h4 class="title">Kristin Watson</h4>
-                                                <span>CEO,JAKS Shans</span>
-                                            </div>
-                                            <div class="testimonial__icon">
-                                                <img src="assets/frontend/img/icon/quote02.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>  
+                                @empty
+                                @endforelse
                             </div>
                             <div class="testimonial__nav-two">
                                 <div class="testimonial-button-prev"><i class="flaticon-right-arrow"></i></div>
