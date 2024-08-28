@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Faq;
@@ -26,6 +27,7 @@ use Str;
 class HomeController extends Controller
 {
     public function index(){
+        $data['clients'] =Client::take(3)->get();
         $data['countries'] =Country::take(4)->get();
         $data['services'] =Service::take(8)->get();
         $data['testmonials'] =Testmonial::take(5)->get();

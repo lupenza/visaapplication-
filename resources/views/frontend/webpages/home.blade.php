@@ -208,42 +208,20 @@
                 </div>
             </div>
             <div class="row gutter-24">
-                <div class="col-xl-4 col-lg-4 col-md-6 text-center">
-                    <div class="services__item-five">
-                        <div class="new_icon_div">
-                            <i class="fa fa-globe text-white new_icon_style"></i>
+                @foreach ($clients as $client) 
+                    <div class="col-xl-4 col-lg-4 col-md-6 text-center">
+                        <div class="services__item-five">
+                            <div class="new_icon_div">
+                                <i class="fa fa-globe text-white new_icon_style"></i>
+                            </div>
+                            <div class="services__content-five">
+                                <h2 class="title"><a href='services-details.html'>{{ $client->name}}</a></h2>
+                                <p style="text-align: left">{{ $client->description }}</p>
+                                {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
+                            </div>
                         </div>
-                        <div class="services__content-five">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <p style="text-align: left">Beauis utter enim amet lacus ornare ullamcorper Praesent neque purus rhoncus.</p>
-                            {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="services__item-five">
-                        <div class="new_icon_div">
-                            <i class="fa fa-globe text-white new_icon_style"></i>
-                        </div>
-                        <div class="services__content-five">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <p style="text-align: left">Beauis utter enim amet lacus ornare ullamcorper Praesent neque purus rhoncus.</p>
-                            {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="services__item-five">
-                        <div class="new_icon_div">
-                            <i class="fa fa-globe text-white new_icon_style"></i>
-                        </div>
-                        <div class="services__content-five">
-                            <h2 class="title"><a href='services-details.html'>Marketing Plan</a></h2>
-                            <p style="text-align: left">Beauis utter enim amet lacus ornare ullamcorper Praesent neque purus rhoncus.</p>
-                            {{-- <a class='btn' href='services-details.html'>Read More</a> --}}
-                        </div>
-                    </div>
-                </div>
+                    </div> 
+                @endforeach
             </div>
         </div>
           <!-- brand-area -->
@@ -440,8 +418,8 @@
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="process-text-container">
-                                        <p>01</p>
-                                        <h6>Consultation</h6>
+                                        <p>02</p>
+                                        <h6>Document preparation</h6>
                                         <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
                                     </div>
                                 </div>
@@ -459,9 +437,9 @@
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="process-text-container">
-                                        <p>01</p>
-                                        <h6>Consultation</h6>
-                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                        <p>03</p>
+                                        <h6>Application Submission</h6>
+                                        <p>Submit your application information through our secure portal. We finalize the application submission on your behalf</p>
                                     </div>
                                 </div>
                                 <div class="sub-process-container">
@@ -469,9 +447,11 @@
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="process-text-container">
-                                        <p>01</p>
-                                        <h6>Consultation</h6>
-                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                        <p>04</p>
+                                        <h6>Embassy Procedures
+                                            Embassy Procedures</h6>
+                                        <p>If required, we will direct you to 
+                                            the embassy to complete the application procedure, such as biometric collection or visa interview</p>
                                     </div>
                                 </div>
                                 <div class="sub-process-container">
@@ -479,11 +459,12 @@
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="process-text-container">
-                                        <p>01</p>
-                                        <h6>Consultation</h6>
-                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                        <p>05</p>
+                                        <h6>Visa Results</h6>
+                                        <p>Get your visa Application results and plan journey</p>
                                     </div>
                                 </div>
+                                
                                </div>
                                 
                             </div>
@@ -522,8 +503,8 @@
                                 <i class="fa fa-user icon-style"></i>
                             </div>
                             <div class="exp-text-container">
-                                <h6>1000 +</h6>
-                                <p>Visa Processed</p>
+                                <h6>30 +</h6>
+                                <p>Countries Served</p>
                             </div>
                         </div>
                     </div>
@@ -533,8 +514,8 @@
                                 <i class="fa fa-user icon-style"></i>
                             </div>
                             <div class="exp-text-container">
-                                <h6>1000 +</h6>
-                                <p>Visa Processed</p>
+                                <h6>10 +</h6>
+                                <p>Years of Experience</p>
                             </div>
                         </div>
                         <div class="exp-sub-container">
@@ -542,8 +523,8 @@
                                 <i class="fa fa-user icon-style"></i>
                             </div>
                             <div class="exp-text-container">
-                                <h6>1000 +</h6>
-                                <p>Visa Processed</p>
+                                <h6>90%</h6>
+                                <p>Successful Applicants</p>
                             </div>
                         </div>
                     </div>
@@ -633,8 +614,8 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 text-center">
                     <div class="section-title mb-25 tg-heading-subheading animation-style3">
-                        <span class="sub-title">Why We Are The Best</span>
-                        <h2 class="title tg-element-title">We Offer Business Insight World Class Consulting</h2>
+                        <span class="sub-title">Visa category</span>
+                        <h2 class="title tg-element-title">Adventure Awaits Around Every Corner</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-9 order-0 order-lg-2">
@@ -659,8 +640,8 @@
                                             <i class="flaticon-financial-profit"></i>
                                         </div>
                                         <div class="choose__list-content">
-                                            <h4 class="title">Finance Planning</h4>
-                                            <p>Apexa helps youcona doing <br> tempor incididunt.</p>
+                                            <h4 class="title">Visitor/Tourist Visa</h4>
+                                            <p>There are many variati of passages of engineer's available.<br>  have suffered alteration in engineer's available </p>
                                         </div>
                                     </div>
                                 </li>
@@ -670,8 +651,8 @@
                                             <i class="flaticon-report"></i>
                                         </div>
                                         <div class="choose__list-content">
-                                            <h4 class="title">Market Analysis</h4>
-                                            <p>Apexa helps youcona doing <br> tempor incididunt.</p>
+                                            <h4 class="title">Business Visa</h4>
+                                            <p>There are many variati of passages of engineer's available.  have suffered alteration in engineer's available </p>
                                         </div>
                                     </div>
                                 </li>
@@ -681,8 +662,8 @@
                                             <i class="flaticon-report"></i>
                                         </div>
                                         <div class="choose__list-content">
-                                            <h4 class="title">Market Analysis</h4>
-                                            <p>Apexa helps youcona doing <br> tempor incididunt.</p>
+                                            <h4 class="title">Student Visa</h4>
+                                            <p>There are many variati of passages of engineer's available.  have suffered alteration in engineer's available </p>
                                         </div>
                                     </div>
                                 </li>
@@ -692,8 +673,8 @@
                                             <i class="flaticon-report"></i>
                                         </div>
                                         <div class="choose__list-content">
-                                            <h4 class="title">Market Analysis</h4>
-                                            <p>Apexa helps youcona doing <br> tempor incididunt.</p>
+                                            <h4 class="title">Work Visa</h4>
+                                            <p>There are many variati of passages of engineer's available.  have suffered alteration in engineer's available </p>
                                         </div>
                                     </div>
                                 </li>
@@ -715,7 +696,10 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-5 col-md-8">
                     <div class="testimonial__img-wrap-two">
-                        <img src="assets/frontend/img/images/inner_testimonial_img.png" alt="">
+                        @foreach ($testmonials as $testmonial)
+                            <img src="{{asset($testmonial->image)}}" alt="" class="alltuchtopdown">
+                        @endforeach
+                       
                         <div class="testimonial__img-shape-two">
                             <img src="assets/frontend/img/images/h3_testimonial_shape01.png" alt="" class="alltuchtopdown">
                             <img src="assets/frontend/img/images/inner_testimonial_shape.png" alt="" class="rotateme">

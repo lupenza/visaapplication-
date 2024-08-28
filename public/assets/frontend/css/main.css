@@ -5911,8 +5911,13 @@ services__item-five h2 p {
     text-align: left;
 }
 
+.process-text-container p {
+    font-size: 12px;
+}
+
 .services__content-five p {
     margin-bottom: 25px;
+    font-size: 13px;
 }
 
 .services__content-five .btn {
@@ -17062,7 +17067,7 @@ blockquote p {
 }
 
 .exp-text-container h6 {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -17243,7 +17248,7 @@ blockquote p {
     margin-top: 30px;
 }
 
-.image-container{
+.image-container {
     height: 200px;
     width: 230px;
     background-size: cover;
@@ -17258,32 +17263,34 @@ blockquote p {
     padding-top: 30px;
 }
 
-.service-text-container h6{
+.service-text-container h6 {
     font-weight: 400;
     font-size: 16px;
 }
 
-.service-text-container p{
+.service-text-container p {
     font-size: 13px;
     color: #828282;
 }
 
-.service-text-container a{
+.service-text-container a {
     font-size: 13px;
     color: #20BFEA;
 }
-.custom-btn{
+
+.custom-btn {
     background-color: #20BFEA;
     border-radius: 5px;
     border-color: #20BFEA;
 }
-.custom-btn i{
+
+.custom-btn i {
     color: #fff
 }
 
-.custom-active{
+.custom-active {
     background-color: #20BFEA;
-    color:#fff
+    color: #fff
     /* color: var(--tg-color-white-default); */
 }
 
