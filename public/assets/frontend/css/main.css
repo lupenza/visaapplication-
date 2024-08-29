@@ -17000,6 +17000,19 @@ blockquote p {
     background-color: #fff;
 }
 
+.process-icon-right {
+    display: flex;
+    border: 1px solid #20BFEA;
+    width: 100px;
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-left: -12px;
+    background-color: #fff;
+}
+
 .exp-main-container {
     background-color: #20BFEA;
     padding: 40px 20px 20px 40px;

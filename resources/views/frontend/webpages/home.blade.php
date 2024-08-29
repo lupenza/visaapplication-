@@ -433,7 +433,7 @@
                                </div>
                                <div class="right-process-container">
                                 <div class="sub-process-container">
-                                    <div class="process-icon">
+                                    <div class="process-icon-right">
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="process-text-container">
@@ -443,7 +443,7 @@
                                     </div>
                                 </div>
                                 <div class="sub-process-container">
-                                    <div class="process-icon">
+                                    <div class="process-icon-right">
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="process-text-container">
@@ -455,7 +455,7 @@
                                     </div>
                                 </div>
                                 <div class="sub-process-container">
-                                    <div class="process-icon">
+                                    <div class="process-icon-right">
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="process-text-container">
