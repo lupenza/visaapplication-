@@ -43,7 +43,7 @@
                     <div class="service-text-container">
                         <h6>{{ $service->name}}</h6>
                         <p>{{ $service->caption }}</p>
-                        <a href="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <a href="{{ route('service.detail',$service->uuid)}}">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>   
                 @endforeach

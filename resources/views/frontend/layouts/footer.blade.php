@@ -60,11 +60,10 @@
                             <h4 class="fw-title">Top Links</h4>
                             <div class="footer-link-list">
                                 <ul class="list-wrap">
-                                    <li><a href=''>Home</a></li>
-                                    <li><a href=''>About Us</a></li>
+                                    <li><a href='{{ route('home')}}'>Home</a></li>
+                                    <li><a href='{{ route('about.us')}}'>About Us</a></li>
                                     <li><a href='{{ route('testimonials')}}'>Testimonials</a></li>
-                                    <li><a href=''>Case Studies</a></li>
-                                    <li><a href=''>Pricing</a></li>
+                                    <li><a href='{{ route('all.payment.plans')}}'>Pricing</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Client;
 use App\Models\Continent;
 use App\Models\Country;
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $data['countries'] =Country::take(4)->get();
         $data['services'] =Service::take(8)->get();
         $data['testmonials'] =Testmonial::take(5)->get();
+        $data['brands']      =Brand::get();
         return view('frontend.webpages.home',$data);
     }
 
@@ -107,7 +109,6 @@ class HomeController extends Controller
     }
 
     public function paidServiceForm($plan_uuid){
-        // return $plan_uuid;
         $price_plan =PaidServicePrice::with('questions')->where('uuid',$plan_uuid)->first();
         if (in_array($price_plan->id,[1,2,3])) {
             $countries =Country::get();
