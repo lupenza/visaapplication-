@@ -62,7 +62,7 @@
                         <p>Don’t have an account? <a class='link-bold' href='{{ route('sign.up')}}'>Sign up</a> now</p>
                     </div>
                 </form>
-                    <div class="text-or"><span>or</span></div>
+                    {{-- <div class="text-or"><span>or</span></div>
                     <div class="box-login-with">
                         <div class="form-group">
                             <a href="#" class="btn btn-login-social">
@@ -70,7 +70,7 @@
                                 Sign In With Google
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                    
                 </div>
             </div>

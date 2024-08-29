@@ -46,6 +46,17 @@
                         </div>
                         <div class="form-group row mt-2">
                             <div class="col-md-12">
+                                <label for="">Visa Type</label>
+                                <select name="visa_type_id" class="form-control">
+                                    <option value="{{ $country->visa_type_id }}">{{ $country->visa_type?->name }}</option>
+                                    @foreach ($visa_types as $item)
+                                        <option value="{{ $item->id}}">{{ $item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-2">
+                            <div class="col-md-12">
                                 <label for="">Country Attributes <sub>separate by comma (,)</sub> </label>
                                 <textarea type="text" name="country_attribute" class="form-control"  required>{{ $country->country_attribute }}</textarea>
                             </div>

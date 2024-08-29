@@ -26,6 +26,10 @@ class Country extends Model
         return $this->hasOne(Continent::class,'id','continent_id');
     }
 
+    public function visa_type(){
+        return $this->hasOne(VisaType::class,'id','visa_type_id');
+    }
+
     public function getCountrySpecialAttribute(){
         $data =explode(',',$this->country_attribute);
         return $data;

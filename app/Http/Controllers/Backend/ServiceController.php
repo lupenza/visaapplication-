@@ -11,6 +11,7 @@ use App\Models\Faq;
 use App\Models\PricingPlan;
 use App\Models\Service;
 use App\Models\Testmonial;
+use App\Models\VisaType;
 use App\Traits\FileImportTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -79,13 +80,15 @@ class ServiceController extends Controller
 
     public function countrierCreate(){
         $continents =Continent::orderBy('name','ASC')->get();
-        return view('backend.website.country_add',compact('continents'));
+        $visa_types  =VisaType::get();
+        return view('backend.website.country_add',compact('continents','visa_types'));
     }
 
     public function editCountry($uuid){
         $country =Country::where('uuid',$uuid)->first();
         $continents =Continent::orderBy('name','ASC')->get();
-        return view('backend.website.edit_country',compact('country','continents'));
+        $visa_types  =VisaType::get();
+        return view('backend.website.edit_country',compact('country','continents','visa_types'));
     }
 
     public function editService($uuid){
@@ -222,6 +225,7 @@ class ServiceController extends Controller
             'description'       =>'required',
             'image'             =>'required',
             'cover_image'       =>'required',
+            'visa_type_id'       =>'required',
         ]);
         $slider =Country::create([
             'name'          =>$valid['name'],
@@ -229,6 +233,7 @@ class ServiceController extends Controller
             'description'   =>$valid['description'],
             'uuid'          =>(string)Str::orderedUuid(),
             'country_attribute' =>$valid['country_attribute'],
+            'visa_type_id'  =>$valid['visa_type_id'],
             'created_by'    =>Auth::user()->id,
         ]);
 
@@ -299,6 +304,7 @@ class ServiceController extends Controller
             'uuid'              =>'required',
             'change_image'             =>'required',
             'change_cover_image'       =>'required',
+            'visa_type_id'       =>'required',
         ]);
         $slider =Country::updateOrCreate(
             [
@@ -309,6 +315,8 @@ class ServiceController extends Controller
             'continent_id'   =>$valid['continent_id'],
             'description'   =>$valid['description'],
             'country_attribute' =>$valid['country_attribute'],
+            'visa_type_id'  =>$valid['visa_type_id'],
+
         ]);
 
         if ($valid['change_image'] == "yes") {
