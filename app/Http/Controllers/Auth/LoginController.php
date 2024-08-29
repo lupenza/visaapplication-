@@ -46,7 +46,7 @@ class LoginController extends Controller
                 }
                 elseif($user->hasRole('Customer')){
                     $last_url =Session::get('url.intended');
-                    $url =$last_url ?? URL::to('customer.dashboard');
+                    $url =$last_url ?? URL::to('customer/dashboard');
                    // Session::forget('last_url');
                     Session::forget('url.intended');
                     return response()->json([

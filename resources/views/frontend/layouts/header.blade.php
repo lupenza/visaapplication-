@@ -44,8 +44,16 @@
                                     {{-- <li><a href='#'>Apply Visa</a></li> --}}
                                     <li><a href='{{ route('all.payment.plans')}}'>Pricing</a></li>
                                     <li><a href='{{ route('faq')}}'>FAQ</a></li>
-                                    {{-- <li><a href='#'>Contact Us</a></li> --}}
+                                    @if (Auth::user())
+                                    <li class="menu-item-has-children"><a href="#">{{ Auth::user()->name }}</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('customer.dashboard')}}">Profile</a></li>
+                                            <li><a href="{{ route('logout')}}">Logout</a></li>
+                                        </ul>
+                                    </li> 
+                                    @else
                                     <li><a href='{{ route('login')}}'>Login</a></li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="tgmenu__action tgmenu__action-three d-none d-md-block">
