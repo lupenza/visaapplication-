@@ -61,4 +61,12 @@ class User extends Authenticatable
         
     }
 
+    public function applications(){
+        return $this->hasmany(VisaApplication::class,'applicant_id','id');
+    }
+
+    public function payments(){
+        return $this->hasmany(PaymentLog::class,'applicant','id');
+    }
+
 }

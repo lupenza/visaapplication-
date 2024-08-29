@@ -120,4 +120,5 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('customer/dashboard',[CustomerController::class,'index'])->name('customer.dashboard');
     Route::get('customer/applications',[CustomerController::class,'customerApplication'])->name('customer.application');
     Route::get('customer/profile',[CustomerController::class,'customerProfile'])->name('application.profile');
+    Route::get('customer/payments',[CustomerController::class,'customerPayments'])->name('customer.payments');
 });

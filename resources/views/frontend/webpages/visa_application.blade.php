@@ -77,29 +77,6 @@
                                    
                                     @endif 
                                 @endforeach
-                               
-                                {{-- <li>
-                                    <div class="choose__list-box">
-                                        <div class="choose__list-icon">
-                                            <i class="flaticon-report"></i>
-                                        </div>
-                                        <div class="choose__list-content">
-                                            <h4 class="title">Register an online payment</h4>
-                                            <p>Apexa helps youcona doing <br> tempor incididunt.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="choose__list-box">
-                                        <div class="choose__list-icon">
-                                            <i class="flaticon-report"></i>
-                                        </div>
-                                        <div class="choose__list-content">
-                                            <h4 class="title">Check your inbox</h4>
-                                            <p>Apexa helps youcona doing <br> tempor incididunt.</p>
-                                        </div>
-                                    </div>
-                                </li> --}}
                             </ul>
                         </div>
                     </div>

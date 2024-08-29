@@ -34,6 +34,7 @@
             <div class="services__details-wrap">
                 <div class="row">
                     <div class="col-70 order-0 order-lg-2">
+                        <h5 class="text-center">All Application</h5>
                         <div class="services__details-content">
                             <div class="services__details-list">
                                 <div class="row">

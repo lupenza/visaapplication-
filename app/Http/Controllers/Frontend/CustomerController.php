@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\PaymentLog;
 use App\Models\VisaApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,5 +28,11 @@ class CustomerController extends Controller
                 ->first();
         return view('frontend.customer.profile',compact('profile'));
 
+    }
+
+    public function customerPayments(){
+        $payments =PaymentLog::where('applicant',Auth::user()->id)->get();
+        return view('frontend.customer.payments',compact('payments'));
+ 
     }
 }

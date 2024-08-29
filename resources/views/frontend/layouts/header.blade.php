@@ -9,7 +9,7 @@
                 <div class="col-lg-6">
                     <ul class="tg-header__top-info left-side list-wrap">
                         <li><i class="flaticon-phone-call"></i><a href="tel:0123456789">+255 767 000 000</a></li>
-                        <li><i class="flaticon-pin"></i>256 Samora, Zanaki Street, Dar es salaam City</li>
+                        <li><i class="flaticon-pin"></i>Dar es salaam City</li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
