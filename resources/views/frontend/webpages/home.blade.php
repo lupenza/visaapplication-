@@ -28,6 +28,24 @@
             <img src="{{ asset('assets/frontend/img/banner/h3_banner_shape01.png')}}" alt="" class="heartbeat">
         </div>
     </section>
+
+
+    <div class="brand-area brand__area-one">
+        <div class="container">
+            <div class="swiper-container brand-active">
+                <div class="swiper-wrapper">
+                    @foreach ($countries as $country)
+                        <div class="swiper-slide">
+                            <div class="brand-item">
+                                <img src="{{ asset('storage/website/'.$country->image) }}" alt="{{ $country->name }}">
+                            </div>
+                        </div>  
+                        @endforeach  
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- banner-area-end -->
       <!-- services-area -->
       <section class="services__area-seven services__bg-seven" data-background="assets/img/bg/h5_services_bg.jpg">

@@ -93,7 +93,10 @@
                         <div class="footer-widget">
                             <h4 class="fw-title">Reach Us</h4>
                             <div>
-                                <img src="{{ asset('assets/frontend/img/play.png')}}" alt="">
+                                <div class="content">
+                                    <p>Bagamoyo Road, Dar es Salaam. Tanzania. 2nd Floor Dar Free Market</p>
+                                </div>
+                                {{-- <img src="{{ asset('assets/frontend/img/play.png')}}" alt=""> --}}
                             </div>
                         </div>
                     </div>

@@ -23,10 +23,11 @@ class UserController extends Controller
             'first_name'  =>'required',
             'last_name'   =>'required',
             'email'      =>'required|unique:users,email',
-            'password'   =>['required','confirmed','string','min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
+            // 'password'   =>['required','confirmed','string','min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
+            'password'   =>['required','confirmed','string','min:6'],
             'role_id'      =>'required',
         ]);
-
+        $request->all();
         $user =User::create([
             'name'       =>$valid['first_name'].' '.$valid['last_name'],
             'first_name' =>$valid['first_name'],
