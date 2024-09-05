@@ -34,7 +34,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-5">
                     <div class="section-title text-center mb-30">
-                        <span class="sub-title">Flexible Pricing Plan</span>
+                        <span class="sub-title">Flexible Pricing Plans</span>
                         <h2 class="title">We’ve Offered The Best Pricing For You</h2>
                     </div>
                 </div>
@@ -46,14 +46,14 @@
                     <span class="pricing__tab-btn annual_tab_title">Yearly</span>
                 </div> --}}
                 <div class="row justify-content-center">
-                    @forelse ($pricings as $pricing)
+                    @forelse ($service->price_plans as $pricing)
                     <div class="col-lg-4 col-md-6 col-sm-8 text-center">
                         <div class="pricing__box">
                             <div class="pricing__head">
-                                <h5 class="title">{{ $pricing->title}}</h5>
+                                <h5 class="title">{{ $pricing->name}}</h5>
                             </div>
                             <div class="pricing__price">
-                                <h2 class="price monthly_price">{!! $pricing->type !!}</h2>
+                              <h2 class="price monthly_price"><span>From </span> {!! $pricing->price !!}</h2>
                             </div>
                             <div class="pricing__list">
                                 <ul class="list-wrap">
@@ -65,16 +65,9 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            @if ($pricing->title == "Negotiable")
                             <div class="pricing__btn">
-                                <a href="javascript:void(0)" class="btn">Contact Us</a>
-                            </div>    
-                            @else
-                            <div class="pricing__btn">
-                                <a href="javascript:void(0)" class="btn">Buy Plan</a>
+                                <a href="{{ route('paid.service.form',$pricing->uuid)}}" class="btn">Choose</a>
                             </div> 
-                            @endif
-                           
                         </div>
                     </div> 
                     @empty

@@ -3578,8 +3578,12 @@ textarea {
 ===============================*/
 
 .brand-area {
-    padding: 56px 0;
+    padding: 16px 0;
     border-bottom: 1px solid #E6E7F3;
+}
+
+.brand__area-one {
+    padding: 50px 0;
 }
 
 .brand__area-two {
@@ -3624,18 +3628,28 @@ textarea {
 }
 
 .brand-item {
-    min-height: 46px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+    height: 46px;
+    width: 100%;
+    /* Set the width to match the container's width */
     display: flex;
+    /* Modern approach */
     align-items: center;
+    /* Vertically centers the content */
     justify-content: center;
+    /* Horizontally centers the content */
+    overflow: hidden;
+    /* Ensures the image doesn't overflow the container */
 }
 
 .brand-item img {
     cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 19px;
 }
 
 .brand__content {
@@ -17307,7 +17321,7 @@ blockquote p {
     /* color: var(--tg-color-white-default); */
 }
 
-.dashboard-card{
+.dashboard-card {
     border: 1px solid #f5f5f5;
     display: flex;
     flex-direction: row;
@@ -17334,7 +17348,7 @@ blockquote p {
     margin-right: 2px;
 }
 
-.card-icon-div{
+.card-icon-div {
     display: flex;
     height: 50px;
     width: 50px;
@@ -17346,7 +17360,8 @@ blockquote p {
     color: #fff;
     margin-left: 40px;
 }
-.dashboard-card-container{
+
+.dashboard-card-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

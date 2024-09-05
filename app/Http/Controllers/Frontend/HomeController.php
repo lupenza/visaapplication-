@@ -63,8 +63,10 @@ class HomeController extends Controller
     }
 
     public function pricingPlan(){
-        $pricings =PricingPlan::get();
-        return view('frontend.webpages.pricing_plans',compact('pricings'));
+        // $pricings =PricingPlan::get();
+        $service =PaidService::where("id", 1)->first();
+        // return $service->price_plans;
+        return view('frontend.webpages.pricing_plans',compact('service'));
 
     }
 
