@@ -9,7 +9,7 @@
                     <div class="banner__content-two">
                         <h2 class="title" data-aos="fade-up" data-aos-delay="100">VISA APPLICATION  <span>ASSISTANCE</span> SERVICE</h2>
                         <p data-aos="fade-up" data-aos-delay="300">Apply visa with maximum confidence</p>
-                        <a class='btn border-btn' data-aos-delay='600' data-aos='fade-up' href='/visa/application'>Apply now</a>
+                        <a class='btn border-btn' data-aos-delay='600' data-aos='fade-up' href='{{route('apply.visa')}}'>Apply now</a>
                     </div>
                 </div>
             </div>
