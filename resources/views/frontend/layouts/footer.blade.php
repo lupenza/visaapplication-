@@ -40,7 +40,7 @@
                                             <i class="flaticon-envelope"></i>
                                         </div>
                                         <div class="content">
-                                            <a href="mailto:info@apexa.com">info@vas.com</a>
+                                            <a href="mailto:info@apexa.com">info@vaas.co.tz</a>
                                         </div>
                                     </li>
                                     <li>
