@@ -35,6 +35,7 @@ Route::get('service/application/{uuid}',[HomeController::class,'serviceApplicati
 Route::group(['middleware'=>'auth'],function(){
     Route::get('paid/service/form/{uuid}',[HomeController::class,'paidServiceForm'])->name('paid.service.form');
     Route::post('paid/service/store',[HomeController::class,'paidServiceStore'])->name('additional.service.store');
+    Route::post('additional/service/update',[HomeController::class,'paidServiceUpdate'])->name('additional.service.update');
     Route::get('get/visa/question/{country_uuid}/{plan_id}',[HomeController::class,'visaQuestions'])->name('get.visa.question');
 
 
@@ -83,7 +84,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('process/payment/{personal_id?}/{type?}',[ApplicationController::class,'processPayment'])->name('process.payment');
     Route::get('visa/profile/{uuid}',[ApplicationController::class,'visaProfile'])->name('visa.profile');
     Route::post('visa/allocation',[ApplicationController::class,'visaAllocation'])->name('allocate.application');
+    Route::post('visa/update',[ApplicationController::class,'visaUpdate'])->name('visa.update');
     Route::post('track/store',[ApplicationController::class,'trackStore'])->name('track.store');
+    Route::get('edit/visa/application/{uuid}',[ApplicationController::class,'editVisaApplication'])->name('edit.visa.application');
 
     /**user management */
     Route::get('users/list',[UserController::class,'index'])->name('users.index');
@@ -121,4 +124,5 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('customer/applications',[CustomerController::class,'customerApplication'])->name('customer.application');
     Route::get('customer/profile',[CustomerController::class,'customerProfile'])->name('application.profile');
     Route::get('customer/payments',[CustomerController::class,'customerPayments'])->name('customer.payments');
+    Route::get('edit/application/profile/{uuid}',[CustomerController::class,'editApplication'])->name('edit.application.profile');
 });

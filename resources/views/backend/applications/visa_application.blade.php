@@ -72,6 +72,9 @@
                                             <a href="{{ route('visa.profile',['uuid'=>$application->uuid])}}">
                                                 <button class="btn btn-primary btn-sm" ><i class="fa fa-user"></i></button>
                                             </a>
+                                            <a href="{{ route('edit.visa.application',['uuid'=>$application->uuid])}}">
+                                                <button class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></button>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

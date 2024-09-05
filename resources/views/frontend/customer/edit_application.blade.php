@@ -2,13 +2,13 @@
 
 @section('content')
 <style>
+
 .form-wizard-wrapper label {
     font-size: 14px;
     text-align: right
 }
-.form-wizard-wrapper label {
-    font-size: 14px;
-    text-align: right
+.form-control{
+    padding: 15px 0px 15px 15px  !important;
 }
 
 .wizard .steps>ul {
@@ -222,9 +222,7 @@
                 <div class="card-body">
                     <h4 class="card-title mb-4">Visa Proces Information</h4>
                 <form id="form-registration">
-                    <input type="hidden" name="visa_type_id" value="{{$visa_type_id}}">
-                    <input type="hidden" name="country_id" value="{{$country_id}}">
-                    <input type="hidden" name="plan_id" value="{{$plan_id}}">
+                    <input type="hidden" name="application_id" value="{{$profile->id}}">
                     <div id="basic-example">
                         <!-- Seller Details -->
                         @if ($questions->where('section',1)->count())
@@ -236,7 +234,7 @@
                                     <label for="">{{ $question->name }}</label>
                                     @if ($question->input_type == "select")
                                       <select name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}>
-                                        <option value="">Please select</option>
+                                        <option value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}">{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}</option>
                                         @php
                                             $our_options =explode(',',$question->options);
                                         @endphp
@@ -246,9 +244,9 @@
                                     </select> 
                                      
                                     @elseif($question->input_type == "textarea")
-                                       <textarea name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}></textarea> 
+                                       <textarea name="{{$question->id}}" value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}" class="form-control" {{$question->rule == 1 ? "required":""}}>{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}</textarea> 
                                     @else
-                                    <input type="{{$question->input_type}}" name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}>
+                                    <input type="{{$question->input_type}}" name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}} value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}">
                                     @endif
 
                                 </div>
@@ -266,7 +264,7 @@
                                     <label for="">{{ $question->name }}</label>
                                     @if ($question->input_type == "select")
                                       <select name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}>
-                                        <option value="">Please select</option>
+                                        <option value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}">{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}</option>
                                         @php
                                             $our_options =explode(',',$question->options);
                                         @endphp
@@ -276,9 +274,9 @@
                                     </select> 
                                      
                                     @elseif($question->input_type == "textarea")
-                                       <textarea name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}></textarea> 
+                                       <textarea name="{{$question->id}}" value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}" class="form-control" {{$question->rule == 1 ? "required":""}}>{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}</textarea> 
                                     @else
-                                    <input type="{{$question->input_type}}" name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}>
+                                    <input type="{{$question->input_type}}" name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}} value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}">
                                     @endif
 
                                 </div>
@@ -296,7 +294,7 @@
                                     <label for="">{{ $question->name }}</label>
                                     @if ($question->input_type == "select")
                                       <select name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}>
-                                        <option value="">Please select</option>
+                                        <option value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}">{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}</option>
                                         @php
                                             $our_options =explode(',',$question->options);
                                         @endphp
@@ -306,9 +304,9 @@
                                     </select> 
                                      
                                     @elseif($question->input_type == "textarea")
-                                       <textarea name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}></textarea> 
+                                       <textarea name="{{$question->id}}" value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}" class="form-control" {{$question->rule == 1 ? "required":""}}>{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}</textarea> 
                                     @else
-                                    <input type="{{$question->input_type}}" name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}}>
+                                    <input type="{{$question->input_type}}" name="{{$question->id}}" class="form-control" {{$question->rule == 1 ? "required":""}} value="{{ $profile->question_answers()->where('question_id',$question->id)->first()?->answer}}">
                                     @endif
 
                                 </div>
@@ -356,7 +354,7 @@ function submitVerticalForm() {
 
     $.ajax({
         type: 'POST',
-        url: "{{ route('visa.store') }}",
+        url: "{{ route('visa.update') }}",
         data: personal_info,
         // contentType: false,
         // cache: false,

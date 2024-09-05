@@ -64,6 +64,9 @@
                                                         <a href="{{ route('application.profile',['uuid'=>$application->uuid])}}">
                                                             <button class="custom-btn"><i class="fa fa-user"></i></button>
                                                         </a>
+                                                        <a href="{{ route('edit.application.profile',['uuid'=>$application->uuid])}}">
+                                                            <button class="custom-btn" style="background-color: #203574"><i class="fa fa-edit"></i></button>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

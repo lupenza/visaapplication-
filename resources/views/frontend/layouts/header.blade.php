@@ -80,7 +80,7 @@
                                             </svg>
                                         </a>
                                     </li> --}}
-                                    <li class="header-btn"><a class='btn' href='{{ route('apply.visa')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li>
+                                    <li class="header-btn"><a class='btn' href='{{ route('sign.up')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li>
                                     {{-- <li class="header-btn"><a class='btn' href='{{ route('visa.request')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li> --}}
                                 </ul>
                             </div>

@@ -185,4 +185,38 @@ class HomeController extends Controller
         }
         
     }
+
+    public function paidServiceUpdate(Request $request){
+        try {
+            DB::transaction(function() use ($request){
+                   $application_id =$request->application_id;
+                   QuestionAnswer::where('visa_application_id',$application_id)->delete();
+                 $data = request()->all();
+
+                foreach ($data as $key => $value) {
+                    // answers
+                    if (is_numeric($key)) {
+                        QuestionAnswer::create([
+                            'question_id' =>$key,
+                            'answer'      =>$value,
+                            'visa_application_id' =>$application_id,
+                            'uuid' =>(string)Str::orderedUuid(),
+                            'application_type' =>2,
+                        ]);
+                    }
+                }
+
+            });
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' =>true,
+                'errors'  =>$th->getMessage()
+            ],500);
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully',
+        ],200); 
+    }
 }

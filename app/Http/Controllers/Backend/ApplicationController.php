@@ -34,7 +34,7 @@ class ApplicationController extends Controller
 
     public function visaApplication(){
         $visa_types =VisaType::get();
-        $applications =VisaApplication::with('applicant','visa_type','allocated_user','service_plan','service_plan.service')->get();
+        $applications =VisaApplication::with('applicant','visa_type','allocated_user','service_plan','service_plan.service')->latest()->get();
         $users =User::whereHas('roles',function ($query){
             $query->whereIn('name',['Data Entry']);
         })->get();
@@ -51,8 +51,20 @@ class ApplicationController extends Controller
 
     public function visaProfile(Request $request){
         $uuid =$request->uuid;
-        $profile =VisaApplication::with('question_answers','question_answers.question','visa_type','allocated_user','task_tracks','active_track')->where('uuid',$uuid)->first();
+        $profile =VisaApplication::with('question_answers','visa_type','allocated_user','task_tracks','active_track')
+        ->where('uuid',$uuid)->first();
         return view('backend.applications.profile',compact('profile'));
+    }
+
+    public function editVisaApplication($visa_uuid){
+        $profile =VisaApplication::with('question_answers','visa_type','allocated_user','task_tracks','active_track')->where('uuid',$visa_uuid)->first();
+        if ($profile->application_type == 1) {
+            $questions =Question::where('visa_type_id',$profile->visa_type_id)->get();
+            return view('backend.applications.edit_application',compact('questions','profile'));
+        } else {
+            # code...
+        }
+      
     }
 
     public function paymentProfile($id,$type){
@@ -250,6 +262,42 @@ class ApplicationController extends Controller
                             'question_id' =>$key,
                             'answer'      =>$value,
                             'visa_application_id' =>$application->id,
+                            'uuid' =>(string)Str::orderedUuid(),
+                        ]);
+                    }
+                }
+
+            });
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' =>true,
+                'errors'  =>$th->getMessage()
+            ],500);
+        }
+
+        return response()->json([
+            'success' =>true,
+            'message' =>'Action Done Successfully',
+        ],200);
+    }
+
+    public function visaUpdate(Request $request){
+        try {
+            DB::transaction(function() use ($request){
+                  // inser visa application
+                $application_id =$request->application_id;
+                //delete all question associated with this ID
+
+                QuestionAnswer::where('visa_application_id',$application_id)->delete();
+                $data = request()->all();
+
+                foreach ($data as $key => $value) {
+                    // answers
+                    if (is_numeric($key)) {
+                        QuestionAnswer::create([
+                            'question_id' =>$key,
+                            'answer'      =>$value,
+                            'visa_application_id' =>$application_id,
                             'uuid' =>(string)Str::orderedUuid(),
                         ]);
                     }
