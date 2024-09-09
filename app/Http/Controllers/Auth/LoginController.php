@@ -37,7 +37,7 @@ class LoginController extends Controller
             $user = User::find(auth()->user()->id);
             if ($user->is_active) { 
                if ($user->hasRole('Admin') || $user->hasRole('Super Admin') || $user->hasRole('Customer')) {
-                if ($user->hasRole('Admin') || $user->hasRole('Super Admin')) {
+                if ($user->hasRole('Admin') || $user->hasRole('Super Admin') || $user->hasRole('Agent')) {
                     return response()->json([
                         'success' =>true,
                         'message' =>$user->name.' Welcome Again',

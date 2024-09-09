@@ -15,6 +15,8 @@
                 <span key="t-chat">Applications</span>
             </a>
         </li>
+        @if (Auth::user()->hasRole('Admin') || Auth::user()->hasRole('Super Admin'))
+            
         <li class="menu-title" key="t-apps">Website</li>
         <li>
             <a href="{{ route('website.menu')}}" class="waves-effect">
@@ -41,6 +43,8 @@
                 <span key="t-chat">Paid Service</span>
             </a>
         </li>
+        @endif
+
        
     </ul>
 </div>
