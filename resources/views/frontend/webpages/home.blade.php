@@ -8,7 +8,7 @@
                 <div class="col-lg-6">
                     <div class="banner__content-two">
                         <h2 class="title" data-aos="fade-up" data-aos-delay="100">VISA APPLICATION  <span>ASSISTANCE</span> SERVICE</h2>
-                        <p data-aos="fade-up" data-aos-delay="300">Apply visa with maximum confidence</p>
+                        <p data-aos="fade-up" data-aos-delay="300">Apply VISA with confidence</p>
                         <a class='btn border-btn' data-aos-delay='600' data-aos='fade-up' href='{{route('apply.visa')}}'>Apply now</a>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                 <div class="col-lg-7">
                     <div class="section-title text-center mb-50">
                         <span class="sub-title">WHAT WE OFFER</span>
-                        <h2 class="title">We Vaas do for you</h2>
+                        <h2 class="title">We VAAS do for you</h2>
                     </div>
                 </div>
             </div>
@@ -264,10 +264,10 @@
         <div class="container">
             <div class="section-title mb-30 tg-heading-subheading animation-style3 text-center">
                 <span class="sub-title text-capitalize">Explore More</span>
-                <h2 class="title tg-element-title">Our Additional Service</h2>
+                <h2 class="title tg-element-title">Our Additional Services</h2>
             </div>
             <div class="row">
-                @foreach ($services as $service)
+                @foreach ($services as $index => $service)
                 <div class="col-md-4 our-service-container">
                     <div class="image-container" style="background-image: url('{{ asset("storage/website"."/".$service->image)}}')">
                     </div>
@@ -276,7 +276,12 @@
                         <p>{{ $service->caption }}</p>
                         <a href="{{ route('service.detail',$service->uuid)}}">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
-                </div>   
+                </div>  
+                @php
+                   if($index > 4) {
+                    break; 
+                   } 
+                @endphp 
                 @endforeach
             </div>
             <div class="text-center mt-4">
@@ -300,9 +305,9 @@
                 </div>
             </div>
             <div class="row gutter-24">
-                @foreach ($countries as $country)
+                @foreach ($countries as $index => $country)
                 <div class="col-xl-3 col-lg-4 col-md-6">
-                    <a href="{{ route('get.country',$country->uuid)}}">
+                    <a href="{{ route('get.country', $country->uuid) }}">
                         <div class="services__item-five" style="text-align: left !important ; padding-top: 30px !important;">
                             <div class="services__icon-five" style="margin-bottom: 20px !important" >
                                 <div>
@@ -319,7 +324,12 @@
                             </div>
                         </div>
                     </a>
-                </div>  
+                </div>   
+                @php
+                   if($index > 2) {
+                    break; 
+                   } 
+                @endphp
                 @endforeach
                
                 {{-- <div class="col-xl-3 col-lg-4 col-md-6">
@@ -410,7 +420,7 @@
                                     <div class="process-text-container">
                                         <p>02</p>
                                         <h6>Document preparation</h6>
-                                        <p>Discuss your travel plans <br>and visa requirements with <br>our experts</p>
+                                        <p>Gather and prepare all necessary <br> documents with our guidance</p>
                                     </div>
                                 </div>
                             </div>
@@ -438,8 +448,7 @@
                                     </div>
                                     <div class="process-text-container">
                                         <p>04</p>
-                                        <h6>Embassy Procedures
-                                            Embassy Procedures</h6>
+                                        <h6>Embassy Procedures</h6>
                                         <p>If required, we will direct you to 
                                             the embassy to complete the application procedure, such as biometric collection or visa interview</p>
                                     </div>
@@ -474,8 +483,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <h6>Success Story</h6>
-                    <p class="lead-text">Experiencing <br> Traditions and <br> Customs</p>
-                    <p class="lead-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore aliquam nemo</p>
+                    <p class="lead-text">OUR SUCCESS <br> BY THE NUMBERS</p>
+                    <p class="lead-paragraph">Empowering travellers with unmatched expertise and a 90% Visa Success rate.</p>
                 </div>
                 <div class="col-md-6 exp-container">
                     <div class="top-exp-container">
@@ -579,7 +588,7 @@
                         </div>
                         <div>
                             <p class="lead-title">Open Hours</p>
-                            <p class="sub-lead-title">9 am - 8 pm </p>
+                            <p class="sub-lead-title">8:30AM - 05PM </p>
                         </div>
                     </div>
                     <div class="contact-sub-container mt-3">
@@ -588,7 +597,7 @@
                         </div>
                         <div>
                             <p class="lead-title">Location</p>
-                            <p class="sub-lead-title">Dar Free Market</p>
+                            <p class="sub-lead-title">Dar Free Market, Dar es Salaam. Tanzania</p>
                         </div>
                     </div>
                 </div>

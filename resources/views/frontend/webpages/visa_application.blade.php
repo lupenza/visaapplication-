@@ -63,13 +63,13 @@
                                     @if ($item->id != 1)
                                     <a href="{{ route('get.paid.service',$item->uuid)}}">
                                         <li>
-                                            <div class="choose__list-box">
+                                            <div class="choose__list-box mt-4">
                                                 <div class="choose__list-icon">
                                                     <i class="flaticon-financial-profit"></i>
                                                 </div>
                                                 <div class="choose__list-content">
                                                     <h4 class="title">{{ $item->name }}</h4>
-                                                    <p>{{ $item->description }}</p>
+                                                    <p style="text-align: left">{{ $item->description }}</p>
                                                 </div>
                                             </div>
                                         </li> 

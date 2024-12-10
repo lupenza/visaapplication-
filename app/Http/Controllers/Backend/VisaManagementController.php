@@ -248,7 +248,7 @@ class VisaManagementController extends Controller
 
     public function paidServicePlanStore(Request $request){
         $valid =$request->validate([
-            'name'          =>'required|unique:paid_service_prices,name',
+            'name'          =>'required',
             'price'          =>'required',
             'offers'          =>'required',
         ]);

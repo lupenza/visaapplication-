@@ -58,7 +58,7 @@
                                             @if ($item->id == 1)
                                             <button class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash"></i></button>
                                             @else
-                                            <button class="btn btn-danger btn-sm" id="{{ $item->id }}" onclick="deleteCategory(id)" title="Delete"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-danger btn-sm" id="{{ $item->uuid }}" onclick="deleteCategory(id)" title="Delete"><i class="fa fa-trash"></i></button>
                                             @endif
                                         </td>
                                     </tr>
@@ -217,7 +217,7 @@
                 $.ajax({
                         url: "{{ route('paid.service.plan.destroy')}}", 
                         method: "POST",
-                        data: {id:id,'_token':csrf_tokken,action:'approve'},
+                        data: {uuid:id,'_token':csrf_tokken,action:'approve'},
                         success: function(response)
                     { 
                     // console.log(response); 

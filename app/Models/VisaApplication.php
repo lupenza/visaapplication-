@@ -24,7 +24,35 @@ class VisaApplication extends Model
         return $this->hasOne(VisaType::class,'id','visa_type_id');
     }
 
+    public function application_price(){
+        return $price = $this->hasOne(VisaType::class,'id','visa_type_id');
+
+        if($price) {
+            return $price->price;
+        }else{
+            return "150,000 TZS";
+        }
+    }
+
     public function getStageFormattedAttribute(){
+        switch ($this->application_stage) {
+            case 1:
+                return "<span class='badge badge-pill badge-soft-warning font-size-11'>OnProgress</span>";
+                break;
+            case 2:
+                return "<span class='badge badge-pill badge-soft-success font-size-11'>Accepted</span>";
+                break;
+            case 3:
+                return "<span class='badge badge-pill badge-soft-danger font-size-11'>Rejected</span>";
+                break;
+            default:
+                return "<span class='badge badge-pill badge-soft-primary font-size-11'>Pending</span>";
+                break;
+        }
+
+    }
+
+    public function getPaymentFormattedAttribute(){
         switch ($this->application_stage) {
             case 1:
                 return "<span class='badge badge-pill badge-soft-warning font-size-11'>OnProgress</span>";

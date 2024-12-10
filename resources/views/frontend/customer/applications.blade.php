@@ -58,7 +58,7 @@
                                                     <td>{{ date('Y-m-d',strtotime($application->created_at))}} </td>
                                                     <td>{{ $application->applied_service }}</td>
                                                     <td>{{ $application->service_plan?->name}}</td>
-                                                    <td>{{ $application->service_plan?->price}}</td>
+                                                    <td>{!! $application->service_plan?->price !!}</td>
                                                     <td>{!! $application->stage_formatted_customer !!}</td>
                                                     <td>
                                                         <a href="{{ route('application.profile',['uuid'=>$application->uuid])}}">

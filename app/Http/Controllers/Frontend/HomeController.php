@@ -29,8 +29,8 @@ class HomeController extends Controller
 {
     public function index(){
         $data['clients'] =Client::take(3)->get();
-        $data['countries'] =Country::take(4)->get();
-        $data['services'] =Service::take(8)->get();
+        $data['countries'] =Country::get();
+        $data['services'] =Service::get();
         $data['testmonials'] =Testmonial::take(5)->get();
         $data['brands']      =Brand::get();
         return view('frontend.webpages.home',$data);

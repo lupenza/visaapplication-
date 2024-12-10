@@ -34,7 +34,7 @@
                                 <ul class="navigation">
                                     <li class="active"><a href='{{ route('home')}}'>Home</a></li>
                                     <li><a href='{{ route('about.us')}}'>About Us</a></li>
-                                    <li class="menu-item-has-children"><a href="#">Our Service</a>
+                                    <li class="menu-item-has-children"><a href="#">Our Services</a>
                                         <ul class="sub-menu">
                                             @foreach ($services as $service)
                                             <li><a href="{{ route('service.detail',$service->uuid)}}">{{ $service->name }}</a></li>
@@ -47,7 +47,12 @@
                                     @if (Auth::user())
                                     <li class="menu-item-has-children"><a href="#">{{ Auth::user()->name }}</a>
                                         <ul class="sub-menu">
-                                            <li><a href="{{ route('customer.dashboard')}}">Profile</a></li>
+                                            @if (Auth::user()->hasRole('Admin') || Auth::user()->hasRole('Super Admin'))
+                                                <li><a href="{{ route('dashboard')}}">Profile</a></li>
+                                            @else
+                                                <li><a href="{{ route('customer.dashboard')}}">Profile</a></li>
+                                            @endif
+                                            
                                             <li><a href="{{ route('logout')}}">Logout</a></li>
                                         </ul>
                                     </li> 
@@ -80,7 +85,12 @@
                                             </svg>
                                         </a>
                                     </li> --}}
-                                    <li class="header-btn"><a class='btn' href='{{ route('sign.up')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li>
+                                    @if (Auth::user())
+                                        <li class="header-btn"><a class='btn' href='{{ route('apply.visa')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li>
+                                    @else
+                                        <li class="header-btn"><a class='btn' href='{{ route('sign.up')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li>
+                                    @endif
+                                        {{-- <li class="header-btn"><a class='btn' href='{{ route('sign.up')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li> --}}
                                     {{-- <li class="header-btn"><a class='btn' href='{{ route('visa.request')}}'> Get Started <i style="margin-left: 5px" class="fa fa-arrow-right"></i></a></li> --}}
                                 </ul>
                             </div>

@@ -4,7 +4,7 @@
   <!-- main-area -->
   <main class="fix">
     <!-- breadcrumb-area -->
-    <section class="breadcrumb__area breadcrumb__bg mt-150" data-background="{{ asset('assets/frontend/img/bg/breadcrumb_bg.jpg')}}">
+    <section class="breadcrumb__area breadcrumb__bg mt-150" data-background="{{ asset("storage/website"."/".$service->image) }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
