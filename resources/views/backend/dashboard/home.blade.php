@@ -42,8 +42,8 @@
                             <div class="avatar-md profile-user-wid mb-4">
                                 <img src="assets/images/users/avatar-1.jpg" alt="" class="img-thumbnail rounded-circle">
                             </div>
-                            <h5 class="font-size-15 text-truncate">Henry Price</h5>
-                            <p class="text-muted mb-0 text-truncate">UI/UX Designer</p>
+                            <h5 class="font-size-15 text-truncate">Vaas Admin</h5>
+                            <p class="text-muted mb-0 text-truncate">System Admin</p>
                         </div>
 
                         <div class="col-sm-8">
@@ -51,11 +51,11 @@
 
                                 <div class="row">
                                     <div class="col-6">
-                                        <h5 class="font-size-15">125</h5>
+                                        <h5 class="font-size-15">6</h5>
                                         <p class="text-muted mb-0">System Users</p>
                                     </div>
                                     <div class="col-6">
-                                        <h5 class="font-size-15">$1245</h5>
+                                        <h5 class="font-size-15">15</h5>
                                         <p class="text-muted mb-0">All Users</p>
                                     </div>
                                 </div> 
@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <p class="text-muted">This month</p>
-                            <h3>$34,252</h3>
+                            <h3>TZS 34,252</h3>
                             <p class="text-muted"><span class="text-success me-2"> 12% <i class="mdi mdi-arrow-up"></i> </span> From previous period</p>
 
                             <div class="mt-4">
@@ -94,8 +94,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <p class="text-muted fw-medium">Orders</p>
-                                    <h4 class="mb-0">1,235</h4>
+                                    <p class="text-muted fw-medium">Applications</p>
+                                    <h4 class="mb-0">25</h4>
                                 </div>
 
                                 <div class="flex-shrink-0 align-self-center">
@@ -115,7 +115,7 @@
                             <div class="d-flex">
                                 <div class="flex-grow-1">
                                     <p class="text-muted fw-medium">Revenue</p>
-                                    <h4 class="mb-0">$35, 723</h4>
+                                    <h4 class="mb-0">TZS 35, 723</h4>
                                 </div>
 
                                 <div class="flex-shrink-0 align-self-center ">
@@ -135,7 +135,7 @@
                             <div class="d-flex">
                                 <div class="flex-grow-1">
                                     <p class="text-muted fw-medium">Average Price</p>
-                                    <h4 class="mb-0">$16.2</h4>
+                                    <h4 class="mb-0">TZS 23,116</h4>
                                 </div>
 
                                 <div class="flex-shrink-0 align-self-center">

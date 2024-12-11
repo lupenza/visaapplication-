@@ -35,8 +35,8 @@
                     <div class="col-lg-6 col-md-9 col-sm-10">
                         <div class="about__img-wrap-four">
                             <img src="{{ asset('assets/frontend/img/images/inner_about01.jpg')}}" alt="">
-                            <img src="{{ asset('assets/frontend/img/images/inner_about02.jpg')}}" alt="">
-                            <div class="about__award-box">
+                            <img src="{{ asset('assets/frontend/img/images/inner_about02.jpg')}}" alt="" height="50%">
+                            {{-- <div class="about__award-box">
                                 <div class="icon">
                                     <i class="flaticon-trophy"></i>
                                 </div>
@@ -44,7 +44,7 @@
                                     <h2 class="title">15+</h2>
                                     <p>World Best Agency <br> Award Got</p>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="shape">
                                 <img src="{{ asset('assets/frontend/img/images/inner_about_shape.jpg')}}" alt="" class="alltuchtopdown">
                             </div>
@@ -53,23 +53,26 @@
                     <div class="col-lg-6">
                         <div class="about__content-four">
                             <div class="section-title mb-30">
-                                <span class="sub-title">Simply Know About</span>
-                                <h2 class="title">We Help Organizations To Make Ultimate Businesses Growth Success</h2>
+                                <span class="sub-title">About VAAS</span>
+                                <h2 class="title">Your Trusted Partner for Seamless Visa Application Assistance</h2>
                             </div>
                             <div class="about__content-inner-three">
                                 <div class="about__list-box">
                                     <ul class="list-wrap">
-                                        <li><i class="flaticon-arrow-button"></i>Medicare Advantage Plans</li>
-                                        <li><i class="flaticon-arrow-button"></i>Analysis & Research</li>
-                                        <li><i class="flaticon-arrow-button"></i>100% Secure Money Back</li>
+                                        <li><i class="flaticon-arrow-button"></i>Comprehensive Visa Services</li>
+                                        <li><i class="flaticon-arrow-button"></i>Expert Consultation & Guidance</li>
+                                        <li><i class="flaticon-arrow-button"></i>Secure and Reliable Processing</li>
                                     </ul>
                                 </div>
                                 <div class="about__list-img-two">
                                     <img src="{{ asset('assets/frontend/img/images/about_list_img02.png')}}" alt="">
                                 </div>
                             </div>
-                            <p>We successfully cope with tasks of varying complexityprovide longerty term guarantees and regularly master new Practice Area technol ogiesOur portfolio includes dozen</p>
-                            <a class='btn' href='#'>Contact With Us</a>
+                            <p>At VAAS, we are committed to helping individuals and businesses achieve their global travel
+                                aspirations with ease and confidence. With over 10 years of experience in the visa and travel
+                                industry, our expert team provides comprehensive assistance for visa applications to 30+
+                                countries, ensuring a smooth and successful process every step of the way.</p>
+                            <a class='btn' href='#'>Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -129,9 +132,10 @@
                         <div class="choose__content-four">
                             <div class="section-title white-title mb-20">
                                 <span class="sub-title">Why We Are The Best</span>
-                                <h2 class="title">Digital Solutions For Your Online Business</h2>
+                                <h2 class="title">Your Trusted Partner for Every Journey</h2>
                             </div>
-                            <p>We successfully cope with tasks of varying complexity provide area longerty guarantees and regularly master new Practice Following gies heur.</p>
+                            <p>At VAAS, we offer tailored support across various visa types, ensuring each application is
+                                seamless and stress-free.</p>
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -143,8 +147,8 @@
                                             <i class="flaticon-investment"></i>
                                         </div>
                                         <div class="choose__list-content-two">
-                                            <h4 class="title">Business Solutions</h4>
-                                            <p>Semper egetuis kelly for tellus urna area condition.</p>
+                                            <h4 class="title">Visitor/Tourist Visa</h4>
+                                            <p>Simplifying travel for tourism, family, and friend visits with expert guidance.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -154,8 +158,9 @@
                                             <i class="flaticon-financial-profit"></i>
                                         </div>
                                         <div class="choose__list-content-two">
-                                            <h4 class="title">Finance Planning</h4>
-                                            <p>Semper egetuis kelly for tellus urna area condition.</p>
+                                            <h4 class="title">Business Visa</h4>
+                                            <p>Assisting professionals with quick, hassle-free business visa processing for international
+                                                ventures.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -165,8 +170,9 @@
                                             <i class="flaticon-investment-1"></i>
                                         </div>
                                         <div class="choose__list-content-two">
-                                            <h4 class="title">Market Analysis</h4>
-                                            <p>Semper egetuis kelly for tellus urna area condition.</p>
+                                            <h4 class="title">Student Visa</h4>
+                                            <p>Streamlining applications for students seeking to study abroad, focusing on academic
+                                                aspirations.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -176,8 +182,9 @@
                                             <i class="flaticon-report"></i>
                                         </div>
                                         <div class="choose__list-content-two">
-                                            <h4 class="title">Business Solutions</h4>
-                                            <p>Semper egetuis kelly for tellus urna area condition.</p>
+                                            <h4 class="title">Work Visa</h4>
+                                            <p>Supporting employment opportunities overseas by ensuring smooth, efficient work visa
+                                                applications.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -193,7 +200,7 @@
         </section>
         <!-- choose-area-end -->
         <!-- counter-area -->
-        <section class="counter-area">
+        {{-- <section class="counter-area">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -247,7 +254,7 @@
                 <img src="{{ asset('assets/frontend/img/images/counter_shape02.png')}}" alt="" data-parallax='{"x" : 100 , "y" : -100 }'>
                 <img src="{{ asset('assets/frontend/img/images/counter_shape03.png')}}" alt="" data-aos="fade-left" data-aos-delay="400">
             </div>
-        </section>
+        </section> --}}
         <!-- counter-area-end -->
         <!-- team-area -->
         <section class="team__area-four">
