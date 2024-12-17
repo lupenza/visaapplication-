@@ -44,6 +44,7 @@
                                     {{-- <li><a href='#'>Apply Visa</a></li> --}}
                                     <li><a href='{{ route('all.payment.plans')}}'>Pricing</a></li>
                                     <li><a href='{{ route('faq')}}'>FAQ</a></li>
+                                    <li><a href='{{ route('contact.us')}}'>Contact Us</a></li>
                                     @if (Auth::user())
                                     <li class="menu-item-has-children"><a href="#">{{ Auth::user()->name }}</a>
                                         <ul class="sub-menu">

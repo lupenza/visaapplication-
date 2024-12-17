@@ -9,7 +9,7 @@
                     <div class="banner__content-two">
                         <h2 class="title" data-aos="fade-up" data-aos-delay="100">VISA APPLICATION  <span>ASSISTANCE</span> SERVICE</h2>
                         <p data-aos="fade-up" data-aos-delay="300">Apply VISA with confidence</p>
-                        <a class='btn border-btn' data-aos-delay='600' data-aos='fade-up' href='{{route('apply.visa')}}'>Apply now</a>
+                        <a class='btn' data-aos-delay='600' data-aos='fade-up' href='{{route('apply.visa')}}'>Apply now</a>
                     </div>
                 </div>
             </div>
@@ -386,13 +386,24 @@
                
             </div>
         </div>
-    </section>
+    </section> 
     <!-- choose-area -->
     <!-- consulting-area -->
-    <div class="row banner-container text-center">
-        <div>
-            <h4>VAAS</h4>
-            <p>"Reliable and Affordable Visa <br>Application Assistance Services"</p>
+    <div class="row w-100" style="position: relative; display: inline-block;"> 
+        <!-- Image -->
+        <img src="{{ 'storage/website/933x493px.jpg'}}" alt="" style="display: block; width: 100%; height: auto;">
+    
+        <!-- Text Centered on the Image -->
+        <div class="tz-body">
+            <h3 class="tz-header">
+                Explore Tanzania with Ease – Get Your e-Visa Today!
+            </h3>
+            <p class="tz-paragraph">
+                Simplify your travel plans with our hassle-free e-Visa service. Whether you’re a visitor, a
+                Tanzanian inviting family, or planning an unforgettable adventure, our expert team makes the
+                application process quick and easy. Discover Tanzania without the paperwork stress – let us
+                handle the details!
+            </p>
         </div>
     </div>
     <section>

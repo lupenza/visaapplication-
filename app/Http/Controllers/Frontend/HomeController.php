@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Client;
 use App\Models\Continent;
+use App\Models\ContactUs;
 use App\Models\Country;
 use App\Models\Faq;
 use App\Models\PaidService;
@@ -94,6 +95,24 @@ class HomeController extends Controller
 
     public function aboutUs(){
         return view('frontend.webpages.about_us');
+    }
+
+    public function contactUs(){
+
+        $services = Service::get();
+        return view('frontend.webpages.contact_us', compact('services'));
+    }
+    public function submitContactUs(Request $request){
+ 
+        $services = Service::get();
+ 
+        $application = ContactUs::create([
+            'name'         =>$request->name ?? '',
+            'contacts'         =>$request->email ?? '',
+            'service' => $request->service ?? 0,
+            'reason'     =>$request->reason ?? "", 
+           ]);
+        return view('frontend.webpages.contact_us', compact('services'));
     }
 
     public function visaRequest($visa_id =1){

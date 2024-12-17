@@ -28,6 +28,8 @@ Route::get('list/of/faq',[HomeController::class,'faq'])->name('faq');
 Route::get('additional/services',[HomeController::class,'additionalServices'])->name('additional.service');
 Route::get('get/service/{uuid}',[HomeController::class,'getService'])->name('service.detail');
 Route::get('about/us',[HomeController::class,'aboutUs'])->name('about.us');
+Route::get('contact/us',[HomeController::class,'contactUs'])->name('contact.us');
+Route::post('submit-contactus-form',[HomeController::class,'submitContactUs'])->name('submitContact.us');
 Route::get('visa/request',[HomeController::class,'visaRequest'])->name('visa.request');
 Route::get('service/application/{uuid}',[HomeController::class,'serviceApplication'])->name('get.paid.service');
 
@@ -45,6 +47,7 @@ Route::group(['middleware'=>'auth'],function(){
 
     /** website menu */
     Route::get('website/menu',[DashboardController::class,'websiteMenu'])->name('website.menu');
+    Route::get('website/contactedus',[DashboardController::class,'websiteContactedUs'])->name('website.contactus');
     Route::get('service/list',[ServiceController::class,'serviceList'])->name('service.list');
     Route::get('service/create',[ServiceController::class,'serviceCreate'])->name('service.create');
     Route::post('service/store',[ServiceController::class,'serviceStore'])->name('service.store');

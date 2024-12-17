@@ -72,7 +72,7 @@
                                 aspirations with ease and confidence. With over 10 years of experience in the visa and travel
                                 industry, our expert team provides comprehensive assistance for visa applications to 30+
                                 countries, ensuring a smooth and successful process every step of the way.</p>
-                            <a class='btn' href='#'>Contact Us</a>
+                            <a class='btn' href='{{ route('contact.us')}}'>Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -274,7 +274,7 @@
                                 <img src="{{ asset('assets/frontend/img/team/h4_team_img01.jpg')}}" alt="">
                             </div>
                             <div class="team__content-four">
-                                <h2 class="title"><a href='team-details.html'>Floyd Miles</a></h2>
+                                <h2 class="title"><a href=''>Floyd Miles</a></h2>
                                 <span>Finance Advisor</span>
                                 <div class="team__social-four">
                                     <ul class="list-wrap">
@@ -294,7 +294,7 @@
                                 <img src="{{ asset('assets/frontend/img/team/h4_team_img02.jpg')}}" alt="">
                             </div>
                             <div class="team__content-four">
-                                <h2 class="title"><a href='team-details.html'>Ralph Edwards</a></h2>
+                                <h2 class="title"><a href=''>Ralph Edwards</a></h2>
                                 <span>Finance Advisor</span>
                                 <div class="team__social-four">
                                     <ul class="list-wrap">
@@ -314,7 +314,7 @@
                                 <img src="{{ asset('assets/frontend/img/team/h4_team_img03.jpg')}}" alt="">
                             </div>
                             <div class="team__content-four">
-                                <h2 class="title"><a href='team-details.html'>Eleanor Pena</a></h2>
+                                <h2 class="title"><a href=''>Eleanor Pena</a></h2>
                                 <span>Finance Advisor</span>
                                 <div class="team__social-four">
                                     <ul class="list-wrap">

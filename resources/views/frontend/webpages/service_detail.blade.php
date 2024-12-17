@@ -40,6 +40,50 @@
                                 <div class="row">
                                    {!! $service->description !!}
                                 </div>
+ 
+                                <div class="box-form-login w-100 mt-4">
+                                <div class="head-login w-100">
+                                    <h4 class="mb-4">Contact Us</h4>
+                                    {{-- <p>Sign in with your email and password</p> --}}
+                                    <form action="/submit-contactus-form" id="" method="POST">
+                                        @csrf
+                                        <div class="form-login">
+                                            <div class="row">
+                                                <div class="col-6 form-group">
+                                                    <input type="text" name="name" class="form-control account"
+                                                        placeholder="Names" />
+                                                </div>
+                                                <div class="col-6 form-group">
+                                                    <input type="text" name="email" class="form-control account"
+                                                        placeholder="Contacts" />
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="form-group">
+                                                <select name="service" id="" class="form-control">
+                                                    <option value="0">-</option>
+                                                    @foreach ($services as $service)
+                                                        <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <textarea name="reason" class="form-control" id="" cols="30" rows="2"
+                                                    placeholder="Reason of contact if any....."></textarea>
+                                            </div>
+                                            <div class="form-group" id="user_auth_alert">
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-login" type="submit" id="user_btn">Send</button>
+                                                {{-- <input type="submit" class="btn btn-login" value="Sign In" /> --}}
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>

@@ -25,6 +25,12 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('website.contactus')}}" class="waves-effect">
+                <i class="bx bx-globe"></i>
+                <span key="t-chat">Contacted Us</span>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('users.index')}}" class="waves-effect">
                 <i class="bx bx-user"></i>
                 <span key="t-chat">System User</span>

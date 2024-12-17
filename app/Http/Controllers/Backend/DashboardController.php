@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 use App\Models\VisaApplication;
 use App\Models\User;
+use App\Models\ContactUs;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,5 +22,10 @@ class DashboardController extends Controller
 
     public function websiteMenu(){
         return view('backend.website.menu');
+    }
+    public function websiteContactedUs(){
+
+        $contacts =  ContactUs::latest()->get(); 
+        return view('backend.website.contactus_list', compact('contacts'));
     }
 }

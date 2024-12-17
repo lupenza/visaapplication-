@@ -61,16 +61,7 @@
                         </div>
                         <p>Don’t have an account? <a class='link-bold' href='{{ route('sign.up')}}'>Sign up</a> now</p>
                     </div>
-                </form>
-                    {{-- <div class="text-or"><span>or</span></div>
-                    <div class="box-login-with">
-                        <div class="form-group">
-                            <a href="#" class="btn btn-login-social">
-                                <img src="{{ asset('assets/frontend/img/login/google.svg')}}" />
-                                Sign In With Google
-                            </a>
-                        </div>
-                    </div> --}}
+                </form> 
                    
                 </div>
             </div>

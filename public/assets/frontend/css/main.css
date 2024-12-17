@@ -17367,5 +17367,26 @@ blockquote p {
     justify-content: space-around;
 }
 
+.tz-header {
+    color: white; 
+    font-size: 62px;
+    text-align: end; /* Center-align text horizontally */
+}
+.tz-paragraph {
+    color: white; 
+    font-size: 18px;
+    margin-top: 12px;
+    text-align: end; /* Center-align paragraph */
+}
+.tz-body {
+    position: absolute; 
+    top: 50%; 
+    right: 10px;
+    transform: translate(-5%, -50%); /* Center the text vertically and horizontally */
+    width: 40%; /* Adjust the width as needed */
+    text-align: end; /* Align content to the center */
+    color: white;
+}
+
 
 /*# sourceMappingURL=main.css.map */
